@@ -1,9 +1,9 @@
+import dynamic from 'next/dynamic';
 import TopBar from '@/components/layout/TopBar';
 import Navbar from '@/components/layout/Navbar';
 import Footer from '@/components/layout/Footer';
 import HeroSlider from '@/components/hero/HeroSlider';
 import MetricCounters from '@/components/sections/MetricCounters';
-import QuickLogisticsHub from '@/components/sections/QuickLogisticsHub';
 import Accreditations from '@/components/sections/Accreditations';
 import ValuePillars from '@/components/sections/ValuePillars';
 import CoreServices from '@/components/sections/CoreServices';
@@ -14,8 +14,10 @@ import ProcessPipeline from '@/components/sections/ProcessPipeline';
 import ValueAddedServices from '@/components/sections/ValueAddedServices';
 import NetworkMap from '@/components/sections/NetworkMap';
 import LatestInsights from '@/components/sections/LatestInsights';
-import QuoteSection from '@/components/sections/QuoteSection';
-import FloatingActions from '@/components/ui/FloatingActions';
+
+const QuickLogisticsHub = dynamic(() => import('@/components/sections/QuickLogisticsHub'));
+const QuoteSection = dynamic(() => import('@/components/sections/QuoteSection'));
+const FloatingActions = dynamic(() => import('@/components/ui/FloatingActions'), { ssr: false });
 
 export default function Home() {
   return (

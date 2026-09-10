@@ -9,7 +9,7 @@ const services = [
     category: 'air',
     title: 'Air Freight Services',
     badge: 'Express Air Cargo',
-    image: 'https://www.airsurgegroup.com/home/services/1.png',
+    image: '/images/core-services/1.webp',
     desc: 'Time-critical global air transport, scheduled consolidated charters, express door-to-door deliveries, and IATA compliant operations.',
     features: [
       'Direct Airline Space Contracts',
@@ -22,7 +22,7 @@ const services = [
     category: 'ocean',
     title: 'Ocean Freight Forwarding',
     badge: 'FCL & LCL Ocean',
-    image: 'https://www.airsurgegroup.com/home/services/2.png',
+    image: '/images/core-services/2.webp',
     desc: 'Cost-efficient Full Container Load (FCL) and Less than Container Load (LCL) consolidation connecting key ports worldwide.',
     features: [
       'Guaranteed Container Availability',
@@ -35,7 +35,7 @@ const services = [
     category: 'project',
     title: 'Project & Defence Cargo',
     badge: 'Heavy Lift & ODC',
-    image: 'https://www.airsurgegroup.com/home/services/3.png',
+    image: '/images/core-services/3.webp',
     desc: 'Turnkey engineering for Out-of-Gauge (OOG) machinery, breakbulk, infrastructure components, and classified defense equipment.',
     features: [
       'Route Surveys & Feasibility Studies',
@@ -48,7 +48,7 @@ const services = [
     category: 'domestic',
     title: 'Domestic Freight & Rail',
     badge: 'Pan-India Transit',
-    image: 'https://www.airsurgegroup.com/home/services/4.png',
+    image: '/images/core-services/4.webp',
     desc: 'Seamless inland haulage via dedicated fleet, GPS-tracked container trucks, and rail rake movements across India industrial hubs.',
     features: [
       'Port-to-ICD / CFS Shuttles',
@@ -61,7 +61,7 @@ const services = [
     category: 'customs',
     title: 'Customs Clearance Brokerage',
     badge: 'Border Brokerage',
-    image: 'https://www.airsurgegroup.com/home/services/5.png',
+    image: '/images/core-services/5.webp',
     desc: 'Licensed CHA brokers ensuring frictionless tariff classifications, duty calculations, FTWZ clearances, and ICEGATE filing.',
     features: [
       'Fast Track Bill of Entry Filing',
@@ -74,7 +74,7 @@ const services = [
     category: 'coldchain',
     title: 'Cold Chain Logistics',
     badge: 'Temp-Controlled',
-    image: 'https://www.airsurgegroup.com/home/services/6.png',
+    image: '/images/core-services/6.webp',
     desc: 'GDP-compliant temperature-controlled reefer containers and passive packaging solutions for biologics and pharma.',
     features: [
       'Strict Temp Integrity (-20°C to +25°C)',
@@ -142,6 +142,8 @@ export default function CoreServices() {
                   alt={service.title}
                   className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
                   loading="lazy"
+                  width={400}
+                  height={230}
                 />
                 <div className="absolute top-4 left-4 bg-slate-900/80 backdrop-blur-md text-white text-[11px] font-bold px-3 py-1 rounded-full uppercase tracking-wider">
                   {service.badge}

@@ -1,5 +1,3 @@
-'use client';
-
 import React from 'react';
 
 interface BoatTransitTrackProps {
@@ -147,38 +145,6 @@ export default function BoatTransitTrack({
           </div>
         </div>
       </div>
-
-      {/* Embedded CSS for smooth 60fps GPU-accelerated motion */}
-      <style jsx>{`
-        @keyframes boatSailingAcross {
-          0% {
-            transform: translate3d(-100px, -50%, 0);
-          }
-          100% {
-            transform: translate3d(calc(100vw + 100px), -50%, 0);
-          }
-        }
-
-        @keyframes seaDashMotion {
-          0% {
-            stroke-dashoffset: 0;
-          }
-          100% {
-            stroke-dashoffset: -24;
-          }
-        }
-
-        .boat-transit-track {
-          width: 100%;
-          animation-name: boatSailingAcross;
-          animation-timing-function: linear; 
-          animation-iteration-count: infinite;
-        }
-
-        .animate-sea-dash {
-          animation: seaDashMotion 1.8s linear infinite;
-        }
-      `}</style>
     </div>
   );
 }

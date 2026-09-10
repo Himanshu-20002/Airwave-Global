@@ -1,7 +1,6 @@
-'use client';
-
 import React from 'react';
-import { Phone, Mail, MessageSquare } from 'lucide-react';
+import { Phone, Mail } from 'lucide-react';
+import WhatsAppIcon from '../icons/WhatsAppIcon';
 
 export default function TopBar() {
   return (
@@ -51,9 +50,9 @@ export default function TopBar() {
               href="https://wa.me/919818370497"
               target="_blank"
               rel="noopener noreferrer"
-              className="text-emerald-400 hover:text-emerald-300 transition-colors flex items-center gap-1 font-medium"
+              className="text-emerald-400 hover:text-emerald-300 transition-colors flex items-center gap-1.5 font-medium"
             >
-              <MessageSquare className="w-3.5 h-3.5" /> WhatsApp
+              <WhatsAppIcon className="w-3.5 h-3.5 fill-[#25D366]" /> WhatsApp
             </a>
           </div>
         </div>

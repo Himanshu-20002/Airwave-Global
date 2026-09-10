@@ -3,7 +3,7 @@
 import React, { useEffect, useState, useRef } from 'react';
 
 export default function MetricCounters() {
-  const [counts, setCounts] = useState({ ports: 0, teu: 0, onTime: 0 });
+  const [counts, setCounts] = useState({ ports: 150, teu: 25000, onTime: 99.4 });
   const [hasAnimated, setHasAnimated] = useState(false);
   const sectionRef = useRef<HTMLDivElement>(null);
 
@@ -13,9 +13,9 @@ export default function MetricCounters() {
         if (entries[0].isIntersecting && !hasAnimated) {
           setHasAnimated(true);
 
-          // Animate numbers
-          const duration = 2000;
-          const steps = 60;
+          // Animate numbers from 0
+          const duration = 1800;
+          const steps = 40;
           const stepTime = duration / steps;
           let currentStep = 0;
 

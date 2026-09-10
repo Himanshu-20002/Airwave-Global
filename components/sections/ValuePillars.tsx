@@ -1,5 +1,3 @@
-'use client';
-
 import React from 'react';
 import { UserCheck, Globe, ShieldCheck, Sliders, Headset, ArrowRight } from 'lucide-react';
 import BoatTransitTrack from '@/components/ui/BoatTransitTrack';

@@ -1,5 +1,20 @@
 import type { Metadata } from 'next';
+import { Poppins, Outfit } from 'next/font/google';
 import './globals.css';
+
+const poppins = Poppins({
+  subsets: ['latin'],
+  display: 'swap',
+  variable: '--font-poppins',
+  weight: ['400', '600', '700', '800'],
+});
+
+const outfit = Outfit({
+  subsets: ['latin'],
+  display: 'swap',
+  variable: '--font-outfit',
+  weight: ['700', '900'],
+});
 
 export const metadata: Metadata = {
   title: 'Airwave Global Logistics Private Limited | Bridging Continents, Connecting Markets',
@@ -43,20 +58,8 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className="scroll-smooth">
-      <head>
-        <link rel="preconnect" href="https://fonts.googleapis.com" />
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
-        <link
-          href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&family=Inter:wght@300;400;500;600;700;800&display=swap"
-          rel="stylesheet"
-        />
-        <link
-          rel="stylesheet"
-          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
-        />
-      </head>
-      <body className="bg-slate-50 text-slate-800 antialiased selection:bg-[#fe7f25] selection:text-white">
+    <html lang="en" className={`scroll-smooth ${poppins.variable} ${outfit.variable}`}>
+      <body className="bg-slate-50 text-slate-800 antialiased selection:bg-[#fe7f25] selection:text-white font-sans">
         {children}
       </body>
     </html>

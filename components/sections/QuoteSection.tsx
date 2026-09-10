@@ -1,7 +1,8 @@
 'use client';
 
 import React, { useState } from 'react';
-import { Phone, MessageSquare, Zap, BadgeDollarSign, Headset, Send, Loader2 } from 'lucide-react';
+import { Phone, Zap, BadgeDollarSign, Headset, Send, Loader2 } from 'lucide-react';
+import WhatsAppIcon from '../icons/WhatsAppIcon';
 import QuoteSuccessModal from '../ui/QuoteSuccessModal';
 
 export default function QuoteSection() {
@@ -93,9 +94,10 @@ export default function QuoteSection() {
                       href="https://wa.me/919818370497"
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="px-3 py-1.5 rounded-lg bg-emerald-600 hover:bg-emerald-500 text-white text-xs font-bold flex items-center gap-1.5"
+                      className="px-3.5 py-1.5 rounded-xl bg-gradient-to-r from-[#25D366] to-[#128C7E] hover:from-[#22c35e] hover:to-[#0e776a] text-white text-xs font-bold flex items-center gap-2 shadow-md shadow-emerald-950/40 hover:shadow-emerald-500/30 transition-all duration-300 hover:scale-105 active:scale-95 group"
                     >
-                      <MessageSquare className="w-3.5 h-3.5" /> Chat WhatsApp
+                      <WhatsAppIcon className="w-4 h-4 fill-white transition-transform duration-300 group-hover:scale-110" />
+                      <span>Chat WhatsApp</span>
                     </a>
                   </div>
                 </div>

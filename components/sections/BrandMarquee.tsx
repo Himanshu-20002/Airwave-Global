@@ -1,6 +1,7 @@
-'use client';
-
 import React from 'react';
+
+import Marquee from '@/components/ui/Marquee';
+import PartnerCard from '@/components/ui/PartnerCard';
 
 const forwardLogos = [
   'https://www.airsurgegroup.com/logos/1.png',
@@ -27,48 +28,40 @@ export default function BrandMarquee() {
   return (
     <section className="py-16 bg-white border-y border-slate-100 overflow-hidden">
       <div className="max-w-7xl mx-auto px-4 mb-10 text-center">
-        <span className="text-xs uppercase font-extrabold tracking-widest text-[#0284c7]">Global Carrier & Client Ecosystem</span>
+        <span className="text-xs uppercase font-extrabold tracking-widest text-[#0284c7]">
+          Global Carrier &amp; Client Ecosystem
+        </span>
         <h2 className="text-2xl sm:text-3xl font-black text-slate-900 mt-1 tracking-tight font-display">
-          Trusted By <span className="text-[#0284c7]">Leading Enterprises</span> & Shipping Lines
+          Trusted By <span className="text-[#0284c7]">Leading Enterprises</span> &amp; Shipping Lines
         </h2>
       </div>
 
-      {/* Forward Marquee */}
-      <div className="relative overflow-hidden w-full mb-6">
-        <div className="animate-marquee flex gap-6 items-center">
-          {[...forwardLogos, ...forwardLogos].map((src, idx) => (
-            <div
+      <div className="w-full space-y-5">
+        {/* Forward Marquee - Infinite Loop */}
+        <Marquee duration="35s" gap="1.5rem" repeat={4} pauseOnHover>
+          {forwardLogos.map((src, idx) => (
+            <PartnerCard
               key={idx}
-              className="h-14 w-32 px-4 py-2 bg-slate-50 rounded-xl border border-slate-100 flex items-center justify-center hover:bg-white hover:shadow-md transition-all shrink-0"
-            >
-              <img
-                src={src}
-                alt="Brand Partner"
-                className="max-h-8 w-auto object-contain"
-                loading="lazy"
-              />
-            </div>
+              src={src}
+              alt={`Brand Partner ${idx + 1}`}
+              hoverBorder="blue"
+              size="sm"
+            />
           ))}
-        </div>
-      </div>
+        </Marquee>
 
-      {/* Reverse Marquee */}
-      <div className="relative overflow-hidden w-full">
-        <div className="animate-marquee-reverse flex gap-6 items-center">
-          {[...reverseLogos, ...reverseLogos].map((src, idx) => (
-            <div
+        {/* Reverse Marquee - Infinite Loop */}
+        <Marquee duration="38s" gap="1.5rem" reverse repeat={4} pauseOnHover>
+          {reverseLogos.map((src, idx) => (
+            <PartnerCard
               key={idx}
-              className="h-14 w-32 px-4 py-2 bg-slate-50 rounded-xl border border-slate-100 flex items-center justify-center hover:bg-white hover:shadow-md transition-all shrink-0"
-            >
-              <img
-                src={src}
-                alt="Brand Partner"
-                className="max-h-8 w-auto object-contain"
-                loading="lazy"
-              />
-            </div>
+              src={src}
+              alt={`Carrier Partner ${idx + 1}`}
+              hoverBorder="blue"
+              size="sm"
+            />
           ))}
-        </div>
+        </Marquee>
       </div>
     </section>
   );

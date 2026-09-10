@@ -2,6 +2,7 @@
 
 import React, { useState } from 'react';
 import Link from 'next/link';
+import Image from 'next/image';
 import {
   Menu,
   X,
@@ -22,12 +23,15 @@ export default function Navbar() {
     <header className="glass-nav sticky top-0 z-50 transition-all duration-300">
       <nav className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-20">
-          
+
           {/* Logo */}
           <Link href="#hero-section" className="flex items-center gap-3 group">
-            <img
-              src="/images/airwave-logo.jpg"
+            <Image
+              src="/images/airwave-logo-transparent.webp"
               alt="Airwave Global Logistics Private Limited Logo"
+              width={200}
+              height={56}
+              priority
               className="h-12 sm:h-14 w-auto object-contain transition-transform group-hover:scale-105"
             />
           </Link>

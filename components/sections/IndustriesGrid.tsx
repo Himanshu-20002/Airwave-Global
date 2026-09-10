@@ -1,21 +1,19 @@
-'use client';
-
 import React from 'react';
 
 const industries = [
   {
     title: 'Pharmaceuticals & Healthcare',
-    image: 'https://www.airsurgegroup.com/home/industries/1.png',
+    image: '/images/industries/1.webp',
     desc: 'Regulated, temperature-sensitive vaccines and high-value APIs handled with strict documentation, GDP compliance, and time-critical execution.',
   },
   {
     title: 'Chemicals (HAZ & Non-HAZ)',
-    image: 'https://www.airsurgegroup.com/home/industries/2.png',
+    image: '/images/industries/2.webp',
     desc: 'Certified DGR handling, IMO class segregation, specialized ISO tank containers, and complete international safety data sheets (MSDS) execution.',
   },
   {
     title: 'Electronics & High-Tech',
-    image: 'https://www.airsurgegroup.com/home/industries/8.png',
+    image: '/images/industries/8.webp',
     desc: 'Secure transit of semiconductors, sensitive electronics, and telecommunications hardware with GPS anti-theft monitoring and ESD protection.',
   },
 ];
@@ -48,6 +46,8 @@ export default function IndustriesGrid() {
                   alt={ind.title}
                   className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
                   loading="lazy"
+                  width={400}
+                  height={220}
                 />
               </div>
               <h3 className="text-lg font-bold text-slate-900 group-hover:text-[#fe7f25] transition-colors mb-2">

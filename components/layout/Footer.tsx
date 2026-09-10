@@ -1,8 +1,8 @@
-'use client';
-
 import React from 'react';
 import Link from 'next/link';
-import { Phone, MessageSquare } from 'lucide-react';
+import Image from 'next/image';
+import { Phone } from 'lucide-react';
+import WhatsAppIcon from '../icons/WhatsAppIcon';
 
 export default function Footer() {
   return (
@@ -12,10 +12,12 @@ export default function Footer() {
           
           {/* Company Info */}
           <div className="space-y-4">
-            <div className="bg-white p-2 rounded-xl inline-block shadow-md">
-              <img
-                src="/images/airwave-logo.jpg"
+            <div className="bg-white px-3.5 py-2 inline-block border border-slate-200 shadow-sm">
+              <Image
+                src="/images/airwave-logo-transparent.webp"
                 alt="Airwave Global Logistics Private Limited"
+                width={170}
+                height={48}
                 className="h-11 w-auto object-contain"
               />
             </div>
@@ -45,10 +47,10 @@ export default function Footer() {
                 href="https://wa.me/919818370497"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="w-9 h-9 rounded-lg bg-slate-800 hover:bg-emerald-600 flex items-center justify-center text-slate-300 hover:text-white transition-all"
+                className="w-9 h-9 rounded-lg bg-slate-800 hover:bg-[#25D366] flex items-center justify-center text-slate-300 hover:text-white transition-all group"
                 aria-label="WhatsApp"
               >
-                <MessageSquare className="w-4 h-4" />
+                <WhatsAppIcon className="w-4 h-4 fill-slate-300 group-hover:fill-white transition-colors" />
               </a>
             </div>
           </div>

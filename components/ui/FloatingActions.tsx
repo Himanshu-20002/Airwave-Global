@@ -1,17 +1,25 @@
 'use client';
 
 import React, { useState, useEffect } from 'react';
-import { ChevronUp, MessageSquare } from 'lucide-react';
+import { ChevronUp } from 'lucide-react';
+import WhatsAppIcon from '../icons/WhatsAppIcon';
 
 export default function FloatingActions() {
   const [showBackToTop, setShowBackToTop] = useState(false);
 
   useEffect(() => {
+    let ticking = false;
     const handleScroll = () => {
-      setShowBackToTop(window.scrollY > 400);
+      if (!ticking) {
+        window.requestAnimationFrame(() => {
+          setShowBackToTop(window.scrollY > 400);
+          ticking = false;
+        });
+        ticking = true;
+      }
     };
 
-    window.addEventListener('scroll', handleScroll);
+    window.addEventListener('scroll', handleScroll, { passive: true });
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
@@ -39,10 +47,10 @@ export default function FloatingActions() {
         href="https://wa.me/919818370497"
         target="_blank"
         rel="noopener noreferrer"
-        className="w-13 h-13 p-3.5 rounded-full bg-emerald-500 hover:bg-emerald-600 text-white shadow-2xl flex items-center justify-center transition-all transform hover:scale-110 active:scale-95"
+        className="w-14 h-14 rounded-full bg-[#25D366] hover:bg-[#20bd5a] text-white shadow-xl shadow-emerald-950/40 hover:shadow-emerald-500/40 flex items-center justify-center transition-all transform hover:scale-110 active:scale-95 group"
         aria-label="Direct WhatsApp Chat"
       >
-        <MessageSquare className="w-6 h-6" />
+        <WhatsAppIcon className="w-7 h-7 fill-white transition-transform duration-300 group-hover:scale-110" />
       </a>
     </div>
   );
