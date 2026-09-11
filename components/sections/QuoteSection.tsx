@@ -33,7 +33,10 @@ export default function QuoteSection() {
   // Intercept mobile CTA clicks to open modern quote modal
   useEffect(() => {
     const handleGlobalClick = (e: MouseEvent) => {
-      const target = (e.target as HTMLElement).closest('a[href="#contact-section"], a[href$="#contact-section"], [data-open-quote-modal]');
+      const el = e.target as Element | null;
+      if (!el || typeof el.closest !== 'function') return;
+      
+      const target = el.closest('a[href="#contact-section"], a[href$="#contact-section"], a[href*="#contact-section"], [data-open-quote-modal]');
       if (target && window.innerWidth < 1024) {
         e.preventDefault();
         e.stopPropagation();
@@ -41,7 +44,11 @@ export default function QuoteSection() {
       }
     };
 
-    const handleCustomOpen = () => {
+    const handleCustomOpen = (e?: Event) => {
+      const customEvent = e as CustomEvent<{ service?: string }>;
+      if (customEvent?.detail?.service) {
+        setFormData((prev) => ({ ...prev, service_type: customEvent.detail.service || prev.service_type }));
+      }
       setIsMobileModalOpen(true);
     };
 

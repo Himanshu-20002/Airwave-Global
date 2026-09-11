@@ -1,6 +1,7 @@
 'use client';
 
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
+import { createPortal } from 'react-dom';
 import {
   X,
   ShieldCheck,
@@ -56,16 +57,23 @@ export default function MobileQuoteModal({
   onSubmit,
   loading,
 }: MobileQuoteModalProps) {
-  // Body scroll lock
+  const [mounted, setMounted] = useState(false);
+
+  useEffect(() => {
+    setMounted(true);
+  }, []);
+
+  // Body scroll lock with safe cleanup
   useEffect(() => {
     if (isOpen) {
+      const originalOverflow = document.body.style.overflow;
       document.body.style.overflow = 'hidden';
+      return () => {
+        document.body.style.overflow = originalOverflow || '';
+      };
     } else {
       document.body.style.overflow = '';
     }
-    return () => {
-      document.body.style.overflow = '';
-    };
   }, [isOpen]);
 
   // Escape key support
@@ -79,39 +87,58 @@ export default function MobileQuoteModal({
     return () => window.removeEventListener('keydown', handleKeyDown);
   }, [isOpen, onClose]);
 
-  if (!isOpen) return null;
+  if (!isOpen || !mounted) return null;
 
-  return (
-    <div className="fixed inset-0 z-[100] flex items-end sm:items-center justify-center p-0 sm:p-4 bg-slate-950/85 backdrop-blur-md transition-all">
-      {/* Backdrop Dismiss */}
-      <div className="absolute inset-0" onClick={onClose} />
+  return createPortal(
+    <div
+      role="dialog"
+      aria-modal="true"
+      aria-label="Request Freight Rate Quotation"
+      style={{ zIndex: 999999, backgroundColor: 'rgba(3, 7, 18, 0.85)' }}
+      className="fixed inset-0 z-[999999] flex items-center justify-center p-0 sm:p-4 overscroll-contain"
+    >
+      {/* Backdrop Dismiss with touch prevention */}
+      <div
+        className="absolute inset-0 cursor-pointer touch-none"
+        onClick={onClose}
+        aria-hidden="true"
+      />
 
-      {/* Modal Card */}
-      <div className="relative z-10 w-full sm:max-w-lg max-h-[92vh] sm:max-h-[90vh] bg-slate-900 border border-slate-700/80 rounded-t-3xl sm:rounded-3xl shadow-2xl flex flex-col overflow-hidden text-white animate-fade-in">
+      {/* Modal Card - 100% Solid Opaque Brand Dark Background */}
+      <div
+        style={{ backgroundColor: '#071126', zIndex: 10 }}
+        className="relative z-10 w-full h-[100dvh] sm:h-auto sm:max-h-[90vh] sm:max-w-lg bg-[#071126] border-0 sm:border border-slate-700/80 rounded-none sm:rounded-3xl shadow-2xl flex flex-col overflow-hidden text-white"
+      >
         {/* Header with Verified Badge & Close X */}
-        <div className="flex items-center justify-between px-5 sm:px-6 py-3.5 border-b border-slate-800/90 bg-slate-900/95 sticky top-0 z-20 backdrop-blur-md">
+        <div
+          style={{ backgroundColor: '#071126' }}
+          className="flex items-center justify-between px-5 sm:px-6 py-4 border-b border-slate-800 bg-[#071126] sticky top-0 z-20 shrink-0"
+        >
           <div>
-            <div className="flex items-center gap-1.5 mb-0.5">
-              <span className="inline-flex items-center gap-1 px-2 py-0.5 rounded-full bg-emerald-500/15 border border-emerald-500/30 text-emerald-400 text-[9px] font-bold">
-                <ShieldCheck className="w-3 h-3" /> Official Airwave RFQ Desk
+            <div className="flex items-center gap-1.5 mb-1">
+              <span className="inline-flex items-center gap-1 px-2.5 py-0.5 rounded-full bg-emerald-500/20 border border-emerald-500/30 text-emerald-400 text-[10px] font-bold">
+                <ShieldCheck className="w-3.5 h-3.5" /> Official Airwave RFQ Desk
               </span>
             </div>
-            <h3 className="text-sm sm:text-base font-black text-white uppercase tracking-tight font-display">
+            <h3 className="text-base sm:text-lg font-black text-white uppercase tracking-tight font-display">
               Request Freight Rate Quotation
             </h3>
           </div>
           <button
             type="button"
             onClick={onClose}
-            className="w-8 h-8 rounded-full bg-slate-800 text-slate-300 hover:text-white hover:bg-slate-700 flex items-center justify-center border border-slate-700 transition-colors focus:outline-none shrink-0 ml-2"
+            className="w-9 h-9 rounded-full bg-slate-800 text-slate-200 hover:text-white hover:bg-slate-700 flex items-center justify-center border border-slate-600 transition-colors focus:outline-none shrink-0 ml-3 cursor-pointer shadow-md"
             aria-label="Close quotation form"
           >
-            <X className="w-4 h-4" />
+            <X className="w-5 h-5 text-white" />
           </button>
         </div>
 
         {/* Scrollable Form Body */}
-        <div className="p-4 sm:p-6 overflow-y-auto no-scrollbar">
+        <div
+          style={{ backgroundColor: '#071126' }}
+          className="p-5 sm:p-6 overflow-y-auto flex-1 bg-[#071126] no-scrollbar"
+        >
           <form onSubmit={onSubmit} className="space-y-4">
             {/* Trust Badges Strip */}
             <div className="grid grid-cols-3 gap-2 p-2.5 rounded-xl bg-slate-800/60 border border-slate-700/60 text-center">
@@ -205,11 +232,10 @@ export default function MobileQuoteModal({
                       key={mode.id}
                       type="button"
                       onClick={() => setFormData({ ...formData, service_type: mode.id })}
-                      className={`py-2 px-2 rounded-xl text-[10px] font-bold flex items-center justify-center gap-1.5 border transition-all ${
-                        isSelected
+                      className={`py-2 px-2 rounded-xl text-[10px] font-bold flex items-center justify-center gap-1.5 border transition-all ${isSelected
                           ? 'bg-gradient-to-r from-[#fe7f25] to-[#ea580c] text-white border-transparent shadow-md shadow-orange-500/30'
                           : 'bg-slate-800/70 text-slate-300 border-slate-700 hover:border-slate-600'
-                      }`}
+                        }`}
                     >
                       <Icon className="w-3 h-3 shrink-0" />
                       <span className="truncate">{mode.label}</span>
@@ -302,6 +328,7 @@ export default function MobileQuoteModal({
           </form>
         </div>
       </div>
-    </div>
+    </div>,
+    document.body
   );
 }

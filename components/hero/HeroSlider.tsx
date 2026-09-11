@@ -145,6 +145,13 @@ export default function HeroSlider() {
           <div className="flex flex-wrap items-center gap-2.5 sm:gap-3.5 pt-1">
             <Link
               href="#contact-section"
+              data-open-quote-modal="true"
+              onClick={(e) => {
+                if (typeof window !== 'undefined' && window.innerWidth < 1024) {
+                  e.preventDefault();
+                  window.dispatchEvent(new CustomEvent('open-quote-modal'));
+                }
+              }}
               className="btn-shimmer px-4 py-2.5 sm:px-7 sm:py-3.5 rounded-xl bg-gradient-to-r from-[#fe7f25] to-[#f76707] hover:from-[#e0650d] hover:to-[#ea580c] text-white font-extrabold text-xs sm:text-sm transition-all shadow-xl shadow-orange-500/35 flex items-center gap-2 transform hover:-translate-y-0.5 active:translate-y-0"
             >
               <span className="sm:hidden">Get Instant Quote</span>

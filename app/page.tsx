@@ -4,6 +4,7 @@ import Navbar from '@/components/layout/Navbar';
 import Footer from '@/components/layout/Footer';
 import HeroSlider from '@/components/hero/HeroSlider';
 import MetricCounters from '@/components/sections/MetricCounters';
+import QuoteSection from '@/components/sections/QuoteSection';
 
 // Above-The-Fold Interactive Hub
 const QuickLogisticsHub = dynamic(() => import('@/components/sections/QuickLogisticsHub'));
@@ -19,7 +20,6 @@ const ProcessPipeline = dynamic(() => import('@/components/sections/ProcessPipel
 const ValueAddedServices = dynamic(() => import('@/components/sections/ValueAddedServices'));
 const NetworkMap = dynamic(() => import('@/components/sections/NetworkMap'));
 const LatestInsights = dynamic(() => import('@/components/sections/LatestInsights'));
-const QuoteSection = dynamic(() => import('@/components/sections/QuoteSection'));
 const FloatingActions = dynamic(() => import('@/components/ui/FloatingActions'), { ssr: false });
 
 export default function Home() {
@@ -60,9 +60,7 @@ export default function Home() {
         <div className="section-deferred">
           <LatestInsights />
         </div>
-        <div className="section-deferred">
-          <QuoteSection />
-        </div>
+        <QuoteSection />
       </main>
       <Footer />
       <FloatingActions />

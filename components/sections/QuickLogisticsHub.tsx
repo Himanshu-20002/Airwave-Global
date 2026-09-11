@@ -366,6 +366,14 @@ export default function QuickLogisticsHub() {
                     </div>
                     <Link
                       href="#contact-section"
+                      data-open-quote-modal="true"
+                      onClick={(e) => {
+                        if (typeof window !== 'undefined' && window.innerWidth < 1024) {
+                          e.preventDefault();
+                          const sType = mode === 'air' ? 'air' : 'ocean_lcl';
+                          window.dispatchEvent(new CustomEvent('open-quote-modal', { detail: { service: sType } }));
+                        }
+                      }}
                       className="px-5 py-2.5 rounded-xl bg-gradient-to-r from-[#fe7f25] to-[#f76707] hover:from-[#e0650d] hover:to-[#ea580c] text-white text-xs font-bold transition-all shadow-md shadow-orange-500/30 flex items-center gap-1.5"
                     >
                       <span>Lock Rate</span>

@@ -290,10 +290,19 @@ export default function Navbar() {
           </Link>
           <Link
             href="#contact-section"
-            onClick={() => setMobileMenuOpen(false)}
+            data-open-quote-modal="true"
+            onClick={(e) => {
+              if (window.innerWidth < 1024) {
+                e.preventDefault();
+                setMobileMenuOpen(false);
+                window.dispatchEvent(new CustomEvent('open-quote-modal'));
+              } else {
+                setMobileMenuOpen(false);
+              }
+            }}
             className="block px-4 py-2.5 rounded-lg text-slate-800 font-medium hover:bg-slate-50"
           >
-            Contact Us
+            Contact Us &amp; Quotes
           </Link>
           <div className="pt-2">
             <button

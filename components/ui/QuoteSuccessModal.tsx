@@ -1,6 +1,7 @@
 'use client';
 
-import React from 'react';
+import React, { useEffect, useState } from 'react';
+import { createPortal } from 'react-dom';
 import { Check } from 'lucide-react';
 
 interface QuoteSuccessModalProps {
@@ -10,11 +11,37 @@ interface QuoteSuccessModalProps {
 }
 
 export default function QuoteSuccessModal({ isOpen, onClose, refId }: QuoteSuccessModalProps) {
-  if (!isOpen) return null;
+  const [mounted, setMounted] = useState(false);
 
-  return (
-    <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-slate-950/80 backdrop-blur-md transition-all animate-fade-in">
-      <div className="bg-white rounded-3xl p-8 max-w-md w-full shadow-2xl text-center transform animate-fade-in">
+  useEffect(() => {
+    setMounted(true);
+  }, []);
+
+  useEffect(() => {
+    if (isOpen) {
+      const originalOverflow = document.body.style.overflow;
+      document.body.style.overflow = 'hidden';
+      return () => {
+        document.body.style.overflow = originalOverflow || '';
+      };
+    } else {
+      document.body.style.overflow = '';
+    }
+  }, [isOpen]);
+
+  if (!isOpen || !mounted) return null;
+
+  return createPortal(
+    <div
+      role="dialog"
+      aria-modal="true"
+      style={{ zIndex: 9999999, backgroundColor: 'rgba(3, 7, 18, 0.85)' }}
+      className="fixed inset-0 z-[9999999] flex items-center justify-center p-4 transition-all"
+    >
+      <div
+        style={{ backgroundColor: '#ffffff' }}
+        className="bg-white rounded-3xl p-8 max-w-md w-full shadow-2xl text-center"
+      >
         <div className="w-16 h-16 rounded-full bg-emerald-100 text-emerald-600 flex items-center justify-center text-3xl mx-auto mb-4">
           <Check className="w-8 h-8" />
         </div>
@@ -31,11 +58,12 @@ export default function QuoteSuccessModal({ isOpen, onClose, refId }: QuoteSucce
         </p>
         <button
           onClick={onClose}
-          className="w-full py-3.5 bg-slate-900 hover:bg-slate-800 text-white font-bold rounded-xl text-xs uppercase tracking-wider transition-all"
+          className="w-full py-3.5 bg-slate-900 hover:bg-slate-800 text-white font-bold rounded-xl text-xs uppercase tracking-wider transition-all cursor-pointer"
         >
           Dismiss
         </button>
       </div>
-    </div>
+    </div>,
+    document.body
   );
 }

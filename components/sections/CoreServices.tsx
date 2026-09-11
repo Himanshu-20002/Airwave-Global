@@ -183,6 +183,14 @@ export default function CoreServices() {
                 <div className="flex items-center justify-between pt-4 border-t border-slate-200">
                   <Link
                     href="#contact-section"
+                    data-open-quote-modal="true"
+                    onClick={(e) => {
+                      if (typeof window !== 'undefined' && window.innerWidth < 1024) {
+                        e.preventDefault();
+                        const sType = service.category === 'ocean' ? 'ocean_fcl' : service.category;
+                        window.dispatchEvent(new CustomEvent('open-quote-modal', { detail: { service: sType } }));
+                      }
+                    }}
                     className="text-sm font-bold text-[#fe7f25] hover:underline flex items-center gap-1.5"
                   >
                     <span>Get Quote</span>
