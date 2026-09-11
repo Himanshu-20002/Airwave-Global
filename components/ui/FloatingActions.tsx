@@ -43,7 +43,7 @@ export default function FloatingActions() {
 
       {/* Floating WhatsApp trigger */}
       <a
-        href="https://wa.me/919818370497"
+        href="https://wa.me/919800000000"
         target="_blank"
         rel="noopener noreferrer"
         className="w-14 h-14 rounded-full bg-[#25D366] hover:bg-[#20bd5a] text-white shadow-xl shadow-emerald-950/40 hover:shadow-emerald-500/40 flex items-center justify-center transition-all transform hover:scale-110 active:scale-95 group"

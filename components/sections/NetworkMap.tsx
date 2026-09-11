@@ -23,9 +23,9 @@ export default function NetworkMap() {
           <MapLocation
             imageSrc="/images/map/corporate-network-map.webp"
             imageAlt="Airwave Global Logistics Strategic Locations & Global Network Map"
-            mapUrl="https://maps.google.com/?q=Airwave+Global+Logistics+Dwarka+Sector-8+New+Delhi"
+            mapUrl="https://maps.google.com/?q=New+Delhi+India"
             title="Strategic Control Centers & Trade Corridors"
-            address="Corporate Headquarters: New Delhi (Dwarka Sector-8) • Western Operations Hub: Ahmedabad"
+            address="Corporate Headquarters: New Delhi (HQ) • Regional Hubs Worldwide"
             actionLabel="Explore Hub On Google Maps"
             className="w-full h-[320px] sm:h-[400px] lg:h-[460px] rounded-xl border border-slate-200 shadow-inner"
           />
@@ -44,16 +44,16 @@ export default function NetworkMap() {
                   </div>
                 </div>
                 <p className="text-xs text-slate-600 leading-relaxed">
-                  Plot No. 75, 3rd Floor, Bagdola, Sector-8, Dwarka, New Delhi - 110077, INDIA
+                  Plot No. 123, 4th Floor, Sample Business Park, New Delhi - 110001, INDIA
                 </p>
               </div>
 
               <div className="pt-3 md:pt-0 border-t md:border-t-0 md:border-l border-slate-200/80 md:pl-6 flex flex-wrap md:flex-col gap-2.5 sm:gap-3 text-xs font-semibold shrink-0">
-                <a href="tel:+919818370497" className="text-slate-700 hover:text-[#fe7f25] flex items-center gap-1.5 transition-colors">
-                  <Phone className="w-3.5 h-3.5 text-[#fe7f25]" /> +91 98183 70497
+                <a href="tel:+919800000000" className="text-slate-700 hover:text-[#fe7f25] flex items-center gap-1.5 transition-colors">
+                  <Phone className="w-3.5 h-3.5 text-[#fe7f25]" /> +91 98000 00000
                 </a>
-                <a href="mailto:ajha@airsurgegroup.com" className="text-slate-700 hover:text-[#fe7f25] flex items-center gap-1.5 transition-colors">
-                  <Mail className="w-3.5 h-3.5 text-[#fe7f25]" /> ajha@airsurgegroup.com
+                <a href="mailto:info@airwaveglobal.com" className="text-slate-700 hover:text-[#fe7f25] flex items-center gap-1.5 transition-colors">
+                  <Mail className="w-3.5 h-3.5 text-[#fe7f25]" /> info@airwaveglobal.com
                 </a>
               </div>
             </div>

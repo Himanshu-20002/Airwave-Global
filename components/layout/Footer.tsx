@@ -26,7 +26,7 @@ export default function Footer() {
             </p>
             <div className="flex items-center gap-3 pt-1">
               <a
-                href="https://www.linkedin.com/company/airsurge-logistics-pvt-ltd/"
+                href="https://www.linkedin.com/company/airwave-global-logistics/"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="w-9 h-9 rounded-lg bg-slate-800 hover:bg-[#0284c7] flex items-center justify-center text-slate-300 hover:text-white transition-all text-xs font-bold"
@@ -35,7 +35,7 @@ export default function Footer() {
                 in
               </a>
               <a
-                href="https://www.instagram.com/airsurgelogisticspvtltd/"
+                href="https://www.instagram.com/airwavelogistics/"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="w-9 h-9 rounded-lg bg-slate-800 hover:bg-pink-600 flex items-center justify-center text-slate-300 hover:text-white transition-all group"
@@ -44,7 +44,7 @@ export default function Footer() {
                 <Instagram className="w-4 h-4" />
               </a>
               <a
-                href="https://wa.me/919818370497"
+                href="https://wa.me/919800000000"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="w-9 h-9 rounded-lg bg-slate-800 hover:bg-[#25D366] flex items-center justify-center text-slate-300 hover:text-white transition-all group"
@@ -91,9 +91,9 @@ export default function Footer() {
             <div className="space-y-3 text-xs text-slate-400">
               <div>
                 <strong className="text-white block mb-1">Corporate HQ:</strong>
-                <p className="leading-relaxed">Plot No. 75, 3rd Floor, Bagdola, Sector-8, Dwarka, New Delhi - 110077, INDIA</p>
-                <a href="tel:+919818370497" className="text-[#fe7f25] hover:underline inline-flex items-center gap-1.5 mt-2 font-medium">
-                  <Phone className="w-3 h-3" /> +91 98183 70497
+                <p className="leading-relaxed">Plot No. 123, 4th Floor, Sample Business Park, New Delhi - 110001, INDIA</p>
+                <a href="tel:+919800000000" className="text-[#fe7f25] hover:underline inline-flex items-center gap-1.5 mt-2 font-medium">
+                  <Phone className="w-3 h-3" /> +91 98000 00000
                 </a>
               </div>
             </div>

@@ -87,7 +87,7 @@ export default function QuoteSection() {
 
     setTimeout(() => {
       setLoading(false);
-      const generatedRef = 'ASG-RFQ-' + Math.floor(100000 + Math.random() * 900000);
+      const generatedRef = 'AWG-RFQ-' + Math.floor(100000 + Math.random() * 900000);
       setRefId(generatedRef);
       if (isMobileModalOpen) {
         setIsMobileModalOpen(false);
@@ -339,11 +339,11 @@ export default function QuoteSection() {
                 <div className="mt-10 pt-8 border-t border-slate-800/80">
                   <span className="text-[10px] uppercase font-bold text-slate-400 block mb-2">Need Immediate Support?</span>
                   <div className="flex flex-wrap items-center gap-4">
-                    <a href="tel:+919818370497" className="text-white hover:text-[#fe7f25] font-bold text-sm flex items-center gap-2">
-                      <Phone className="w-4 h-4 text-[#fe7f25]" /> +91 98183 70497
+                    <a href="tel:+919800000000" className="text-white hover:text-[#fe7f25] font-bold text-sm flex items-center gap-2">
+                      <Phone className="w-4 h-4 text-[#fe7f25]" /> +91 98000 00000
                     </a>
                     <a
-                      href="https://wa.me/919818370497"
+                      href="https://wa.me/919800000000"
                       target="_blank"
                       rel="noopener noreferrer"
                       className="px-3.5 py-1.5 rounded-xl bg-gradient-to-r from-[#25D366] to-[#128C7E] hover:from-[#22c35e] hover:to-[#0e776a] text-white text-xs font-bold flex items-center gap-2 shadow-md shadow-emerald-950/40 hover:shadow-emerald-500/30 transition-all duration-300 hover:scale-105 active:scale-95 group"

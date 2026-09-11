@@ -316,7 +316,7 @@ export default function MobileQuoteModal({
             <div className="pt-2 border-t border-slate-800 flex items-center justify-between text-[11px]">
               <span className="text-slate-400 font-medium">Need immediate rate?</span>
               <a
-                href="https://wa.me/919818370497"
+                href="https://wa.me/919800000000"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="inline-flex items-center gap-1.5 text-emerald-400 hover:text-emerald-300 font-bold"

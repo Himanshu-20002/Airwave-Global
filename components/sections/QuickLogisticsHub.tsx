@@ -426,7 +426,7 @@ export default function QuickLogisticsHub() {
                       required
                       value={phone}
                       onChange={(e) => setPhone(e.target.value)}
-                      placeholder="e.g. +91 98183 70497"
+                      placeholder="e.g. +91 98000 00000"
                       className="w-full bg-slate-50 border border-slate-200/90 hover:border-slate-300 focus:bg-white focus:border-[#fe7f25] focus:ring-4 focus:ring-orange-500/10 rounded-xl px-4 py-3 text-sm font-medium text-slate-900 placeholder-slate-400 outline-none transition-all shadow-xs"
                     />
                   </div>

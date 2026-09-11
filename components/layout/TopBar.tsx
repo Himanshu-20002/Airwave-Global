@@ -13,23 +13,23 @@ export default function TopBar() {
           </span>
           <span className="hidden sm:inline-block text-slate-600">|</span>
           <a
-            href="tel:+919818370497"
+            href="tel:+919800000000"
             className="hover:text-[#fe7f25] transition-colors flex items-center gap-1.5"
           >
-            <Phone className="w-3.5 h-3.5 text-[#fe7f25]" /> +91 98183 70497
+            <Phone className="w-3.5 h-3.5 text-[#fe7f25]" /> +91 98000 00000
           </a>
           <a
-            href="mailto:ajha@airsurgegroup.com"
+            href="mailto:info@airwaveglobal.com"
             className="hover:text-[#fe7f25] transition-colors hidden md:flex items-center gap-1.5"
           >
-            <Mail className="w-3.5 h-3.5 text-[#fe7f25]" /> ajha@airsurgegroup.com
+            <Mail className="w-3.5 h-3.5 text-[#fe7f25]" /> info@airwaveglobal.com
           </a>
         </div>
         <div className="flex items-center gap-4">
-          <span className="text-slate-400 hidden lg:inline">HQ: Bagdola, Dwarka, New Delhi</span>
+          <span className="text-slate-400 hidden lg:inline">HQ: Business District, New Delhi, India</span>
           <div className="flex items-center gap-3">
             <a
-              href="https://www.instagram.com/airsurgelogisticspvtltd/"
+              href="https://www.instagram.com/airwavelogistics/"
               target="_blank"
               rel="noopener noreferrer"
               className="text-slate-400 hover:text-pink-400 transition-colors flex items-center"
@@ -38,7 +38,7 @@ export default function TopBar() {
               <Instagram className="w-3.5 h-3.5" />
             </a>
             <a
-              href="https://wa.me/919818370497"
+              href="https://wa.me/919800000000"
               target="_blank"
               rel="noopener noreferrer"
               className="text-emerald-400 hover:text-emerald-300 transition-colors flex items-center gap-1.5 font-medium"
