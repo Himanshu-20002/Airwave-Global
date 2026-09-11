@@ -77,10 +77,15 @@ export default function QuickLogisticsHub() {
 
   return (
     <section className="py-16 sm:py-20 bg-gradient-to-b from-slate-50 via-white to-slate-50 relative overflow-hidden border-y border-slate-200/80">
-      {/* Background SaaS Glow & Subtle Grid */}
-      <div className="absolute top-0 right-1/4 w-[500px] h-[500px] bg-gradient-to-br from-orange-200/30 via-sky-200/20 to-transparent rounded-full blur-3xl pointer-events-none" />
-      <div className="absolute -bottom-24 left-1/4 w-[450px] h-[450px] bg-gradient-to-tr from-blue-200/25 via-indigo-100/30 to-transparent rounded-full blur-3xl pointer-events-none" />
-      <div className="absolute inset-0 bg-[radial-gradient(#0284c7_1px,transparent_1px)] [background-size:24px_24px] opacity-[0.03] pointer-events-none" />
+      {/* Modern Minimal SaaS Geometric Precision Grid with Radial Vignette */}
+      <div
+        className="absolute inset-0 bg-[linear-gradient(to_right,#e2e8f0_1px,transparent_1px),linear-gradient(to_bottom,#e2e8f0_1px,transparent_1px)] bg-[size:40px_40px] [mask-image:radial-gradient(ellipse_85%_70%_at_50%_50%,#000_35%,transparent_100%)] opacity-70 pointer-events-none"
+        aria-hidden="true"
+      />
+
+      {/* Atmospheric SaaS Ambient Glow Blooms */}
+      <div className="absolute top-0 right-1/4 w-[500px] h-[500px] bg-gradient-to-br from-orange-200/35 via-sky-200/25 to-transparent rounded-full blur-3xl pointer-events-none" />
+      <div className="absolute -bottom-24 left-1/4 w-[450px] h-[450px] bg-gradient-to-tr from-blue-200/30 via-indigo-100/35 to-transparent rounded-full blur-3xl pointer-events-none" />
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         

@@ -38,27 +38,27 @@ export default function BrandMarquee() {
 
       <div className="w-full space-y-5">
         {/* Forward Marquee - Infinite Loop */}
-        <Marquee duration="35s" gap="1.5rem" repeat={2} pauseOnHover>
+        <Marquee duration="35s" gap="1.5rem" repeat={4} pauseOnHover>
           {forwardLogos.map((src, idx) => (
             <PartnerCard
               key={idx}
               src={src}
               alt={`Brand Partner ${idx + 1}`}
               hoverBorder="blue"
-              size="sm"
+              size="md"
             />
           ))}
         </Marquee>
 
         {/* Reverse Marquee - Infinite Loop */}
-        <Marquee duration="38s" gap="1.5rem" reverse repeat={2} pauseOnHover>
+        <Marquee duration="38s" gap="1.5rem" reverse repeat={4} pauseOnHover>
           {reverseLogos.map((src, idx) => (
             <PartnerCard
               key={idx}
               src={src}
               alt={`Carrier Partner ${idx + 1}`}
               hoverBorder="blue"
-              size="sm"
+              size="md"
             />
           ))}
         </Marquee>
