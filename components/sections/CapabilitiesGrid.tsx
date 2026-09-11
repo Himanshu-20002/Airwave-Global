@@ -127,10 +127,11 @@ export default function CapabilitiesGrid() {
         <div className="mt-9 sm:mt-11 lg:mt-12 text-center relative z-20 px-3">
           <Link
             href="#contact-section"
-            className="btn-neon-glow btn-shimmer group inline-flex items-center justify-center gap-2.5 sm:gap-3.5 px-6 sm:px-9 py-3.5 sm:py-4 rounded-full bg-gradient-to-r from-[#fe7f25] via-[#ff6f00] to-[#f97316] text-white font-black text-xs sm:text-sm tracking-wider uppercase border-2 border-white transition-transform transition-shadow duration-300 transform-gpu relative max-w-full"
+            className="btn-neon-glow btn-shimmer group inline-flex items-center justify-center gap-2 sm:gap-3.5 px-5 sm:px-9 py-2.5 sm:py-4 rounded-full bg-gradient-to-r from-[#fe7f25] via-[#ff6f00] to-[#f97316] text-white font-black text-[11px] sm:text-sm tracking-wider uppercase border-2 border-white transition-transform transition-shadow duration-300 transform-gpu relative max-w-full active:scale-95"
           >
             <span className="relative z-10 flex items-center justify-center gap-2 sm:gap-3 drop-shadow-[0_2px_4px_rgba(0,0,0,0.6)] text-center">
-              <span>Speak to a Senior Freight Expert</span>
+              <span className="sm:hidden">Speak with an Expert</span>
+              <span className="hidden sm:inline">Speak to a Senior Freight Expert</span>
               <MessageSquare className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-white shrink-0 drop-shadow-[0_0_8px_#ffffff]" />
             </span>
           </Link>

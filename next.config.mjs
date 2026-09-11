@@ -17,8 +17,41 @@ const nextConfig = {
       },
     ],
   },
+  allowedDevOrigins: [
+    '192.168.1.61',
+    'localhost:3000',
+  ],
+  reactStrictMode: true,
+  eslint: {
+    ignoreDuringBuilds: true,
+  },
   experimental: {
     optimizePackageImports: ['lucide-react'],
+  },
+  async headers() {
+    return [
+      {
+        source: '/(.*)',
+        headers: [
+          {
+            key: 'X-Content-Type-Options',
+            value: 'nosniff',
+          },
+          {
+            key: 'X-Frame-Options',
+            value: 'SAMEORIGIN',
+          },
+          {
+            key: 'X-XSS-Protection',
+            value: '1; mode=block',
+          },
+          {
+            key: 'Referrer-Policy',
+            value: 'strict-origin-when-cross-origin',
+          },
+        ],
+      },
+    ];
   },
   webpack: (config, { dev }) => {
     if (dev) {

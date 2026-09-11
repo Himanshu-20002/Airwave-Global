@@ -311,28 +311,28 @@ export default function LogisticsRoutes({ className = '' }: LogisticsRoutesProps
           <text x="1640" y="800" fill="#ffedd5" fontSize="8.5" fontFamily="monospace" letterSpacing="1.8" textAnchor="middle" opacity="0.75" fontWeight="600">PORT // EAST CORRIDOR</text>
         </g>
 
-        {/* Maritime Carrier Transits - Mathematically locked to route Bézier curves & auto-tangents */}
+        {/* Maritime Carrier Transits - Calm, realistic enterprise cruising speed */}
         <g className="logistics-boat pointer-events-none">
           <use href="#vessel-heavy" />
-          <animateMotion dur="30s" repeatCount="indefinite" rotate="auto" begin="-5s">
+          <animateMotion dur="52s" repeatCount="indefinite" rotate="auto" begin="-12s">
             <mpath href="#route-bottom-trans" />
           </animateMotion>
         </g>
         <g className="logistics-boat pointer-events-none">
           <use href="#vessel-fast" />
-          <animateMotion dur="26s" repeatCount="indefinite" rotate="auto" begin="-16s">
+          <animateMotion dur="46s" repeatCount="indefinite" rotate="auto" begin="-26s">
             <mpath href="#route-bottom-trans-rev" />
           </animateMotion>
         </g>
         <g className="logistics-boat pointer-events-none">
           <use href="#vessel-fast" />
-          <animateMotion dur="32s" repeatCount="indefinite" rotate="auto" begin="-10s">
+          <animateMotion dur="56s" repeatCount="indefinite" rotate="auto" begin="-18s">
             <mpath href="#route-w-trans" />
           </animateMotion>
         </g>
         <g className="logistics-boat pointer-events-none">
           <use href="#vessel-heavy" />
-          <animateMotion dur="28s" repeatCount="indefinite" rotate="auto" begin="-20s">
+          <animateMotion dur="48s" repeatCount="indefinite" rotate="auto" begin="-32s">
             <mpath href="#route-e-trans" />
           </animateMotion>
         </g>
@@ -401,16 +401,16 @@ export default function LogisticsRoutes({ className = '' }: LogisticsRoutesProps
           <text x="365" y="1132" fill="#ffedd5" fontSize="7.5" fontFamily="monospace" letterSpacing="1.2" textAnchor="middle" opacity="0.8">PORT // E</text>
         </g>
 
-        {/* Mobile Route Vessels - Mathematically locked to route Bézier curves & auto-tangents */}
+        {/* Mobile Route Vessels - Calm, realistic enterprise cruising speed */}
         <g className="logistics-boat pointer-events-none">
           <use href="#vessel-fast" />
-          <animateMotion dur="18s" repeatCount="indefinite" rotate="auto" begin="-4s">
+          <animateMotion dur="34s" repeatCount="indefinite" rotate="auto" begin="-8s">
             <mpath href="#route-mobile-w" />
           </animateMotion>
         </g>
         <g className="logistics-boat pointer-events-none">
           <use href="#vessel-heavy" />
-          <animateMotion dur="20s" repeatCount="indefinite" rotate="auto" begin="-9s">
+          <animateMotion dur="38s" repeatCount="indefinite" rotate="auto" begin="-16s">
             <mpath href="#route-mobile-trans" />
           </animateMotion>
         </g>

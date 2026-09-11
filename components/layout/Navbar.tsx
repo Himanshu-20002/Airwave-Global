@@ -171,12 +171,16 @@ export default function Navbar() {
 
           {/* Mobile Hamburger Button */}
           <div className="lg:hidden flex items-center gap-2">
-            <Link
-              href="#contact-section"
-              className="px-3.5 py-2 rounded-lg bg-[#fe7f25] text-white text-xs font-bold"
+            <button
+              type="button"
+              onClick={(e) => {
+                e.preventDefault();
+                window.dispatchEvent(new CustomEvent('open-quote-modal'));
+              }}
+              className="px-3.5 py-2 rounded-lg bg-[#fe7f25] text-white text-xs font-bold active:scale-95 transition-transform shadow-md"
             >
               Quote
-            </Link>
+            </button>
             <button
               onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
               className="p-2 rounded-xl text-slate-700 hover:bg-slate-100 focus:outline-none"
@@ -292,13 +296,17 @@ export default function Navbar() {
             Contact Us
           </Link>
           <div className="pt-2">
-            <Link
-              href="#contact-section"
-              onClick={() => setMobileMenuOpen(false)}
-              className="block w-full text-center py-3 bg-[#fe7f25] text-white rounded-xl font-bold shadow-md"
+            <button
+              type="button"
+              onClick={(e) => {
+                e.preventDefault();
+                setMobileMenuOpen(false);
+                window.dispatchEvent(new CustomEvent('open-quote-modal'));
+              }}
+              className="block w-full text-center py-3 bg-[#fe7f25] text-white rounded-xl font-bold shadow-md active:scale-95 transition-transform"
             >
-              Request Rate Quote
-            </Link>
+              Get Instant Quote
+            </button>
           </div>
         </div>
       )}

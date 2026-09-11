@@ -1,5 +1,5 @@
 import React from 'react';
-import { Phone, Mail } from 'lucide-react';
+import { Phone, Mail, Instagram } from 'lucide-react';
 import WhatsAppIcon from '../icons/WhatsAppIcon';
 
 export default function TopBar() {
@@ -29,22 +29,13 @@ export default function TopBar() {
           <span className="text-slate-400 hidden lg:inline">HQ: Bagdola, Dwarka, New Delhi</span>
           <div className="flex items-center gap-3">
             <a
-              href="https://www.linkedin.com/company/airsurge-logistics-pvt-ltd/"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="text-slate-400 hover:text-white transition-colors"
-              aria-label="LinkedIn"
-            >
-              <span className="font-bold text-xs">in</span>
-            </a>
-            <a
               href="https://www.instagram.com/airsurgelogisticspvtltd/"
               target="_blank"
               rel="noopener noreferrer"
-              className="text-slate-400 hover:text-pink-400 transition-colors"
+              className="text-slate-400 hover:text-pink-400 transition-colors flex items-center"
               aria-label="Instagram"
             >
-              <span className="font-bold text-xs">ig</span>
+              <Instagram className="w-3.5 h-3.5" />
             </a>
             <a
               href="https://wa.me/919818370497"

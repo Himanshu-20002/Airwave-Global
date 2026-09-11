@@ -10,18 +10,13 @@ import {
   Search,
   CheckCircle2,
   X,
-  Calculator,
   ShieldCheck,
   Check,
   Plane,
   Ship,
-  Sparkles,
   ArrowRight,
-  Activity,
   Zap,
   Globe2,
-  Clock,
-  Layers,
 } from 'lucide-react';
 
 export default function QuickLogisticsHub() {

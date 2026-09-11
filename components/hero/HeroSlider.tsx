@@ -2,7 +2,7 @@
 
 import React, { useState, useEffect } from 'react';
 import Link from 'next/link';
-import { ShieldCheck, Calculator, ArrowRight, ArrowUpRight, Award, Globe, ChevronLeft, ChevronRight } from 'lucide-react';
+import { ShieldCheck, Calculator, ArrowRight, Globe, ChevronLeft, ChevronRight } from 'lucide-react';
 
 const slides = [
   {
@@ -86,7 +86,7 @@ export default function HeroSlider() {
   return (
     <section
       id="hero-section"
-      className="relative min-h-[620px] lg:min-h-[720px] bg-[#071126] text-white overflow-hidden flex items-center"
+      className="relative min-h-[590px] sm:min-h-[520px] lg:h-[620px] lg:min-h-[550px] bg-[#071126] text-white overflow-hidden flex items-center"
     >
       {/* Background Images Slider */}
       {slides.map((slide, index) => {
@@ -102,66 +102,67 @@ export default function HeroSlider() {
               <img
                 src={slide.image}
                 alt="Airwave Global Logistics Hero Banner"
-                className="w-full h-full object-cover"
+                className="w-full h-full object-cover object-center"
                 loading={index === 0 ? 'eager' : 'lazy'}
                 fetchPriority={index === 0 ? 'high' : 'low'}
                 decoding={index === 0 ? 'sync' : 'async'}
               />
             </picture>
-            {/* Subtle cinematic gradient overlays that leave the hero vessels/aircraft 100% visible */}
-            <div className="absolute inset-0 bg-gradient-to-r from-[#071126]/95 via-[#071126]/75 to-[#071126]/20 pointer-events-none" />
-            <div className="absolute inset-0 bg-gradient-to-t from-[#071126] via-transparent to-transparent pointer-events-none" />
+            {/* Dark cinematic gradient: vertical on mobile for high text contrast; horizontal on desktop */}
+            <div className="absolute inset-0 bg-gradient-to-t from-[#071126]/95 via-[#071126]/75 to-[#071126]/40 md:bg-gradient-to-r md:from-[#071126]/90 md:via-[#071126]/55 md:via-45% md:to-transparent pointer-events-none" />
           </div>
         );
       })}
 
       {/* Main Hero Content */}
-      <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 lg:py-24 w-full">
-        <div className="max-w-3xl lg:max-w-4xl space-y-6">
+      <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 sm:py-10 lg:py-10 w-full">
+        <div className="max-w-3xl lg:max-w-4xl space-y-3.5 sm:space-y-5">
 
           {/* Pill Badge */}
-          <div className="inline-flex items-center gap-2.5 px-4 py-2 rounded-full bg-white/10 backdrop-blur-md border border-white/20 text-xs sm:text-sm font-semibold text-orange-400 shadow-lg">
-            <ShieldCheck className="w-4 h-4 text-[#fe7f25]" />
-            <span>{slides[currentSlide].badge}</span>
-            <span className="text-white/40">|</span>
-            <span className="text-white font-normal flex items-center gap-1">
+          <div className="inline-flex items-center gap-1.5 sm:gap-2 px-3 py-1 sm:px-3.5 sm:py-1.5 rounded-full bg-white/10 backdrop-blur-md border border-white/20 text-[11px] sm:text-sm font-semibold text-orange-400 shadow-lg max-w-full">
+            <ShieldCheck className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-[#fe7f25] shrink-0" />
+            <span className="truncate">{slides[currentSlide].badge}</span>
+            <span className="text-white/40 hidden sm:inline">|</span>
+            <span className="text-white font-normal hidden sm:inline-flex items-center gap-1 shrink-0">
               <Globe className="w-3.5 h-3.5 text-cyan-300" />
               Airwave Global Logistics
             </span>
           </div>
 
           {/* Headline & Description */}
-          <div className="min-h-[170px] sm:min-h-[190px] flex items-center">
-            <div className="space-y-4 animate-fade-in">
-              <h1 className="text-3xl sm:text-5xl lg:text-6xl font-black text-white leading-tight uppercase font-display tracking-tight drop-shadow-md">
+          <div className="min-h-[100px] sm:min-h-[140px] flex items-center">
+            <div className="space-y-2 sm:space-y-3 animate-fade-in">
+              <h1 className="text-2xl sm:text-4xl lg:text-5xl font-black text-white leading-tight uppercase font-display tracking-tight drop-shadow-md">
                 {slides[currentSlide].headline}
               </h1>
-              <p className="text-slate-200 text-base sm:text-xl max-w-2xl leading-relaxed drop-shadow">
+              <p className="text-slate-200 text-xs sm:text-base lg:text-lg max-w-2xl leading-relaxed drop-shadow line-clamp-3 sm:line-clamp-none">
                 {slides[currentSlide].description}
               </p>
             </div>
           </div>
 
           {/* Action CTAs */}
-          <div className="flex flex-wrap items-center gap-4 pt-2">
+          <div className="flex flex-wrap items-center gap-2.5 sm:gap-3.5 pt-1">
             <Link
               href="#contact-section"
-              className="btn-shimmer px-8 py-4 rounded-2xl bg-gradient-to-r from-[#fe7f25] to-[#f76707] hover:from-[#e0650d] hover:to-[#ea580c] text-white font-extrabold text-sm sm:text-base transition-all shadow-xl shadow-orange-500/35 flex items-center gap-2 transform hover:-translate-y-0.5 active:translate-y-0"
+              className="btn-shimmer px-4 py-2.5 sm:px-7 sm:py-3.5 rounded-xl bg-gradient-to-r from-[#fe7f25] to-[#f76707] hover:from-[#e0650d] hover:to-[#ea580c] text-white font-extrabold text-xs sm:text-sm transition-all shadow-xl shadow-orange-500/35 flex items-center gap-2 transform hover:-translate-y-0.5 active:translate-y-0"
             >
-              <span>Get Instant Rate Quote</span>
-              <Calculator className="w-4 h-4" />
+              <span className="sm:hidden">Get Instant Quote</span>
+              <span className="hidden sm:inline">Get Instant Rate Quote</span>
+              <Calculator className="w-3.5 h-3.5 sm:w-4 sm:h-4" />
             </Link>
             <Link
               href="#services-section"
-              className="px-7 py-4 rounded-2xl bg-white/10 hover:bg-white/20 backdrop-blur-md border border-white/25 text-white font-bold text-sm sm:text-base transition-all flex items-center gap-2"
+              className="px-4 py-2.5 sm:px-6 sm:py-3.5 rounded-xl bg-white/10 hover:bg-white/20 backdrop-blur-md border border-white/25 text-white font-bold text-xs sm:text-sm transition-all flex items-center gap-2"
             >
-              <span>Explore All Services</span>
-              <ArrowRight className="w-4 h-4 text-orange-400" />
+              <span className="sm:hidden">Explore Services</span>
+              <span className="hidden sm:inline">Explore All Services</span>
+              <ArrowRight className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-orange-400" />
             </Link>
           </div>
 
           {/* Unified Luxury Slide Progress & Navigation Console */}
-          <div className="pt-8 flex flex-wrap items-center gap-4 sm:gap-6">
+          <div className="pt-2 sm:pt-4 flex flex-wrap items-center gap-3 sm:gap-6">
             {/* Interactive Morphing Progress Pills */}
             <div className="flex items-center gap-2 p-1.5 rounded-full bg-slate-950/50 backdrop-blur-md border border-white/10 shadow-xl shadow-black/30">
               {slides.map((_, idx) => {
@@ -170,11 +171,10 @@ export default function HeroSlider() {
                   <button
                     key={idx}
                     onClick={() => goToSlide(idx)}
-                    className={`relative h-2 rounded-full transition-all duration-500 overflow-hidden flex items-center cursor-pointer ${
-                      isActive
-                        ? 'w-16 sm:w-20 bg-white/20 shadow-[0_0_12px_rgba(254,127,37,0.5)]'
-                        : 'w-2.5 sm:w-3 bg-white/30 hover:bg-white/70 hover:scale-110'
-                    }`}
+                    className={`relative h-2 rounded-full transition-all duration-500 overflow-hidden flex items-center cursor-pointer ${isActive
+                      ? 'w-16 sm:w-20 bg-white/20 shadow-[0_0_12px_rgba(254,127,37,0.5)]'
+                      : 'w-2.5 sm:w-3 bg-white/30 hover:bg-white/70 hover:scale-110'
+                      }`}
                     aria-label={`Go to slide ${idx + 1}`}
                   >
                     {isActive && (
@@ -188,8 +188,8 @@ export default function HeroSlider() {
               })}
             </div>
 
-            {/* Sleek Minimalist Slide Counter & Quick Navigation */}
-            <div className="flex items-center gap-1.5 text-xs font-mono tracking-wider text-slate-300">
+            {/* Quick Navigation Arrows */}
+            <div className="flex items-center gap-1.5">
               <button
                 onClick={() => goToSlide((currentSlide - 1 + slides.length) % slides.length)}
                 className="w-7 h-7 rounded-full bg-white/10 hover:bg-white/25 border border-white/15 flex items-center justify-center text-white transition-all hover:scale-105 active:scale-95 cursor-pointer shadow-sm"
@@ -197,11 +197,6 @@ export default function HeroSlider() {
               >
                 <ChevronLeft className="w-3.5 h-3.5" />
               </button>
-              <div className="px-2.5 py-1 rounded-full bg-slate-950/40 backdrop-blur-md border border-white/10 font-bold flex items-center">
-                <span className="text-white font-semibold">{String(currentSlide + 1).padStart(2, '0')}</span>
-                <span className="text-white/35 mx-1">/</span>
-                <span className="text-slate-400">{String(slides.length).padStart(2, '0')}</span>
-              </div>
               <button
                 onClick={() => goToSlide((currentSlide + 1) % slides.length)}
                 className="w-7 h-7 rounded-full bg-white/10 hover:bg-white/25 border border-white/15 flex items-center justify-center text-white transition-all hover:scale-105 active:scale-95 cursor-pointer shadow-sm"

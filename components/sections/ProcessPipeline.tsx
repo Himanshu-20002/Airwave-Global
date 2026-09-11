@@ -60,9 +60,26 @@ export default function ProcessPipeline() {
           </p>
         </div>
 
-        {/* ================= DESKTOP LAYOUT (Horizontal Precision Pipeline) ================= */}
         <div className="hidden md:block relative py-6">
-          <div className="snake-line-container" />
+          {/* Horizontal Dotted Connecting Line (Matching mobile dotted flow style) */}
+          <div
+            className="absolute left-[12.5%] right-[12.5%] top-[72px] -translate-y-1/2 z-0 pointer-events-none overflow-hidden h-6 flex items-center"
+            style={{ containerType: 'inline-size' }}
+          >
+            <svg className="w-full h-2 overflow-visible" xmlns="http://www.w3.org/2000/svg">
+              <line
+                x1="0"
+                y1="50%"
+                x2="100%"
+                y2="50%"
+                stroke="#cbd5e1"
+                strokeWidth="2"
+                strokeDasharray="6 8"
+                strokeLinecap="round"
+              />
+            </svg>
+            <div className="desktop-flow-pulse" />
+          </div>
 
           <div className="grid grid-cols-4 gap-6 relative z-10">
             {steps.map((item, idx) => {

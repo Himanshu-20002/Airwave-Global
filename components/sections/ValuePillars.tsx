@@ -102,7 +102,6 @@ export default function ValuePillars() {
       {/* Full-Width Section Footer Boat Transit Track */}
       <div className="w-full mt-16 lg:mt-20">
         <BoatTransitTrack
-          variant="full-width"
           duration={28}
         />
       </div>

@@ -1,30 +1,30 @@
 import React from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
-import { Phone } from 'lucide-react';
+import { Phone, Instagram } from 'lucide-react';
 import WhatsAppIcon from '../icons/WhatsAppIcon';
 
 export default function Footer() {
   return (
     <footer className="bg-[#050c1b] text-white border-t border-slate-800">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10 sm:py-16">
+        <div className="grid grid-cols-1 lg:grid-cols-4 gap-8 lg:gap-12">
           
           {/* Company Info */}
           <div className="space-y-4">
-            <div className="bg-white px-3.5 py-2 inline-block border border-slate-200 shadow-sm">
+            <div className="bg-white px-3.5 py-2 inline-block border border-slate-200 shadow-sm rounded">
               <Image
                 src="/images/airwave-logo-transparent.webp"
                 alt="Airwave Global Logistics Private Limited"
                 width={170}
                 height={48}
-                className="h-11 w-auto object-contain"
+                className="h-10 sm:h-11 w-auto object-contain"
               />
             </div>
-            <p className="text-xs text-slate-400 leading-relaxed">
+            <p className="text-xs text-slate-400 leading-relaxed max-w-sm">
               Bridging Continents, Connecting Markets. Airwave Global Logistics Private Limited delivers dependable air, ocean, multimodal freight and supply chain solutions worldwide.
             </p>
-            <div className="flex items-center gap-3 pt-2">
+            <div className="flex items-center gap-3 pt-1">
               <a
                 href="https://www.linkedin.com/company/airsurge-logistics-pvt-ltd/"
                 target="_blank"
@@ -38,10 +38,10 @@ export default function Footer() {
                 href="https://www.instagram.com/airsurgelogisticspvtltd/"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="w-9 h-9 rounded-lg bg-slate-800 hover:bg-pink-600 flex items-center justify-center text-slate-300 hover:text-white transition-all text-xs font-bold"
+                className="w-9 h-9 rounded-lg bg-slate-800 hover:bg-pink-600 flex items-center justify-center text-slate-300 hover:text-white transition-all group"
                 aria-label="Instagram"
               >
-                ig
+                <Instagram className="w-4 h-4" />
               </a>
               <a
                 href="https://wa.me/919818370497"
@@ -55,49 +55,45 @@ export default function Footer() {
             </div>
           </div>
 
-          {/* Quick Links */}
-          <div>
-            <h4 className="text-sm font-bold uppercase tracking-wider text-white mb-4">Quick Links</h4>
-            <ul className="space-y-2.5 text-xs text-slate-400">
-              <li><Link href="#hero-section" className="hover:text-white transition-colors">Home</Link></li>
-              <li><Link href="#about-section" className="hover:text-white transition-colors">About Us</Link></li>
-              <li><Link href="#services-section" className="hover:text-white transition-colors">Freight Services</Link></li>
-              <li><Link href="#industries-section" className="hover:text-white transition-colors">Industries We Serve</Link></li>
-              <li><Link href="#process-section" className="hover:text-white transition-colors">Logistics Process</Link></li>
-              <li><Link href="#blogs-section" className="hover:text-white transition-colors">Insights & Articles</Link></li>
-              <li><Link href="#contact-section" className="hover:text-white transition-colors">Contact Us</Link></li>
-            </ul>
+          {/* Quick Links & Services: 2-column side-by-side on mobile, balanced on desktop */}
+          <div className="grid grid-cols-2 gap-6 sm:gap-8 lg:col-span-2">
+            {/* Quick Links */}
+            <div>
+              <h4 className="text-sm font-bold uppercase tracking-wider text-white mb-3 sm:mb-4">Quick Links</h4>
+              <ul className="space-y-2 sm:space-y-2.5 text-xs text-slate-400">
+                <li><Link href="#hero-section" className="hover:text-white transition-colors">Home</Link></li>
+                <li><Link href="#about-section" className="hover:text-white transition-colors">About Us</Link></li>
+                <li><Link href="#services-section" className="hover:text-white transition-colors">Freight Services</Link></li>
+                <li><Link href="#industries-section" className="hover:text-white transition-colors">Industries We Serve</Link></li>
+                <li><Link href="#process-section" className="hover:text-white transition-colors">Logistics Process</Link></li>
+                <li><Link href="#blogs-section" className="hover:text-white transition-colors">Insights & Articles</Link></li>
+                <li><Link href="#contact-section" className="hover:text-white transition-colors">Contact Us</Link></li>
+              </ul>
+            </div>
+
+            {/* Services List */}
+            <div>
+              <h4 className="text-sm font-bold uppercase tracking-wider text-white mb-3 sm:mb-4">Freight Services</h4>
+              <ul className="space-y-2 sm:space-y-2.5 text-xs text-slate-400">
+                <li><Link href="#services-section" className="hover:text-white transition-colors">Air Freight Charters</Link></li>
+                <li><Link href="#services-section" className="hover:text-white transition-colors">Ocean FCL & LCL Cargo</Link></li>
+                <li><Link href="#services-section" className="hover:text-white transition-colors">Project & Heavy Lift ODC</Link></li>
+                <li><Link href="#services-section" className="hover:text-white transition-colors">Customs Clearance Brokerage</Link></li>
+                <li><Link href="#services-section" className="hover:text-white transition-colors">Pharma Cold Chain</Link></li>
+                <li><Link href="#services-section" className="hover:text-white transition-colors">Supply Chain Finance</Link></li>
+              </ul>
+            </div>
           </div>
 
-          {/* Services List */}
+          {/* Contact Info: Single Corporate HQ Address */}
           <div>
-            <h4 className="text-sm font-bold uppercase tracking-wider text-white mb-4">Freight Services</h4>
-            <ul className="space-y-2.5 text-xs text-slate-400">
-              <li><Link href="#services-section" className="hover:text-white transition-colors">Air Freight Charters</Link></li>
-              <li><Link href="#services-section" className="hover:text-white transition-colors">Ocean FCL & LCL Cargo</Link></li>
-              <li><Link href="#services-section" className="hover:text-white transition-colors">Project & Heavy Lift ODC</Link></li>
-              <li><Link href="#services-section" className="hover:text-white transition-colors">Customs Clearance Brokerage</Link></li>
-              <li><Link href="#services-section" className="hover:text-white transition-colors">Pharma Cold Chain</Link></li>
-              <li><Link href="#services-section" className="hover:text-white transition-colors">Supply Chain Finance</Link></li>
-            </ul>
-          </div>
-
-          {/* Contact Info */}
-          <div>
-            <h4 className="text-sm font-bold uppercase tracking-wider text-white mb-4">Get In Touch</h4>
+            <h4 className="text-sm font-bold uppercase tracking-wider text-white mb-3 sm:mb-4">Get In Touch</h4>
             <div className="space-y-3 text-xs text-slate-400">
               <div>
-                <strong className="text-white block">Corporate HQ:</strong>
-                <p>Plot No. 75, 3rd Floor, Bagdola, Sector-8, Dwarka, New Delhi - 110077, INDIA</p>
-                <a href="tel:+919818370497" className="text-[#fe7f25] hover:underline block mt-1 flex items-center gap-1">
-                  <Phone className="w-3 h-3 inline" /> +91 98183 70497
-                </a>
-              </div>
-              <div className="pt-2">
-                <strong className="text-white block">Gujarat Branch:</strong>
-                <p>810, Addor Aspire, Near Jahanvi Restaurant, Panjrapole Rd, Ahmedabad - 380015</p>
-                <a href="tel:+919582432850" className="text-[#0284c7] hover:underline block mt-1 flex items-center gap-1">
-                  <Phone className="w-3 h-3 inline" /> +91 95824 32850
+                <strong className="text-white block mb-1">Corporate HQ:</strong>
+                <p className="leading-relaxed">Plot No. 75, 3rd Floor, Bagdola, Sector-8, Dwarka, New Delhi - 110077, INDIA</p>
+                <a href="tel:+919818370497" className="text-[#fe7f25] hover:underline inline-flex items-center gap-1.5 mt-2 font-medium">
+                  <Phone className="w-3 h-3" /> +91 98183 70497
                 </a>
               </div>
             </div>
@@ -106,7 +102,7 @@ export default function Footer() {
         </div>
 
         {/* Bottom Copyright Bar */}
-        <div className="mt-12 pt-8 border-t border-slate-800 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-slate-500">
+        <div className="mt-8 sm:mt-12 pt-6 sm:pt-8 border-t border-slate-800 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-slate-500">
           <p>&copy; 2026 AIRWAVE GLOBAL LOGISTICS PRIVATE LIMITED. All rights reserved.</p>
           <div className="flex items-center gap-6">
             <Link href="#" className="hover:text-slate-300 transition-colors">Privacy Policy</Link>

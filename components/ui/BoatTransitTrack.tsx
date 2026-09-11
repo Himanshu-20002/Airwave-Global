@@ -3,13 +3,11 @@ import React from 'react';
 interface BoatTransitTrackProps {
   duration?: number; // duration in seconds for full crossing
   className?: string;
-  variant?: 'card' | 'minimal' | 'full-width';
 }
 
 export default function BoatTransitTrack({
-  duration = 32,
+  duration = 45,
   className = '',
-  variant = 'full-width',
 }: BoatTransitTrackProps) {
   return (
     <div

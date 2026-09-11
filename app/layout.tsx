@@ -17,6 +17,7 @@ const outfit = Outfit({
 });
 
 export const metadata: Metadata = {
+  metadataBase: new URL('https://www.airwavelogistics.com'),
   title: 'Airwave Global Logistics Private Limited | Bridging Continents, Connecting Markets',
   description: 'Airwave Global Logistics Private Limited—your trusted partner for global freight forwarding, multimodal transport, customs brokerage, and supply chain solutions.',
   keywords: [
@@ -49,6 +50,15 @@ export const metadata: Metadata = {
     title: 'Airwave Global Logistics Private Limited',
     description: 'Bridging Continents, Connecting Markets. Air & Ocean Freight, Customs, and Multimodal Supply Chain.',
     images: ['/images/airwave-logo.jpg'],
+  },
+  icons: {
+    icon: [
+      { url: '/favicon.ico', sizes: 'any' },
+      { url: '/icon.png', type: 'image/png' },
+    ],
+    apple: [
+      { url: '/apple-icon.png' },
+    ],
   },
 };
 
