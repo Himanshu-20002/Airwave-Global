@@ -91,9 +91,22 @@ export default function CoreServices() {
   const filteredServices = services.filter((s) => filter === 'all' || s.category === filter);
 
   return (
-    <section id="services-section" className="py-20 lg:py-28 bg-white relative">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        
+    <section id="services-section" className="pt-20 lg:pt-28 pb-32 sm:pb-36 lg:pb-44 bg-white relative overflow-hidden">
+      {/* 100% Seamless Wave-Curved Fade Transition into Logistics Capabilities (#071126) */}
+      <div
+        className="absolute bottom-0 left-0 right-0 h-[480px] sm:h-[600px] lg:h-[720px] pointer-events-none z-0"
+        style={{
+          background: `
+            radial-gradient(ellipse 70% 75% at 0% 100%, #071126 15%, rgba(7, 17, 38, 0.72) 42%, rgba(7, 17, 38, 0.25) 68%, transparent 92%),
+            radial-gradient(ellipse 70% 75% at 100% 100%, #071126 15%, rgba(7, 17, 38, 0.72) 42%, rgba(7, 17, 38, 0.25) 68%, transparent 92%),
+            linear-gradient(to bottom, rgba(7, 17, 38, 0) 0%, rgba(7, 17, 38, 0.08) 35%, rgba(7, 17, 38, 0.45) 65%, rgba(7, 17, 38, 0.88) 85%, #071126 100%)
+          `,
+        }}
+        aria-hidden="true"
+      />
+
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+
         <div className="text-center max-w-3xl mx-auto mb-12">
           <span className="text-xs uppercase font-extrabold tracking-widest text-[#fe7f25]">End-to-End Multimodal</span>
           <h2 className="text-3xl sm:text-4xl font-black text-slate-900 mt-2 tracking-tight uppercase font-display">
@@ -117,11 +130,10 @@ export default function CoreServices() {
               <button
                 key={tab.key}
                 onClick={() => setFilter(tab.key)}
-                className={`px-5 py-2 rounded-full text-xs font-bold transition-all ${
-                  filter === tab.key
+                className={`px-5 py-2 rounded-full text-xs font-bold transition-all ${filter === tab.key
                     ? 'bg-[#fe7f25] text-white shadow-md'
                     : 'bg-slate-100 text-slate-700 hover:bg-slate-200'
-                }`}
+                  }`}
               >
                 {tab.label}
               </button>

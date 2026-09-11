@@ -62,10 +62,13 @@ button {
 .no-scrollbar::-webkit-scrollbar {
   display: none;
 }
+
 /* Hide scrollbar for IE, Edge and Firefox */
 .no-scrollbar {
-  -ms-overflow-style: none;  /* IE and Edge */
-  scrollbar-width: none;  /* Firefox */
+  -ms-overflow-style: none;
+  /* IE and Edge */
+  scrollbar-width: none;
+  /* Firefox */
 }
 
 /* Glassmorphism Styles */
@@ -91,13 +94,11 @@ button {
   height: 2px;
   width: 140px;
   margin-top: -1px;
-  background: linear-gradient(
-    to right,
-    transparent 0%,
-    #fe7f25 35%,
-    #0284c7 70%,
-    transparent 100%
-  );
+  background: linear-gradient(to right,
+      transparent 0%,
+      #fe7f25 35%,
+      #0284c7 70%,
+      transparent 100%);
   animation: flow-pulse-across 2.8s cubic-bezier(0.4, 0, 0.2, 1) infinite;
   will-change: transform;
 }
@@ -107,12 +108,15 @@ button {
     transform: translate3d(-140px, 0, 0);
     opacity: 0;
   }
+
   15% {
     opacity: 1;
   }
+
   85% {
     opacity: 1;
   }
+
   100% {
     transform: translate3d(calc(100cqw + 140px), 0, 0);
     opacity: 0;
@@ -126,13 +130,11 @@ button {
   top: 0;
   width: 2px;
   height: 90px;
-  background: linear-gradient(
-    to bottom,
-    transparent 0%,
-    #fe7f25 35%,
-    #0284c7 70%,
-    transparent 100%
-  );
+  background: linear-gradient(to bottom,
+      transparent 0%,
+      #fe7f25 35%,
+      #0284c7 70%,
+      transparent 100%);
   animation: flow-pulse-down 2.4s cubic-bezier(0.4, 0, 0.2, 1) infinite;
   will-change: transform;
 }
@@ -142,12 +144,15 @@ button {
     transform: translate3d(0, -90px, 0);
     opacity: 0;
   }
+
   20% {
     opacity: 1;
   }
+
   80% {
     opacity: 1;
   }
+
   100% {
     transform: translate3d(0, 480px, 0);
     opacity: 0;
@@ -309,18 +314,24 @@ button {
 
 /* Ocean Wave Swells in Route Area - Lightweight GPU Opacity Breathing (No path morphing) */
 @keyframes oceanWaveSwell1 {
-  0%, 100% {
+
+  0%,
+  100% {
     opacity: 0.28;
   }
+
   50% {
     opacity: 0.40;
   }
 }
 
 @keyframes oceanWaveSwell2 {
-  0%, 100% {
+
+  0%,
+  100% {
     opacity: 0.24;
   }
+
   50% {
     opacity: 0.36;
   }
@@ -366,4 +377,21 @@ button {
 
 .animate-sea-dash {
   animation: seaDashMotion 1.8s linear infinite;
+}
+
+/* ==========================================================================
+   High-Performance CSS Optimizations (120 FPS & Core Web Vitals)
+   ========================================================================== */
+
+/* Content-visibility optimization: skips off-screen rendering until approached */
+.section-deferred {
+  content-visibility: auto;
+  contain-intrinsic-size: 1px 650px;
+}
+
+/* GPU hardware compositing layer without repaint penalty */
+.gpu-layer {
+  transform: translate3d(0, 0, 0);
+  backface-visibility: hidden;
+  perspective: 1000px;
 }

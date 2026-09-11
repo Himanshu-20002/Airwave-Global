@@ -6,8 +6,8 @@ import { ShieldCheck, Calculator, ArrowRight, Globe, ChevronLeft, ChevronRight }
 
 const slides = [
   {
-    image: '/images/banner/1.webp',
-    mobileImage: '/images/banner/1-mobile.webp',
+    image: '/images/banner/hero-1.webp',
+    mobileImage: '/images/banner/hero-1-mobile.webp',
     badge: 'Global Multimodal Freight Leader',
     headline: (
       <>
@@ -18,8 +18,8 @@ const slides = [
       'Reliable air cargo charters and cost-effective ocean freight across all global trade lanes with end-to-end milestone visibility.',
   },
   {
-    image: '/images/banner/2.webp',
-    mobileImage: '/images/banner/2-mobile.webp',
+    image: '/images/banner/hero-2.webp',
+    mobileImage: '/images/banner/hero-2-mobile.webp',
     badge: 'Premier Indian Forwarding Network',
     headline: (
       <>
@@ -32,8 +32,8 @@ const slides = [
       'Tailored multimodal transport, rapid customs clearance, and dedicated logistics frameworks for exporters and enterprises.',
   },
   {
-    image: '/images/banner/3.webp',
-    mobileImage: '/images/banner/3-mobile.webp',
+    image: '/images/banner/hero-3.webp',
+    mobileImage: '/images/banner/hero-3-mobile.webp',
     badge: 'Specialized Project & Heavy Cargo',
     headline: (
       <>
@@ -44,8 +44,8 @@ const slides = [
       'Precision engineering, turnkey heavy-lift solutions, and secure handling of mission-critical defense shipments.',
   },
   {
-    image: '/images/banner/4.webp',
-    mobileImage: '/images/banner/4-mobile.webp',
+    image: '/images/banner/hero-4.webp',
+    mobileImage: '/images/banner/hero-4-mobile.webp',
     badge: 'Cold Chain & 3PL Logistics',
     headline: (
       <>

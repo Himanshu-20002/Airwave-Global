@@ -69,6 +69,25 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" className={`scroll-smooth ${poppins.variable} ${outfit.variable}`}>
+      <head>
+        {/* Responsive LCP Preload for Instant First Hero Banner Paint */}
+        <link
+          rel="preload"
+          as="image"
+          href="/images/banner/hero-1.webp"
+          media="(min-width: 768px)"
+          fetchPriority="high"
+        />
+        <link
+          rel="preload"
+          as="image"
+          href="/images/banner/hero-1-mobile.webp"
+          media="(max-width: 767px)"
+          fetchPriority="high"
+        />
+        <link rel="dns-prefetch" href="https://maps.google.com" />
+        <link rel="dns-prefetch" href="https://www.airsurgegroup.com" />
+      </head>
       <body className="bg-slate-50 text-slate-800 antialiased selection:bg-[#fe7f25] selection:text-white font-sans">
         {children}
       </body>
