@@ -32,11 +32,10 @@ export default function FloatingActions() {
       {/* Back to top button */}
       <button
         onClick={scrollToTop}
-        className={`w-11 h-11 rounded-full bg-white/90 backdrop-blur-md border border-slate-200 text-slate-700 hover:bg-[#fe7f25] hover:text-white shadow-lg flex items-center justify-center transition-all ${
-          showBackToTop
+        className={`w-11 h-11 rounded-full bg-white/90 backdrop-blur-md border border-slate-200 text-slate-700 hover:bg-[#fe7f25] hover:text-white shadow-lg flex items-center justify-center transition-all ${showBackToTop
             ? 'opacity-100 visible translate-y-0'
             : 'opacity-0 invisible translate-y-6'
-        }`}
+          }`}
         aria-label="Back to Top"
       >
         <ChevronUp className="w-5 h-5" />

@@ -1,50 +1,81 @@
 import React from 'react';
-import { ClipboardList, FileCheck, Route, CheckCircle2 } from 'lucide-react';
+import { ClipboardList, FileCheck, Route, CheckCircle2, Check, ArrowRight } from 'lucide-react';
 
 const steps = [
   {
     step: 'Step 01',
+    stageNumber: '01',
+    stageTag: 'PHASE 01 • STRATEGY',
     icon: ClipboardList,
+    accentColor: '#fe7f25',
     gradient: 'from-[#ff8a38] via-[#fe7f25] to-[#ea580c]',
     shadow: 'shadow-orange-500/20 group-hover:shadow-orange-500/35',
     badge: 'bg-orange-50 text-[#d95b0c] border-orange-200/80',
+    hoverBorder: 'group-hover:border-orange-300/80',
+    glowColor: 'from-orange-500/10',
     title: 'Consultation & Planning',
-    desc: 'Cargo profiling, optimal routing, rate lock, and carrier space reservation.',
+    desc: 'Cargo profiling, optimal multimodal routing, upfront rate lock, and carrier space allocation.',
+    deliverables: ['Custom Route Profiling', 'Carrier Rate Lock Guarantee', 'Guaranteed Space Slot'],
   },
   {
     step: 'Step 02',
+    stageNumber: '02',
+    stageTag: 'PHASE 02 • COMPLIANCE',
     icon: FileCheck,
+    accentColor: '#0284c7',
     gradient: 'from-[#38bdf8] via-[#0284c7] to-[#0369a1]',
     shadow: 'shadow-sky-500/20 group-hover:shadow-sky-500/35',
     badge: 'bg-sky-50 text-[#0284c7] border-sky-200/80',
+    hoverBorder: 'group-hover:border-sky-300/80',
+    glowColor: 'from-sky-500/10',
     title: 'Documentation & Customs',
-    desc: 'Bill of lading, ICEGATE clearances, export filings, and tariff validation.',
+    desc: 'Direct ICEGATE 2.0 filings, bill of lading issuance, export clearance, and tariff validation.',
+    deliverables: ['Direct ICEGATE EDI Filing', 'B/L & Air Waybill Issuance', 'Zero-Detention Assurance'],
   },
   {
     step: 'Step 03',
+    stageNumber: '03',
+    stageTag: 'PHASE 03 • TELEMETRY',
     icon: Route,
+    accentColor: '#fe7f25',
     gradient: 'from-[#ff8a38] via-[#fe7f25] to-[#ea580c]',
     shadow: 'shadow-orange-500/20 group-hover:shadow-orange-500/35',
     badge: 'bg-orange-50 text-[#d95b0c] border-orange-200/80',
+    hoverBorder: 'group-hover:border-orange-300/80',
+    glowColor: 'from-orange-500/10',
     title: 'Transit & Live Tracking',
-    desc: 'Multimodal freight coordination with 24/7 telematics live milestone tracking.',
+    desc: 'Multimodal freight coordination with 24/7 telematics, live GPS/AIS pings, and milestone logs.',
+    deliverables: ['24/7 Live GPS & AIS Vessel', 'Automated Milestone Alerts', 'Active Exception Protocol'],
   },
   {
     step: 'Step 04',
+    stageNumber: '04',
+    stageTag: 'PHASE 04 • CLOSURE',
     icon: CheckCircle2,
+    accentColor: '#0284c7',
     gradient: 'from-[#38bdf8] via-[#0284c7] to-[#0369a1]',
     shadow: 'shadow-sky-500/20 group-hover:shadow-sky-500/35',
     badge: 'bg-sky-50 text-[#0284c7] border-sky-200/80',
+    hoverBorder: 'group-hover:border-sky-300/80',
+    glowColor: 'from-sky-500/10',
     title: 'Final Delivery & POD',
-    desc: 'Doorstep offloading, electronic proof-of-delivery, and post-shipment review.',
+    desc: 'Final-mile doorstep offloading, electronic proof-of-delivery (e-POD), and duty reconciliation.',
+    deliverables: ['Electronic POD Sign-Off', 'Duty Reconciliation Invoice', 'Post-Shipment Performance'],
   },
 ];
 
 export default function ProcessPipeline() {
   return (
-    <section id="process-section" className="py-16 sm:py-20 lg:py-24 bg-gradient-to-b from-white via-slate-50/50 to-white relative overflow-hidden">
-      {/* Soft ambient backlight */}
-      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[900px] h-[300px] bg-sky-500/5 blur-[120px] rounded-full pointer-events-none" />
+    <section id="process-section" className="py-16 sm:py-20 lg:py-24 bg-gradient-to-b from-white via-slate-50/70 to-white relative overflow-hidden">
+      {/* Modern SaaS Geometric Precision Grid with Radial Vignette */}
+      <div
+        className="absolute inset-0 bg-[linear-gradient(to_right,#e2e8f0_1px,transparent_1px),linear-gradient(to_bottom,#e2e8f0_1px,transparent_1px)] bg-[size:40px_40px] [mask-image:radial-gradient(ellipse_80%_65%_at_50%_50%,#000_40%,transparent_100%)] opacity-70 pointer-events-none"
+        aria-hidden="true"
+      />
+
+      {/* High-Tech SaaS Ambient Color Blooms */}
+      <div className="absolute top-1/4 left-1/5 w-[500px] h-[350px] bg-orange-500/[0.05] blur-[120px] rounded-full pointer-events-none" />
+      <div className="absolute bottom-1/4 right-1/5 w-[500px] h-[350px] bg-sky-500/[0.06] blur-[120px] rounded-full pointer-events-none" />
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         
@@ -60,55 +91,88 @@ export default function ProcessPipeline() {
           </p>
         </div>
 
-        <div className="hidden md:block relative py-6">
-          {/* Horizontal Dotted Connecting Line (Matching mobile dotted flow style) */}
-          <div
-            className="absolute left-[12.5%] right-[12.5%] top-[72px] -translate-y-1/2 z-0 pointer-events-none overflow-hidden h-6 flex items-center"
-            style={{ containerType: 'inline-size' }}
-          >
-            <svg className="w-full h-2 overflow-visible" xmlns="http://www.w3.org/2000/svg">
-              <line
-                x1="0"
-                y1="50%"
-                x2="100%"
-                y2="50%"
-                stroke="#cbd5e1"
-                strokeWidth="2"
-                strokeDasharray="6 8"
-                strokeLinecap="round"
-              />
-            </svg>
-            <div className="desktop-flow-pulse" />
+        {/* ================= REIMAGINED DESKTOP VIEW (High-End Stage Architecture) ================= */}
+        <div className="hidden md:block relative">
+          {/* Top Corridor Telemetry Rail */}
+          <div className="mb-8 flex items-center justify-between px-3 py-2 bg-slate-100/80 rounded-2xl border border-slate-200/80 text-[11px] font-mono font-bold text-slate-500 uppercase tracking-widest">
+            <div className="flex items-center gap-2 text-slate-700">
+              <span className="w-2 h-2 rounded-full bg-[#fe7f25] animate-pulse" />
+              <span>CARGO ORIGIN // CONSIGNOR HANDOVER</span>
+            </div>
+            <div className="flex items-center gap-4 text-slate-400">
+              <span className="hidden lg:inline">PRECISION MILESTONE TRACKING ACTIVE</span>
+              <ArrowRight className="w-3.5 h-3.5 text-[#fe7f25]" />
+            </div>
+            <div className="flex items-center gap-2 text-slate-700">
+              <span className="w-2 h-2 rounded-full bg-[#0284c7] animate-pulse" />
+              <span>FINAL CONSIGNEE // DISCHARGE COMPLETED</span>
+            </div>
           </div>
 
-          <div className="grid grid-cols-4 gap-6 relative z-10">
+          {/* 4 Execution Stage Cards */}
+          <div className="grid grid-cols-2 lg:grid-cols-4 gap-5 lg:gap-6 relative">
             {steps.map((item, idx) => {
               const Icon = item.icon;
               return (
-                <div key={idx} className="flex flex-col items-center text-center group cursor-default">
-                  {/* Layered Luxury Tactile Squircle Node */}
-                  <div className="relative">
-                    <div className="w-24 h-24 rounded-3xl p-1.5 bg-white border border-slate-200/90 shadow-[0_10px_25px_-5px_rgba(0,0,0,0.08)] group-hover:shadow-[0_20px_35px_-8px_rgba(0,0,0,0.14)] transition-all duration-300 group-hover:-translate-y-1.5">
-                      <div
-                        className={`w-full h-full rounded-2xl bg-gradient-to-br ${item.gradient} flex items-center justify-center text-white shadow-md ${item.shadow} transition-all duration-300 group-hover:scale-[1.02]`}
-                      >
-                        <Icon className="w-9 h-9 stroke-[1.8] drop-shadow-sm" />
+                <div
+                  key={idx}
+                  className={`bg-white rounded-3xl p-6 border border-slate-200/90 shadow-[0_4px_20px_-4px_rgba(11,27,61,0.05)] hover:shadow-[0_20px_45px_-10px_rgba(11,27,61,0.13)] ${item.hoverBorder} hover:-translate-y-2 transition-all duration-300 flex flex-col justify-between relative overflow-hidden group cursor-default`}
+                >
+                  {/* Subtle top ambient color wash on hover */}
+                  <div className={`absolute top-0 left-0 right-0 h-28 bg-gradient-to-b ${item.glowColor} to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none`} />
+
+                  {/* Card Header Row */}
+                  <div>
+                    <div className="flex items-center justify-between mb-5 relative z-10">
+                      {/* Icon squircle with gradient aura */}
+                      <div className="relative">
+                        <div
+                          className={`w-14 h-14 rounded-2xl bg-gradient-to-br ${item.gradient} flex items-center justify-center text-white shadow-md ${item.shadow} group-hover:scale-105 transition-transform duration-300`}
+                        >
+                          <Icon className="w-7 h-7 stroke-[1.9] drop-shadow-sm" />
+                        </div>
                       </div>
+
+                      {/* Giant subtle stage number watermark */}
+                      <span className="text-3xl lg:text-4xl font-black font-mono tracking-tighter text-slate-200 group-hover:text-slate-300 transition-colors select-none">
+                        {item.stageNumber}
+                      </span>
+                    </div>
+
+                    {/* Step Phase Badge */}
+                    <div className="mb-2.5">
+                      <span className={`inline-block px-2.5 py-0.5 rounded-full border ${item.badge} text-[10px] font-extrabold uppercase tracking-wider`}>
+                        {item.stageTag}
+                      </span>
+                    </div>
+
+                    {/* Stage Title */}
+                    <h3 className="text-lg font-bold text-slate-900 tracking-tight group-hover:text-[#fe7f25] transition-colors duration-200 mb-2">
+                      {item.title}
+                    </h3>
+
+                    {/* Description */}
+                    <p className="text-xs text-slate-500 leading-relaxed min-h-[48px]">
+                      {item.desc}
+                    </p>
+                  </div>
+
+                  {/* Operational Deliverables Checklist */}
+                  <div className="mt-5 pt-4 border-t border-slate-100 relative z-10">
+                    <div className="space-y-1.5">
+                      {item.deliverables.map((del, dIdx) => (
+                        <div key={dIdx} className="flex items-center gap-2 text-[11px] font-medium text-slate-600">
+                          <div className="w-3.5 h-3.5 rounded-full bg-emerald-50 text-emerald-600 flex items-center justify-center shrink-0 border border-emerald-200/60">
+                            <Check className="w-2.5 h-2.5 stroke-[2.5]" />
+                          </div>
+                          <span className="truncate">{del}</span>
+                        </div>
+                      ))}
                     </div>
                   </div>
 
-                  {/* Clean Step Badge */}
-                  <span className={`mt-5 px-3 py-0.5 rounded-full border ${item.badge} text-[11px] font-bold tracking-wider uppercase shadow-xs`}>
-                    {item.step}
-                  </span>
-
-                  {/* Title & Description */}
-                  <h3 className="text-base font-bold text-slate-900 mt-2.5 tracking-tight group-hover:text-[#fe7f25] transition-colors duration-200">
-                    {item.title}
-                  </h3>
-                  <p className="text-xs text-slate-500 mt-1.5 leading-relaxed max-w-[210px]">
-                    {item.desc}
-                  </p>
+                  {/* Subtle bottom animated accent bar */}
+                  <div className={`absolute bottom-0 left-0 right-0 h-1 bg-gradient-to-r ${item.gradient} opacity-0 group-hover:opacity-100 transition-opacity duration-300`} />
                 </div>
               );
             })}
