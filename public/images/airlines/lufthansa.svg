@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 52" fill="none">
+  <!-- Lufthansa Crane in Circle -->
+  <g transform="translate(10, 8)">
+    <circle cx="18" cy="18" r="16" fill="#05164D" />
+    <!-- Stylized Crane Silhouette -->
+    <path d="M10 22 C13 18, 17 14, 25 11 C28 10, 30 11, 28 13 C23 15, 17 21, 15 26 L12 25 Z" fill="#FFFFFF" />
+    <path d="M13 23 C17 20, 22 18, 27 17 C26 19, 21 23, 17 26 Z" fill="#FFFFFF" />
+    <path d="M22 13 C24 11, 27 10, 29 11 C30 12, 28 13, 26 14 Z" fill="#FFC300" />
+  </g>
+  <!-- Lufthansa Wordmark -->
+  <text x="54" y="27" font-family="Helvetica, Arial, sans-serif" font-size="16" font-weight="800" fill="#05164D" letter-spacing="-0.3">Lufthansa</text>
+  <text x="55" y="38" font-family="system-ui, sans-serif" font-size="8" font-weight="700" fill="#71717A" letter-spacing="2">CARGO</text>
+</svg>

@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 52" fill="none">
+  <!-- Qatar Airways Oryx & Text -->
+  <g transform="translate(14, 8)">
+    <circle cx="18" cy="18" r="16" fill="#5C0632" />
+    <!-- Oryx Horns and Face -->
+    <path d="M14 26 C15 22, 17 17, 24 10 L25 11 C20 17, 18 22, 18 26 Z" fill="#FFFFFF" />
+    <path d="M17 26 C18 20, 21 14, 28 8 L29 9 C23 15, 20 21, 20 26 Z" fill="#FFFFFF" />
+    <path d="M12 25 Q17 25 17 29 Q12 29 12 25" fill="#FFFFFF" />
+    <text x="44" y="21" font-family="system-ui, -apple-system, sans-serif" font-size="15" font-weight="900" fill="#5C0632" letter-spacing="1">QATAR</text>
+    <text x="44" y="32" font-family="system-ui, sans-serif" font-size="7.5" font-weight="700" fill="#5C0632" letter-spacing="2.5">AIRWAYS CARGO</text>
+  </g>
+</svg>

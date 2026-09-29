@@ -18,7 +18,7 @@ export default function Marquee({
   pauseOnHover = true,
   duration = '32s',
   gap = '1.5rem',
-  repeat = 4,
+  repeat = 2,
   fadeEdges = true,
 }: MarqueeProps) {
   return (

@@ -1,7 +1,7 @@
 import React from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
-import { Phone, Instagram } from 'lucide-react';
+import { Phone, Mail, Instagram } from 'lucide-react';
 import WhatsAppIcon from '../icons/WhatsAppIcon';
 
 export default function Footer() {
@@ -44,7 +44,7 @@ export default function Footer() {
                 <Instagram className="w-4 h-4" />
               </a>
               <a
-                href="https://wa.me/919800000000"
+                href="https://wa.me/918368262026"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="w-9 h-9 rounded-lg bg-slate-800 hover:bg-[#25D366] flex items-center justify-center text-slate-300 hover:text-white transition-all group"
@@ -92,9 +92,14 @@ export default function Footer() {
               <div>
                 <strong className="text-white block mb-1">Corporate HQ:</strong>
                 <p className="leading-relaxed">Plot No. 123, 4th Floor, Sample Business Park, New Delhi - 110001, INDIA</p>
-                <a href="tel:+919800000000" className="text-[#fe7f25] hover:underline inline-flex items-center gap-1.5 mt-2 font-medium">
-                  <Phone className="w-3 h-3" /> +91 98000 00000
-                </a>
+                <div className="mt-2 space-y-1.5">
+                  <a href="tel:+918368262026" className="text-[#fe7f25] hover:underline inline-flex items-center gap-1.5 font-medium block">
+                    <Phone className="w-3 h-3" /> +91 83682 62026
+                  </a>
+                  <a href="mailto:info@airwaveglobal.in" className="text-slate-300 hover:text-[#fe7f25] inline-flex items-center gap-1.5 font-medium block transition-colors">
+                    <Mail className="w-3 h-3 text-[#fe7f25]" /> info@airwaveglobal.in
+                  </a>
+                </div>
               </div>
             </div>
           </div>
@@ -105,9 +110,8 @@ export default function Footer() {
         <div className="mt-8 sm:mt-12 pt-6 sm:pt-8 border-t border-slate-800 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-slate-500">
           <p>&copy; 2026 AIRWAVE GLOBAL LOGISTICS PRIVATE LIMITED. All rights reserved.</p>
           <div className="flex items-center gap-6">
-            <Link href="#" className="hover:text-slate-300 transition-colors">Privacy Policy</Link>
-            <Link href="#" className="hover:text-slate-300 transition-colors">Terms of Service</Link>
-            <Link href="#" className="hover:text-slate-300 transition-colors">Security</Link>
+            <Link href="/privacy-policy" className="hover:text-slate-300 transition-colors">Privacy Policy</Link>
+            <Link href="/terms-and-conditions" className="hover:text-slate-300 transition-colors">Terms and Conditions</Link>
           </div>
         </div>
       </div>

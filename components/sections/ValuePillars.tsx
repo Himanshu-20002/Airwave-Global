@@ -1,5 +1,5 @@
 import React from 'react';
-import { UserCheck, Globe, ShieldCheck, Sliders, Headset, ArrowRight } from 'lucide-react';
+import { UserCheck, Route, ShieldCheck, Sliders, Headset, ArrowRight } from 'lucide-react';
 import BoatTransitTrack from '@/components/ui/BoatTransitTrack';
 
 const pillars = [
@@ -13,13 +13,13 @@ const pillars = [
     tag: 'Domain Mastery',
   },
   {
-    icon: Globe,
+    icon: Route,
     color: 'bg-blue-100 text-[#0284c7]',
     hoverBg: 'group-hover:bg-[#0284c7]',
     textColor: 'text-[#0284c7]',
-    title: 'Global Partnerships',
-    desc: 'Robust carrier space allocations with major airlines and shipping lines across 150+ international trade ports.',
-    tag: 'Worldwide Network',
+    title: 'Multimodal Freight',
+    desc: 'Seamless integration across air, ocean, and surface networks engineered for optimal routing, speed, and cost efficiency.',
+    tag: 'Air • Ocean • Land',
   },
   {
     icon: ShieldCheck,
@@ -54,7 +54,7 @@ export default function ValuePillars() {
   return (
     <section id="about-section" className="pt-20 lg:pt-28 pb-0 bg-slate-50 relative overflow-hidden flex flex-col justify-between">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 w-full">
-        
+
         <div className="max-w-3xl mx-auto text-center mb-16">
           <span className="text-xs uppercase font-extrabold tracking-widest text-[#fe7f25]">Enterprise Reliability</span>
           <h2 className="text-3xl sm:text-4xl font-black text-slate-900 mt-2 tracking-tight uppercase font-display">

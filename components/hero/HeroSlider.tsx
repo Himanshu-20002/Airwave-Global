@@ -65,7 +65,7 @@ export default function HeroSlider() {
     // Mount secondary slides after initial render to keep LCP instant
     const slidePreloadTimer = setTimeout(() => {
       setMountedRemainingSlides(true);
-    }, 1000);
+    }, 1500);
 
     const timer = setInterval(() => {
       setMountedRemainingSlides(true);
@@ -76,7 +76,7 @@ export default function HeroSlider() {
       clearTimeout(slidePreloadTimer);
       clearInterval(timer);
     };
-  }, [currentSlide]);
+  }, []);
 
   const goToSlide = (idx: number) => {
     setMountedRemainingSlides(true);
@@ -98,14 +98,16 @@ export default function HeroSlider() {
               }`}
           >
             <picture className="w-full h-full block">
-              <source srcSet={slide.mobileImage} media="(max-width: 767px)" />
+              <source srcSet={slide.mobileImage} media="(max-width: 767px)" width={767} height={520} />
               <img
                 src={slide.image}
                 alt="Airwave Global Logistics Hero Banner"
                 className="w-full h-full object-cover object-center"
                 loading={index === 0 ? 'eager' : 'lazy'}
                 fetchPriority={index === 0 ? 'high' : 'low'}
-                decoding={index === 0 ? 'sync' : 'async'}
+                decoding="async"
+                width={1920}
+                height={620}
               />
             </picture>
             {/* Dark cinematic gradient: vertical on mobile for high text contrast; horizontal on desktop */}

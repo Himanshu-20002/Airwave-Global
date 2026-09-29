@@ -3,37 +3,17 @@
 import React, { useState } from 'react';
 import Link from 'next/link';
 import {
-  Navigation2,
   Box,
   PhoneCall,
-  Barcode,
-  Search,
-  CheckCircle2,
-  X,
-  ShieldCheck,
   Check,
   Plane,
   Ship,
   ArrowRight,
   Zap,
-  Globe2,
 } from 'lucide-react';
 
 export default function QuickLogisticsHub() {
-  const [activeTab, setActiveTab] = useState<'tracking' | 'cbm' | 'callback'>('tracking');
-
-  // --- Tracking State ---
-  const [trackingId, setTrackingId] = useState('AWG-9104-DEL');
-  const [isModalOpen, setIsModalOpen] = useState(false);
-  const [searchedId, setSearchedId] = useState('');
-  const sampleTrackingIds = ['AWG-9104-DEL', 'OCN-4482-BOM', 'EXP-1092-DXB'];
-
-  const handleSearch = (e: React.FormEvent) => {
-    e.preventDefault();
-    const query = trackingId.trim() || 'AWG-8942-IN';
-    setSearchedId(query.toUpperCase());
-    setIsModalOpen(true);
-  };
+  const [activeTab, setActiveTab] = useState<'cbm' | 'callback'>('cbm');
 
   // --- CBM Calculator State ---
   const [mode, setMode] = useState<'air' | 'ocean'>('air');
@@ -108,24 +88,12 @@ export default function QuickLogisticsHub() {
               Smart Freight &amp; <span className="bg-gradient-to-r from-[#fe7f25] to-[#ea580c] bg-clip-text text-transparent">Operations Hub</span>
             </h2>
             <p className="text-slate-600 text-sm sm:text-base leading-relaxed">
-              Real-time milestone visibility, volumetric CBM cargo estimation, and instant senior logistics dispatch.
+              Volumetric CBM cargo estimation and instant senior logistics dispatch.
             </p>
           </div>
 
           {/* SaaS Segmented Navigation Pill Tabs */}
           <div className="inline-flex p-1.5 rounded-2xl bg-slate-100/90 border border-slate-200/90 shadow-sm backdrop-blur-md self-start lg:self-auto">
-            <button
-              onClick={() => setActiveTab('tracking')}
-              className={`px-4 sm:px-5 py-2.5 rounded-xl text-xs sm:text-sm font-bold transition-all flex items-center gap-2 ${
-                activeTab === 'tracking'
-                  ? 'bg-white text-slate-900 shadow-[0_2px_8px_rgba(0,0,0,0.08)] border border-slate-200/60'
-                  : 'text-slate-600 hover:text-slate-900 hover:bg-white/50'
-              }`}
-            >
-              <Navigation2 className={`w-4 h-4 ${activeTab === 'tracking' ? 'text-[#fe7f25]' : 'text-slate-400'}`} />
-              <span>Track Shipment</span>
-            </button>
-
             <button
               onClick={() => setActiveTab('cbm')}
               className={`px-4 sm:px-5 py-2.5 rounded-xl text-xs sm:text-sm font-bold transition-all flex items-center gap-2 ${
@@ -151,87 +119,6 @@ export default function QuickLogisticsHub() {
             </button>
           </div>
         </div>
-
-        {/* Tab 1: Horizontal SaaS Live Shipment Tracking */}
-        {activeTab === 'tracking' && (
-          <div className="animate-fade-in">
-            <div className="bg-white rounded-[28px] border border-slate-200/90 shadow-[0_15px_40px_-15px_rgba(15,23,42,0.08),0_0_1px_1px_rgba(0,0,0,0.02)] p-6 sm:p-9">
-              <form onSubmit={handleSearch} className="grid grid-cols-1 lg:grid-cols-12 gap-5 items-center">
-                
-                {/* Left Prompt */}
-                <div className="lg:col-span-3 space-y-1">
-                  <div className="flex items-center gap-2">
-                    <span className="w-2 h-2 rounded-full bg-emerald-500" />
-                    <span className="text-xs font-bold uppercase tracking-wider text-slate-900">
-                      Consignment Search
-                    </span>
-                  </div>
-                  <p className="text-xs text-slate-500 leading-relaxed">
-                    Query by Air Waybill (AWB), Ocean Container, or Airwave Ref ID.
-                  </p>
-                </div>
-
-                {/* Input Field (SaaS Style) */}
-                <div className="lg:col-span-6 relative">
-                  <div className="absolute left-4 top-1/2 -translate-y-1/2 w-8 h-8 rounded-lg bg-slate-100 flex items-center justify-center text-slate-500 border border-slate-200">
-                    <Barcode className="w-4 h-4" />
-                  </div>
-                  <input
-                    type="text"
-                    value={trackingId}
-                    onChange={(e) => setTrackingId(e.target.value)}
-                    placeholder="e.g. AWG-9104-DEL, MAEU1092837, or AWB 176-589"
-                    className="w-full bg-slate-50/70 border border-slate-200/90 hover:border-slate-300 focus:bg-white focus:border-[#fe7f25] focus:ring-4 focus:ring-orange-500/10 rounded-2xl pl-14 pr-4 py-4 text-sm font-semibold text-slate-900 placeholder-slate-400 transition-all shadow-inner outline-none"
-                  />
-                </div>
-
-                {/* Submit CTA */}
-                <div className="lg:col-span-3">
-                  <button
-                    type="submit"
-                    className="btn-shimmer w-full py-4 bg-gradient-to-r from-[#fe7f25] to-[#f76707] hover:from-[#e0650d] hover:to-[#ea580c] text-white font-extrabold rounded-2xl text-sm transition-all shadow-[0_6px_20px_rgba(254,127,37,0.35)] hover:shadow-[0_8px_25px_rgba(254,127,37,0.45)] active:scale-[0.99] flex items-center justify-center gap-2"
-                  >
-                    <Search className="w-4 h-4" />
-                    <span>Track Status Now</span>
-                  </button>
-                </div>
-
-              </form>
-
-              {/* Sub-bar: Quick Sample Chips & Live Accreditations */}
-              <div className="flex flex-wrap items-center justify-between gap-4 mt-6 pt-5 border-t border-slate-100">
-                <div className="flex flex-wrap items-center gap-2">
-                  <span className="text-[11px] uppercase font-bold text-slate-400">Quick Samples:</span>
-                  {sampleTrackingIds.map((id) => (
-                    <button
-                      key={id}
-                      type="button"
-                      onClick={() => setTrackingId(id)}
-                      className={`px-3 py-1.5 rounded-xl text-xs font-semibold transition-all border ${
-                        trackingId === id
-                          ? 'bg-orange-50 border-orange-300 text-[#fe7f25] shadow-xs'
-                          : 'bg-slate-50 border-slate-200 text-slate-600 hover:bg-slate-100 hover:text-slate-900'
-                      }`}
-                    >
-                      {id}
-                    </button>
-                  ))}
-                </div>
-
-                <div className="flex items-center gap-4 text-xs font-medium">
-                  <span className="inline-flex items-center gap-1.5 text-emerald-700 bg-emerald-50 border border-emerald-200/80 px-3 py-1 rounded-full">
-                    <ShieldCheck className="w-3.5 h-3.5 text-emerald-600" />
-                    <span>Customs Live Gateway</span>
-                  </span>
-                  <span className="inline-flex items-center gap-1.5 text-blue-700 bg-blue-50 border border-blue-200/80 px-3 py-1 rounded-full hidden sm:inline-flex">
-                    <Globe2 className="w-3.5 h-3.5 text-blue-600" />
-                    <span>Multi-Carrier GPS Feed</span>
-                  </span>
-                </div>
-              </div>
-            </div>
-          </div>
-        )}
 
         {/* Tab 2: Horizontal SaaS CBM & Freight Rate Calculator */}
         {activeTab === 'cbm' && (
@@ -426,7 +313,7 @@ export default function QuickLogisticsHub() {
                       required
                       value={phone}
                       onChange={(e) => setPhone(e.target.value)}
-                      placeholder="e.g. +91 98000 00000"
+                      placeholder="e.g. +91 83682 62026"
                       className="w-full bg-slate-50 border border-slate-200/90 hover:border-slate-300 focus:bg-white focus:border-[#fe7f25] focus:ring-4 focus:ring-orange-500/10 rounded-xl px-4 py-3 text-sm font-medium text-slate-900 placeholder-slate-400 outline-none transition-all shadow-xs"
                     />
                   </div>
@@ -466,79 +353,6 @@ export default function QuickLogisticsHub() {
         )}
 
       </div>
-
-      {/* Clean SaaS Modal Popup for Tracking Details */}
-      {isModalOpen && (
-        <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-slate-950/60 backdrop-blur-md animate-fade-in">
-          <div className="bg-white border border-slate-200 rounded-3xl p-6 sm:p-8 max-w-lg w-full text-slate-900 shadow-2xl relative animate-fade-in">
-            <button
-              onClick={() => setIsModalOpen(false)}
-              className="absolute top-5 right-5 w-8 h-8 rounded-full bg-slate-100 text-slate-400 hover:text-slate-800 hover:bg-slate-200 flex items-center justify-center transition-colors"
-            >
-              <X className="w-4 h-4" />
-            </button>
-
-            <div className="flex items-center gap-2 text-xs font-bold text-[#fe7f25] uppercase tracking-wider mb-1">
-              <span className="w-2 h-2 rounded-full bg-emerald-500 pulse-dot" />
-              <span>Verified Live Consignment</span>
-            </div>
-            <h4 className="text-2xl font-black text-slate-900 mb-4">{searchedId}</h4>
-
-            <div className="grid grid-cols-2 gap-3 text-xs mb-5">
-              <div className="bg-slate-50 p-3.5 rounded-xl border border-slate-200/80">
-                <span className="text-slate-400 block text-[10px] uppercase font-bold">Origin Port</span>
-                <strong className="text-slate-800 text-sm">INNSA (Nhava Sheva)</strong>
-              </div>
-              <div className="bg-slate-50 p-3.5 rounded-xl border border-slate-200/80">
-                <span className="text-slate-400 block text-[10px] uppercase font-bold">Destination</span>
-                <strong className="text-slate-800 text-sm">DXB (Jebel Ali, UAE)</strong>
-              </div>
-              <div className="bg-slate-50 p-3.5 rounded-xl border border-slate-200/80">
-                <span className="text-slate-400 block text-[10px] uppercase font-bold">Carrier &amp; Vessel</span>
-                <strong className="text-slate-800">Maersk (Voyage 42E)</strong>
-              </div>
-              <div className="bg-slate-50 p-3.5 rounded-xl border border-slate-200/80">
-                <span className="text-slate-400 block text-[10px] uppercase font-bold">Status / ETA</span>
-                <strong className="text-emerald-600">In Transit • On Schedule</strong>
-              </div>
-            </div>
-
-            {/* Tracking Milestones */}
-            <div className="space-y-3.5 relative before:absolute before:left-3 before:top-2 before:bottom-2 before:w-0.5 before:bg-slate-200">
-              <div className="flex items-start gap-3 relative z-10">
-                <CheckCircle2 className="w-5 h-5 text-emerald-500 bg-white rounded-full shrink-0" />
-                <div>
-                  <p className="text-xs font-bold text-slate-900">Customs Clearance Export Passed</p>
-                  <span className="text-[11px] text-slate-500">06 Sep 2026, 11:30 IST • Nhava Sheva Terminal</span>
-                </div>
-              </div>
-              <div className="flex items-start gap-3 relative z-10">
-                <CheckCircle2 className="w-5 h-5 text-emerald-500 bg-white rounded-full shrink-0" />
-                <div>
-                  <p className="text-xs font-bold text-slate-900">Vessel Departed Port of Loading</p>
-                  <span className="text-[11px] text-slate-500">07 Sep 2026, 04:15 IST • High Seas Corridor</span>
-                </div>
-              </div>
-              <div className="flex items-start gap-3 relative z-10">
-                <span className="w-5 h-5 rounded-full bg-[#fe7f25] text-white flex items-center justify-center text-[10px] font-bold shrink-0">
-                  ●
-                </span>
-                <div>
-                  <p className="text-xs font-bold text-[#fe7f25]">Arriving at Destination Anchorage</p>
-                  <span className="text-[11px] text-slate-500">Cruising at 18.2 knots • Est. Arrival Tomorrow</span>
-                </div>
-              </div>
-            </div>
-
-            <button
-              onClick={() => setIsModalOpen(false)}
-              className="mt-6 w-full py-3.5 bg-slate-900 hover:bg-slate-800 text-white text-xs font-bold rounded-xl transition-all shadow-md"
-            >
-              Close Details
-            </button>
-          </div>
-        </div>
-      )}
     </section>
   );
 }

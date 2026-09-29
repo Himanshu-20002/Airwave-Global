@@ -3,39 +3,48 @@
 import React, { useEffect, useState, useRef } from 'react';
 
 export default function MetricCounters() {
-  const [counts, setCounts] = useState({ ports: 150, teu: 25000, onTime: 99.4 });
-  const [hasAnimated, setHasAnimated] = useState(false);
   const sectionRef = useRef<HTMLDivElement>(null);
+  const portsRef = useRef<HTMLSpanElement>(null);
+  const teuRef = useRef<HTMLSpanElement>(null);
+  const onTimeRef = useRef<HTMLSpanElement>(null);
+  const animatedRef = useRef(false);
 
   useEffect(() => {
     const observer = new IntersectionObserver(
       (entries) => {
-        if (entries[0].isIntersecting && !hasAnimated) {
-          setHasAnimated(true);
+        if (entries[0].isIntersecting && !animatedRef.current) {
+          animatedRef.current = true;
 
-          // Animate numbers from 0
-          const duration = 1800;
-          const steps = 40;
-          const stepTime = duration / steps;
-          let currentStep = 0;
+          const duration = 1400; // ms
+          const startTime = performance.now();
 
-          const timer = setInterval(() => {
-            currentStep++;
-            const progress = currentStep / steps;
-            setCounts({
-              ports: Math.floor(150 * progress),
-              teu: Math.floor(25000 * progress),
-              onTime: parseFloat((99.4 * progress).toFixed(1)),
-            });
+          const animate = (currentTime: number) => {
+            const elapsed = currentTime - startTime;
+            const progress = Math.min(elapsed / duration, 1);
+            // Ease out cubic: 1 - Math.pow(1 - progress, 3)
+            const ease = 1 - Math.pow(1 - progress, 3);
 
-            if (currentStep >= steps) {
-              clearInterval(timer);
-              setCounts({ ports: 150, teu: 25000, onTime: 99.4 });
+            const portsVal = Math.floor(150 * ease);
+            const teuVal = Math.floor(25000 * ease);
+            const onTimeVal = (99.4 * ease).toFixed(1);
+
+            if (portsRef.current) portsRef.current.textContent = `${portsVal}+`;
+            if (teuRef.current) teuRef.current.textContent = `${teuVal.toLocaleString()}+`;
+            if (onTimeRef.current) onTimeRef.current.textContent = `${onTimeVal}%`;
+
+            if (progress < 1) {
+              requestAnimationFrame(animate);
+            } else {
+              if (portsRef.current) portsRef.current.textContent = '150+';
+              if (teuRef.current) teuRef.current.textContent = '25,000+';
+              if (onTimeRef.current) onTimeRef.current.textContent = '99.4%';
             }
-          }, stepTime);
+          };
+
+          requestAnimationFrame(animate);
         }
       },
-      { threshold: 0.2 }
+      { threshold: 0.15 }
     );
 
     if (sectionRef.current) {
@@ -43,7 +52,7 @@ export default function MetricCounters() {
     }
 
     return () => observer.disconnect();
-  }, [hasAnimated]);
+  }, []);
 
   return (
     <section ref={sectionRef} className="py-10 bg-white border-b border-slate-200/80 shadow-sm relative z-20">
@@ -53,19 +62,19 @@ export default function MetricCounters() {
           <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-5 h-5 bg-white rounded-full z-10 md:hidden pointer-events-none" />
           <div className="p-4 sm:p-5 border-r border-b md:border-r-0 md:border-b-0 border-dotted border-slate-200">
             <div className="text-3xl lg:text-4xl font-black text-slate-900 font-display">
-              {counts.ports}+
+              <span ref={portsRef}>150+</span>
             </div>
             <p className="text-xs uppercase font-bold tracking-wider text-slate-400 mt-1">Global Trade Ports</p>
           </div>
           <div className="p-4 sm:p-5 border-b md:border-b-0 border-dotted border-slate-200">
             <div className="text-3xl lg:text-4xl font-black text-[#fe7f25] font-display">
-              {counts.teu.toLocaleString()}+
+              <span ref={teuRef}>25,000+</span>
             </div>
             <p className="text-xs uppercase font-bold tracking-wider text-slate-400 mt-1">TEU Containers Moved</p>
           </div>
           <div className="p-4 sm:p-5 border-r md:border-r-0 border-dotted border-slate-200">
             <div className="text-3xl lg:text-4xl font-black text-[#0284c7] font-display">
-              {counts.onTime}%
+              <span ref={onTimeRef}>99.4%</span>
             </div>
             <p className="text-xs uppercase font-bold tracking-wider text-slate-400 mt-1">On-Time Execution</p>
           </div>

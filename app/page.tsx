@@ -18,7 +18,6 @@ const IndustriesGrid = dynamic(() => import('@/components/sections/IndustriesGri
 const BrandMarquee = dynamic(() => import('@/components/sections/BrandMarquee'));
 const ProcessPipeline = dynamic(() => import('@/components/sections/ProcessPipeline'));
 const ValueAddedServices = dynamic(() => import('@/components/sections/ValueAddedServices'));
-const NetworkMap = dynamic(() => import('@/components/sections/NetworkMap'));
 const LatestInsights = dynamic(() => import('@/components/sections/LatestInsights'));
 const FloatingActions = dynamic(() => import('@/components/ui/FloatingActions'), { ssr: false });
 
@@ -34,9 +33,9 @@ export default function Home() {
         <QuickLogisticsHub />
 
         {/* High-Priority Immediate Scroll Sections */}
-        <Accreditations />
         <ValuePillars />
         <CoreServices />
+
 
         {/* Deferred Deep Sections (Content-Visibility Accelerated for 120 FPS) */}
         <div className="section-deferred">
@@ -54,9 +53,9 @@ export default function Home() {
         <div className="section-deferred">
           <ValueAddedServices />
         </div>
-        <div className="section-deferred">
-          <NetworkMap />
-        </div>
+
+        <Accreditations />
+
         <div className="section-deferred">
           <LatestInsights />
         </div>

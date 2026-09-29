@@ -17,7 +17,7 @@ export default function PartnerCard({
 }: PartnerCardProps) {
   const sizeClasses =
     size === 'md'
-      ? 'h-16 w-36 px-4 py-2.5'
+      ? 'h-16 w-44 px-4 py-2.5'
       : 'h-14 w-32 px-4 py-2';
 
   const hoverClasses =

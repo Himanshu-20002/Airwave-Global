@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 52" fill="none">
+  <!-- British Airways Speedmarque & Text -->
+  <g transform="translate(10, 8)">
+    <!-- Speedmarque Ribbon -->
+    <path d="M4 14 C12 11, 20 12, 28 17 L24 20 C18 16, 12 15, 6 17 Z" fill="#0B2046" />
+    <path d="M22 17 C26 19, 31 23, 36 29 L32 30 C27 25, 23 21, 19 19 Z" fill="#EB2226" />
+    <text x="42" y="20" font-family="'Times New Roman', serif" font-size="13" font-weight="bold" fill="#0B2046" letter-spacing="1.5">BRITISH AIRWAYS</text>
+    <text x="43" y="31" font-family="system-ui, sans-serif" font-size="8" font-weight="700" fill="#EB2226" letter-spacing="2">WORLD CARGO</text>
+  </g>
+</svg>

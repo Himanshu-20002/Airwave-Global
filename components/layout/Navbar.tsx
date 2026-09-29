@@ -39,13 +39,13 @@ export default function Navbar() {
           {/* Desktop Navigation Links */}
           <div className="hidden lg:flex items-center space-x-8 font-medium text-slate-700">
             <Link
-              href="#hero-section"
+              href="/#hero-section"
               className="hover:text-[#fe7f25] transition-colors py-2 border-b-2 border-transparent hover:border-[#fe7f25]"
             >
               Home
             </Link>
             <Link
-              href="#about-section"
+              href="/#about-section"
               className="hover:text-[#fe7f25] transition-colors py-2 border-b-2 border-transparent hover:border-[#fe7f25]"
             >
               About Us
@@ -54,7 +54,7 @@ export default function Navbar() {
             {/* Services Mega-Dropdown Trigger */}
             <div className="relative group">
               <Link
-                href="#services-section"
+                href="/#services-section"
                 className="flex items-center gap-1.5 py-2 hover:text-[#fe7f25] transition-colors"
               >
                 Services
@@ -65,7 +65,7 @@ export default function Navbar() {
               <div className="absolute top-full left-1/2 -translate-x-1/2 mt-1 w-80 bg-white rounded-2xl shadow-2xl border border-slate-100 p-3 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 z-50">
                 <div className="space-y-1">
                   <Link
-                    href="#services-section"
+                    href="/#services-section"
                     className="flex items-center gap-3 px-3 py-2.5 rounded-xl hover:bg-orange-50 hover:text-[#fe7f25] transition-colors group/item"
                   >
                     <div className="w-8 h-8 rounded-lg bg-orange-100 text-[#fe7f25] flex items-center justify-center group-hover/item:bg-[#fe7f25] group-hover/item:text-white transition-colors">
@@ -78,7 +78,7 @@ export default function Navbar() {
                   </Link>
 
                   <Link
-                    href="#services-section"
+                    href="/#services-section"
                     className="flex items-center gap-3 px-3 py-2.5 rounded-xl hover:bg-blue-50 hover:text-[#0284c7] transition-colors group/item"
                   >
                     <div className="w-8 h-8 rounded-lg bg-blue-100 text-[#0284c7] flex items-center justify-center group-hover/item:bg-[#0284c7] group-hover/item:text-white transition-colors">
@@ -91,7 +91,7 @@ export default function Navbar() {
                   </Link>
 
                   <Link
-                    href="#services-section"
+                    href="/#services-section"
                     className="flex items-center gap-3 px-3 py-2.5 rounded-xl hover:bg-indigo-50 hover:text-[#3e47cc] transition-colors group/item"
                   >
                     <div className="w-8 h-8 rounded-lg bg-indigo-100 text-[#3e47cc] flex items-center justify-center group-hover/item:bg-[#3e47cc] group-hover/item:text-white transition-colors">
@@ -104,7 +104,7 @@ export default function Navbar() {
                   </Link>
 
                   <Link
-                    href="#services-section"
+                    href="/#services-section"
                     className="flex items-center gap-3 px-3 py-2.5 rounded-xl hover:bg-cyan-50 hover:text-[#22ace3] transition-colors group/item"
                   >
                     <div className="w-8 h-8 rounded-lg bg-cyan-100 text-[#22ace3] flex items-center justify-center group-hover/item:bg-[#22ace3] group-hover/item:text-white transition-colors">
@@ -117,7 +117,7 @@ export default function Navbar() {
                   </Link>
 
                   <Link
-                    href="#services-section"
+                    href="/#services-section"
                     className="flex items-center gap-3 px-3 py-2.5 rounded-xl hover:bg-slate-100 hover:text-slate-900 transition-colors group/item"
                   >
                     <div className="w-8 h-8 rounded-lg bg-slate-100 text-slate-700 flex items-center justify-center group-hover/item:bg-slate-900 group-hover/item:text-white transition-colors">
@@ -133,25 +133,20 @@ export default function Navbar() {
             </div>
 
             <Link
-              href="#industries-section"
+              href="/#industries-section"
               className="hover:text-[#fe7f25] transition-colors py-2 border-b-2 border-transparent hover:border-[#fe7f25]"
             >
               Industries
             </Link>
             <Link
-              href="#process-section"
+              href="/#process-section"
               className="hover:text-[#fe7f25] transition-colors py-2 border-b-2 border-transparent hover:border-[#fe7f25]"
             >
               Our Process
             </Link>
+
             <Link
-              href="#network-section"
-              className="hover:text-[#fe7f25] transition-colors py-2 border-b-2 border-transparent hover:border-[#fe7f25]"
-            >
-              Network
-            </Link>
-            <Link
-              href="#blogs-section"
+              href="/#blogs-section"
               className="hover:text-[#fe7f25] transition-colors py-2 border-b-2 border-transparent hover:border-[#fe7f25]"
             >
               Insights
@@ -161,7 +156,7 @@ export default function Navbar() {
           {/* Action CTAs */}
           <div className="hidden lg:flex items-center gap-4">
             <Link
-              href="#contact-section"
+              href="/#contact-section"
               className="btn-shimmer inline-flex items-center gap-2 px-6 py-3 rounded-full bg-[#fe7f25] hover:bg-[#e0650d] text-white text-sm font-bold shadow-lg shadow-orange-500/25 transition-all transform hover:-translate-y-0.5 active:translate-y-0"
             >
               <span>Get a Custom Quote</span>
@@ -197,14 +192,14 @@ export default function Navbar() {
       {mobileMenuOpen && (
         <div className="lg:hidden bg-white border-b border-slate-200 px-4 pt-2 pb-6 space-y-2 shadow-xl animate-fade-in">
           <Link
-            href="#hero-section"
+            href="/#hero-section"
             onClick={() => setMobileMenuOpen(false)}
             className="block px-4 py-2.5 rounded-lg text-slate-800 font-medium hover:bg-slate-50"
           >
             Home
           </Link>
           <Link
-            href="#about-section"
+            href="/#about-section"
             onClick={() => setMobileMenuOpen(false)}
             className="block px-4 py-2.5 rounded-lg text-slate-800 font-medium hover:bg-slate-50"
           >
@@ -223,35 +218,35 @@ export default function Navbar() {
             {mobileServicesOpen && (
               <div className="pl-6 pr-2 py-2 space-y-1 bg-slate-50 rounded-xl my-1">
                 <Link
-                  href="#services-section"
+                  href="/#services-section"
                   onClick={() => setMobileMenuOpen(false)}
                   className="block px-3 py-2 text-sm text-slate-600 hover:text-[#fe7f25]"
                 >
                   Air Freight
                 </Link>
                 <Link
-                  href="#services-section"
+                  href="/#services-section"
                   onClick={() => setMobileMenuOpen(false)}
                   className="block px-3 py-2 text-sm text-slate-600 hover:text-[#fe7f25]"
                 >
                   Ocean Freight
                 </Link>
                 <Link
-                  href="#services-section"
+                  href="/#services-section"
                   onClick={() => setMobileMenuOpen(false)}
                   className="block px-3 py-2 text-sm text-slate-600 hover:text-[#fe7f25]"
                 >
                   Project & Defence Cargo
                 </Link>
                 <Link
-                  href="#services-section"
+                  href="/#services-section"
                   onClick={() => setMobileMenuOpen(false)}
                   className="block px-3 py-2 text-sm text-slate-600 hover:text-[#fe7f25]"
                 >
                   Cold Chain Logistics
                 </Link>
                 <Link
-                  href="#services-section"
+                  href="/#services-section"
                   onClick={() => setMobileMenuOpen(false)}
                   className="block px-3 py-2 text-sm text-slate-600 hover:text-[#fe7f25]"
                 >
@@ -261,35 +256,29 @@ export default function Navbar() {
             )}
           </div>
           <Link
-            href="#industries-section"
+            href="/#industries-section"
             onClick={() => setMobileMenuOpen(false)}
             className="block px-4 py-2.5 rounded-lg text-slate-800 font-medium hover:bg-slate-50"
           >
             Industries
           </Link>
           <Link
-            href="#process-section"
+            href="/#process-section"
             onClick={() => setMobileMenuOpen(false)}
             className="block px-4 py-2.5 rounded-lg text-slate-800 font-medium hover:bg-slate-50"
           >
             Our Process
           </Link>
+
           <Link
-            href="#network-section"
-            onClick={() => setMobileMenuOpen(false)}
-            className="block px-4 py-2.5 rounded-lg text-slate-800 font-medium hover:bg-slate-50"
-          >
-            Global Network
-          </Link>
-          <Link
-            href="#blogs-section"
+            href="/#blogs-section"
             onClick={() => setMobileMenuOpen(false)}
             className="block px-4 py-2.5 rounded-lg text-slate-800 font-medium hover:bg-slate-50"
           >
             Insights & News
           </Link>
           <Link
-            href="#contact-section"
+            href="/#contact-section"
             data-open-quote-modal="true"
             onClick={(e) => {
               if (window.innerWidth < 1024) {

@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 52" fill="none">
+  <!-- KLM Crown and Letters -->
+  <g transform="translate(18, 6)">
+    <!-- Crown -->
+    <g fill="#00A1DE">
+      <circle cx="12" cy="7" r="2.5" />
+      <circle cx="21" cy="4" r="2.5" />
+      <circle cx="31" cy="4" r="2.5" />
+      <circle cx="40" cy="7" r="2.5" />
+      <!-- Crown Body -->
+      <path d="M12 11 L16 19 L26 12 L36 19 L40 11 L37 21 L15 21 Z" />
+      <rect x="13" y="22.5" width="26" height="2.5" rx="1" />
+    </g>
+    <!-- KLM Text -->
+    <text x="56" y="24" font-family="'Arial Black', Impact, sans-serif" font-size="22" font-weight="900" fill="#00A1DE" letter-spacing="1">KLM</text>
+    <text x="58" y="36" font-family="system-ui, sans-serif" font-size="8" font-weight="700" fill="#71717A" letter-spacing="2">CARGO</text>
+  </g>
+</svg>

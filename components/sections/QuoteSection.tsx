@@ -160,7 +160,7 @@ export default function QuoteSection() {
             required
             value={formData.phone}
             onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
-            placeholder="+91 98000 00000"
+            placeholder="+91 83682 62026"
             className="w-full bg-slate-800/90 border border-slate-700 rounded-xl px-4 py-3 text-xs text-white placeholder-slate-500 focus:outline-none focus:border-[#fe7f25] transition-colors"
           />
         </div>
@@ -339,11 +339,11 @@ export default function QuoteSection() {
                 <div className="mt-10 pt-8 border-t border-slate-800/80">
                   <span className="text-[10px] uppercase font-bold text-slate-400 block mb-2">Need Immediate Support?</span>
                   <div className="flex flex-wrap items-center gap-4">
-                    <a href="tel:+919800000000" className="text-white hover:text-[#fe7f25] font-bold text-sm flex items-center gap-2">
-                      <Phone className="w-4 h-4 text-[#fe7f25]" /> +91 98000 00000
+                    <a href="tel:+918368262026" className="text-white hover:text-[#fe7f25] font-bold text-sm flex items-center gap-2">
+                      <Phone className="w-4 h-4 text-[#fe7f25]" /> +91 83682 62026
                     </a>
                     <a
-                      href="https://wa.me/919800000000"
+                      href="https://wa.me/918368262026"
                       target="_blank"
                       rel="noopener noreferrer"
                       className="px-3.5 py-1.5 rounded-xl bg-gradient-to-r from-[#25D366] to-[#128C7E] hover:from-[#22c35e] hover:to-[#0e776a] text-white text-xs font-bold flex items-center gap-2 shadow-md shadow-emerald-950/40 hover:shadow-emerald-500/30 transition-all duration-300 hover:scale-105 active:scale-95 group"

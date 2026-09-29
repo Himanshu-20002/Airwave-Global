@@ -1,20 +1,5 @@
 import type { Metadata } from 'next';
-import { Poppins, Outfit } from 'next/font/google';
 import './globals.css';
-
-const poppins = Poppins({
-  subsets: ['latin'],
-  display: 'swap',
-  variable: '--font-poppins',
-  weight: ['400', '600', '700', '800'],
-});
-
-const outfit = Outfit({
-  subsets: ['latin'],
-  display: 'swap',
-  variable: '--font-outfit',
-  weight: ['700', '900'],
-});
 
 export const metadata: Metadata = {
   metadataBase: new URL('https://www.airwavelogistics.com'),
@@ -68,8 +53,16 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className={`scroll-smooth ${poppins.variable} ${outfit.variable}`}>
+    <html lang="en" className="scroll-smooth">
       <head>
+        {/* Google Fonts Preconnect & Stylesheet */}
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
+        <link
+          rel="stylesheet"
+          href="https://fonts.googleapis.com/css2?family=Outfit:wght@700;900&family=Poppins:wght@400;600;700;800&display=swap"
+        />
+
         {/* Responsive LCP Preload for Instant First Hero Banner Paint */}
         <link
           rel="preload"
@@ -85,8 +78,6 @@ export default function RootLayout({
           media="(max-width: 767px)"
           fetchPriority="high"
         />
-        <link rel="dns-prefetch" href="https://maps.google.com" />
-        <link rel="dns-prefetch" href="https://www.airsurgegroup.com" />
       </head>
       <body className="bg-slate-50 text-slate-800 antialiased selection:bg-[#fe7f25] selection:text-white font-sans">
         {children}

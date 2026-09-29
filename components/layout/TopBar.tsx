@@ -13,16 +13,16 @@ export default function TopBar() {
           </span>
           <span className="hidden sm:inline-block text-slate-600">|</span>
           <a
-            href="tel:+919800000000"
+            href="tel:+918368262026"
             className="hover:text-[#fe7f25] transition-colors flex items-center gap-1.5"
           >
-            <Phone className="w-3.5 h-3.5 text-[#fe7f25]" /> +91 98000 00000
+            <Phone className="w-3.5 h-3.5 text-[#fe7f25]" /> +91 83682 62026
           </a>
           <a
-            href="mailto:info@airwaveglobal.com"
+            href="mailto:info@airwaveglobal.in"
             className="hover:text-[#fe7f25] transition-colors hidden md:flex items-center gap-1.5"
           >
-            <Mail className="w-3.5 h-3.5 text-[#fe7f25]" /> info@airwaveglobal.com
+            <Mail className="w-3.5 h-3.5 text-[#fe7f25]" /> info@airwaveglobal.in
           </a>
         </div>
         <div className="flex items-center gap-4">
@@ -38,7 +38,7 @@ export default function TopBar() {
               <Instagram className="w-3.5 h-3.5" />
             </a>
             <a
-              href="https://wa.me/919800000000"
+              href="https://wa.me/918368262026"
               target="_blank"
               rel="noopener noreferrer"
               className="text-emerald-400 hover:text-emerald-300 transition-colors flex items-center gap-1.5 font-medium"

@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 52" fill="none">
+  <!-- Singapore Airlines Bird & Text -->
+  <g transform="translate(10, 8)">
+    <!-- Kris Bird Symbol -->
+    <path d="M5 26 L14 12 L22 17 L29 8 L27 18 L34 18 L19 28 L14 23 Z" fill="#EAA11F" />
+    <path d="M12 21 L16 16 L22 19 L16 23 Z" fill="#00246B" />
+    <text x="38" y="19" font-family="system-ui, -apple-system, sans-serif" font-size="11" font-weight="900" fill="#00246B" letter-spacing="1">SINGAPORE AIRLINES</text>
+    <text x="39" y="30" font-family="system-ui, sans-serif" font-size="8" font-weight="800" fill="#EAA11F" letter-spacing="3">CARGO</text>
+  </g>
+</svg>
