@@ -92,12 +92,20 @@ export default function Footer() {
               <div>
                 <strong className="text-white block mb-1">Corporate HQ:</strong>
                 <p className="leading-relaxed">Airwave Global Logistics Private Limited <br />Flat No. 400-A, 12, 4th Floor, Hauz Khas, South West Delhi - 110016, Delhi, India</p>
-                <div className="mt-2 space-y-1.5">
-                  <a href="tel:+918368262026" className="text-[#fe7f25] hover:underline inline-flex items-center gap-1.5 font-medium block">
-                    <Phone className="w-3 h-3" /> +91 83682 62026
+                <div className="mt-2.5 flex flex-col gap-2">
+                  <a
+                    href="tel:+918368262026"
+                    className="text-[#fe7f25] hover:underline inline-flex items-center gap-2 font-medium"
+                  >
+                    <Phone className="w-3.5 h-3.5 shrink-0" />
+                    <span>+91 83682 62026</span>
                   </a>
-                  <a href="mailto:info@airwaveglobal.in" className="text-slate-300 hover:text-[#fe7f25] inline-flex items-center gap-1.5 font-medium block transition-colors">
-                    <Mail className="w-3 h-3 text-[#fe7f25]" /> info@airwaveglobal.in
+                  <a
+                    href="mailto:info@airwaveglobal.in"
+                    className="text-slate-300 hover:text-[#fe7f25] inline-flex items-center gap-2 font-medium transition-colors"
+                  >
+                    <Mail className="w-3.5 h-3.5 text-[#fe7f25] shrink-0" />
+                    <span>info@airwaveglobal.in</span>
                   </a>
                 </div>
               </div>

@@ -1,6 +1,6 @@
 'use client';
 
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, useCallback } from 'react';
 import { createPortal } from 'react-dom';
 import {
   X,
@@ -19,7 +19,7 @@ import {
   Package,
   Snowflake,
   Send,
-  Loader2
+  Loader2,
 } from 'lucide-react';
 import WhatsAppIcon from '../icons/WhatsAppIcon';
 
@@ -58,10 +58,26 @@ export default function MobileQuoteModal({
   loading,
 }: MobileQuoteModalProps) {
   const [mounted, setMounted] = useState(false);
+  const [isClosing, setIsClosing] = useState(false);
 
   useEffect(() => {
     setMounted(true);
   }, []);
+
+  useEffect(() => {
+    if (isOpen) {
+      setIsClosing(false);
+    }
+  }, [isOpen]);
+
+  const handleClose = useCallback(() => {
+    if (isClosing) return;
+    setIsClosing(true);
+    setTimeout(() => {
+      onClose();
+      setIsClosing(false);
+    }, 220);
+  }, [isClosing, onClose]);
 
   // Body scroll lock with safe cleanup
   useEffect(() => {
@@ -80,12 +96,12 @@ export default function MobileQuoteModal({
   useEffect(() => {
     const handleKeyDown = (e: KeyboardEvent) => {
       if (e.key === 'Escape' && isOpen) {
-        onClose();
+        handleClose();
       }
     };
     window.addEventListener('keydown', handleKeyDown);
     return () => window.removeEventListener('keydown', handleKeyDown);
-  }, [isOpen, onClose]);
+  }, [isOpen, handleClose]);
 
   if (!isOpen || !mounted) return null;
 
@@ -94,29 +110,37 @@ export default function MobileQuoteModal({
       role="dialog"
       aria-modal="true"
       aria-label="Request Freight Rate Quotation"
-      style={{ zIndex: 999999, backgroundColor: 'rgba(3, 7, 18, 0.85)' }}
-      className="fixed inset-0 z-[999999] flex items-center justify-center p-0 sm:p-4 overscroll-contain"
+      className="fixed inset-0 z-[999999] flex items-end sm:items-center justify-center p-0 sm:p-4 overscroll-contain"
     >
-      {/* Backdrop Dismiss with touch prevention */}
+      {/* Backdrop Dismiss with smooth fade */}
       <div
-        className="absolute inset-0 cursor-pointer touch-none"
-        onClick={onClose}
+        className={`absolute inset-0 bg-slate-950/80 backdrop-blur-sm cursor-pointer touch-none transition-all ${
+          isClosing ? 'animate-backdrop-out' : 'animate-backdrop-in'
+        }`}
+        onClick={handleClose}
         aria-hidden="true"
       />
 
-      {/* Modal Card - 100% Solid Opaque Brand Dark Background */}
+      {/* Modal Card - Native Bottom-Sheet on Mobile, Rounded Dialog on Desktop */}
       <div
-        style={{ backgroundColor: '#071126', zIndex: 10 }}
-        className="relative z-10 w-full h-[100dvh] sm:h-auto sm:max-h-[90vh] sm:max-w-lg bg-[#071126] border-0 sm:border border-slate-700/80 rounded-none sm:rounded-3xl shadow-2xl flex flex-col overflow-hidden text-white"
+        style={{ backgroundColor: '#071126' }}
+        className={`relative z-10 w-full max-h-[86vh] sm:max-h-[90vh] sm:max-w-lg bg-[#071126] border-t sm:border border-slate-700/80 rounded-t-[28px] sm:rounded-3xl shadow-2xl flex flex-col overflow-hidden text-white will-change-transform ${
+          isClosing ? 'animate-sheet-down' : 'animate-sheet-up'
+        }`}
       >
+        {/* Pull Handle Pill - visible only on mobile */}
+        <div className="w-full pt-2.5 pb-1 flex justify-center sm:hidden shrink-0 bg-[#071126]">
+          <div className="w-11 h-1.5 rounded-full bg-slate-600/70" />
+        </div>
+
         {/* Header with Verified Badge & Close X */}
         <div
           style={{ backgroundColor: '#071126' }}
-          className="flex items-center justify-between px-5 sm:px-6 py-4 border-b border-slate-800 bg-[#071126] sticky top-0 z-20 shrink-0"
+          className="flex items-center justify-between px-5 sm:px-6 py-3.5 sm:py-4 border-b border-slate-800/90 bg-[#071126] sticky top-0 z-20 shrink-0"
         >
           <div>
-            <div className="flex items-center gap-1.5 mb-1">
-              <span className="inline-flex items-center gap-1 px-2.5 py-0.5 rounded-full bg-emerald-500/20 border border-emerald-500/30 text-emerald-400 text-[10px] font-bold">
+            <div className="flex items-center gap-1.5 mb-0.5">
+              <span className="inline-flex items-center gap-1 px-2.5 py-0.5 rounded-full bg-emerald-500/15 border border-emerald-500/30 text-emerald-400 text-[10px] font-bold">
                 <ShieldCheck className="w-3.5 h-3.5" /> Official Airwave RFQ Desk
               </span>
             </div>
@@ -126,22 +150,22 @@ export default function MobileQuoteModal({
           </div>
           <button
             type="button"
-            onClick={onClose}
-            className="w-9 h-9 rounded-full bg-slate-800 text-slate-200 hover:text-white hover:bg-slate-700 flex items-center justify-center border border-slate-600 transition-colors focus:outline-none shrink-0 ml-3 cursor-pointer shadow-md"
+            onClick={handleClose}
+            className="w-8 h-8 sm:w-9 sm:h-9 rounded-full bg-slate-800 text-slate-300 hover:text-white hover:bg-slate-700 flex items-center justify-center border border-slate-600/70 transition-all active:scale-90 focus:outline-none shrink-0 ml-3 cursor-pointer shadow-md"
             aria-label="Close quotation form"
           >
-            <X className="w-5 h-5 text-white" />
+            <X className="w-4 h-4 sm:w-5 sm:h-5 text-white" />
           </button>
         </div>
 
         {/* Scrollable Form Body */}
         <div
           style={{ backgroundColor: '#071126' }}
-          className="p-5 sm:p-6 overflow-y-auto flex-1 bg-[#071126] no-scrollbar"
+          className="p-5 sm:p-6 overflow-y-auto flex-1 bg-[#071126] no-scrollbar overscroll-contain pb-8 sm:pb-6"
         >
           <form onSubmit={onSubmit} className="space-y-4">
             {/* Trust Badges Strip */}
-            <div className="grid grid-cols-3 gap-2 p-2.5 rounded-xl bg-slate-800/60 border border-slate-700/60 text-center">
+            <div className="grid grid-cols-3 gap-2 p-2.5 rounded-xl bg-slate-800/60 border border-slate-700/60 text-center shadow-inner">
               <div className="flex flex-col items-center">
                 <Zap className="w-3.5 h-3.5 text-[#fe7f25] mb-0.5" />
                 <span className="text-[9px] font-bold text-slate-200">2h Fast SLA</span>
@@ -175,7 +199,7 @@ export default function MobileQuoteModal({
                     value={formData.name}
                     onChange={(e) => setFormData({ ...formData, name: e.target.value })}
                     placeholder="Your Full Name *"
-                    className="w-full bg-slate-800/90 border border-slate-700/80 rounded-xl pl-9 pr-3 py-2.5 text-xs text-white placeholder-slate-400 focus:outline-none focus:border-[#fe7f25] focus:ring-1 focus:ring-[#fe7f25] transition-all"
+                    className="w-full bg-slate-800/90 border border-slate-700/80 rounded-xl pl-9 pr-3 py-2.5 text-xs text-white placeholder-slate-400 focus:outline-none focus:border-[#fe7f25] focus:ring-2 focus:ring-[#fe7f25]/20 transition-all shadow-inner"
                   />
                 </div>
 
@@ -187,7 +211,7 @@ export default function MobileQuoteModal({
                     value={formData.email}
                     onChange={(e) => setFormData({ ...formData, email: e.target.value })}
                     placeholder="Business Email *"
-                    className="w-full bg-slate-800/90 border border-slate-700/80 rounded-xl pl-9 pr-3 py-2.5 text-xs text-white placeholder-slate-400 focus:outline-none focus:border-[#fe7f25] focus:ring-1 focus:ring-[#fe7f25] transition-all"
+                    className="w-full bg-slate-800/90 border border-slate-700/80 rounded-xl pl-9 pr-3 py-2.5 text-xs text-white placeholder-slate-400 focus:outline-none focus:border-[#fe7f25] focus:ring-2 focus:ring-[#fe7f25]/20 transition-all shadow-inner"
                   />
                 </div>
 
@@ -199,7 +223,7 @@ export default function MobileQuoteModal({
                     value={formData.phone}
                     onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
                     placeholder="Phone / WhatsApp *"
-                    className="w-full bg-slate-800/90 border border-slate-700/80 rounded-xl pl-9 pr-3 py-2.5 text-xs text-white placeholder-slate-400 focus:outline-none focus:border-[#fe7f25] focus:ring-1 focus:ring-[#fe7f25] transition-all"
+                    className="w-full bg-slate-800/90 border border-slate-700/80 rounded-xl pl-9 pr-3 py-2.5 text-xs text-white placeholder-slate-400 focus:outline-none focus:border-[#fe7f25] focus:ring-2 focus:ring-[#fe7f25]/20 transition-all shadow-inner"
                   />
                 </div>
 
@@ -210,7 +234,7 @@ export default function MobileQuoteModal({
                     value={formData.company}
                     onChange={(e) => setFormData({ ...formData, company: e.target.value })}
                     placeholder="Company Name (Optional)"
-                    className="w-full bg-slate-800/90 border border-slate-700/80 rounded-xl pl-9 pr-3 py-2.5 text-xs text-white placeholder-slate-400 focus:outline-none focus:border-[#fe7f25] focus:ring-1 focus:ring-[#fe7f25] transition-all"
+                    className="w-full bg-slate-800/90 border border-slate-700/80 rounded-xl pl-9 pr-3 py-2.5 text-xs text-white placeholder-slate-400 focus:outline-none focus:border-[#fe7f25] focus:ring-2 focus:ring-[#fe7f25]/20 transition-all shadow-inner"
                   />
                 </div>
               </div>
@@ -232,10 +256,11 @@ export default function MobileQuoteModal({
                       key={mode.id}
                       type="button"
                       onClick={() => setFormData({ ...formData, service_type: mode.id })}
-                      className={`py-2 px-2 rounded-xl text-[10px] font-bold flex items-center justify-center gap-1.5 border transition-all ${isSelected
-                          ? 'bg-gradient-to-r from-[#fe7f25] to-[#ea580c] text-white border-transparent shadow-md shadow-orange-500/30'
-                          : 'bg-slate-800/70 text-slate-300 border-slate-700 hover:border-slate-600'
-                        }`}
+                      className={`py-2 px-2 rounded-xl text-[10px] font-bold flex items-center justify-center gap-1.5 border transition-all ${
+                        isSelected
+                          ? 'bg-gradient-to-r from-[#fe7f25] to-[#ea580c] text-white border-transparent shadow-md shadow-orange-500/30 scale-[1.02]'
+                          : 'bg-slate-800/70 text-slate-300 border-slate-700 hover:border-slate-600 active:scale-95'
+                      }`}
                     >
                       <Icon className="w-3 h-3 shrink-0" />
                       <span className="truncate">{mode.label}</span>
@@ -253,7 +278,7 @@ export default function MobileQuoteModal({
                     value={formData.port_of_loading}
                     onChange={(e) => setFormData({ ...formData, port_of_loading: e.target.value })}
                     placeholder="Origin / POL *"
-                    className="w-full bg-slate-800/90 border border-slate-700/80 rounded-xl pl-8 pr-2.5 py-2.5 text-xs text-white placeholder-slate-400 focus:outline-none focus:border-[#fe7f25] focus:ring-1 focus:ring-[#fe7f25] transition-all"
+                    className="w-full bg-slate-800/90 border border-slate-700/80 rounded-xl pl-8 pr-2.5 py-2.5 text-xs text-white placeholder-slate-400 focus:outline-none focus:border-[#fe7f25] focus:ring-2 focus:ring-[#fe7f25]/20 transition-all shadow-inner"
                   />
                 </div>
                 <div className="relative">
@@ -264,7 +289,7 @@ export default function MobileQuoteModal({
                     value={formData.port_of_destination}
                     onChange={(e) => setFormData({ ...formData, port_of_destination: e.target.value })}
                     placeholder="Dest / POD *"
-                    className="w-full bg-slate-800/90 border border-slate-700/80 rounded-xl pl-8 pr-2.5 py-2.5 text-xs text-white placeholder-slate-400 focus:outline-none focus:border-[#fe7f25] focus:ring-1 focus:ring-[#fe7f25] transition-all"
+                    className="w-full bg-slate-800/90 border border-slate-700/80 rounded-xl pl-8 pr-2.5 py-2.5 text-xs text-white placeholder-slate-400 focus:outline-none focus:border-[#fe7f25] focus:ring-2 focus:ring-[#fe7f25]/20 transition-all shadow-inner"
                   />
                 </div>
               </div>
@@ -283,7 +308,7 @@ export default function MobileQuoteModal({
                 value={formData.message}
                 onChange={(e) => setFormData({ ...formData, message: e.target.value })}
                 placeholder="e.g. 5 Pallets, 1200 kg, 4.5 CBM, FOB Nhava Sheva to Rotterdam..."
-                className="w-full bg-slate-800/90 border border-slate-700/80 rounded-xl p-3 text-xs text-white placeholder-slate-400 focus:outline-none focus:border-[#fe7f25] focus:ring-1 focus:ring-[#fe7f25] transition-all resize-none"
+                className="w-full bg-slate-800/90 border border-slate-700/80 rounded-xl p-3 text-xs text-white placeholder-slate-400 focus:outline-none focus:border-[#fe7f25] focus:ring-2 focus:ring-[#fe7f25]/20 transition-all resize-none shadow-inner"
               />
             </div>
 

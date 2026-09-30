@@ -272,10 +272,10 @@ export default function ProcessPipeline() {
           </div>
         </div>
 
-        {/* ================= MOBILE LAYOUT (Clean Vertical Dotted Pipeline - 100% Preserved) ================= */}
-        <div className="md:hidden relative mt-6 px-1">
-          {/* Vertical Dotted Flow Line centered exactly with node */}
-          <div className="absolute left-[20px] -translate-x-1/2 top-6 bottom-6 w-[2px] z-0 pointer-events-none">
+        {/* ================= MOBILE LAYOUT (Clean Vertical Dotted Pipeline - 100% Symmetrical) ================= */}
+        <div className="md:hidden relative mt-6">
+          {/* Vertical Dotted Flow Line centered exactly with node (center at 20px) */}
+          <div className="absolute left-5 -translate-x-1/2 top-6 bottom-8 w-[2px] z-0 pointer-events-none">
             <div className="w-full h-full border-l-2 border-dashed border-slate-300" />
             <div className="mobile-flow-pulse" />
           </div>
@@ -290,16 +290,16 @@ export default function ProcessPipeline() {
                   className="relative flex items-start gap-3.5 group mobile-step-card"
                 >
                   {/* Step Node cleanly centered on the spine */}
-                  <div className="relative z-10 shrink-0 mt-3">
+                  <div className="w-10 flex justify-center shrink-0 mt-3 relative z-10">
                     <div
-                      className={`w-10 h-10 rounded-full bg-gradient-to-br ${item.gradient} flex items-center justify-center text-white shadow-sm ring-4 ring-slate-50 shrink-0`}
+                      className={`w-10 h-10 rounded-full bg-gradient-to-br ${item.gradient} flex items-center justify-center text-white shadow-md ring-4 ring-white shrink-0`}
                     >
                       <Icon className="w-5 h-5 stroke-[2] shrink-0" />
                     </div>
                   </div>
 
                   {/* Clean SaaS Card */}
-                  <div className="flex-1 bg-white p-4 rounded-2xl border border-slate-200/90 shadow-[0_2px_10px_-2px_rgba(0,0,0,0.04)] hover:border-slate-300 transition-all duration-300">
+                  <div className="flex-1 bg-white p-4 rounded-2xl border border-slate-200/90 shadow-[0_2px_10px_-2px_rgba(0,0,0,0.04)] hover:border-slate-300 transition-all duration-300 min-w-0">
                     {/* Badge */}
                     <span className={`inline-block px-2.5 py-0.5 rounded-full border ${item.badge} text-[10px] font-extrabold uppercase tracking-wider`}>
                       {item.step}
