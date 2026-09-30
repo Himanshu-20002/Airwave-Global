@@ -22,6 +22,8 @@ export default function QuickLogisticsHub() {
   const [height, setHeight] = useState(100);
   const [weight, setWeight] = useState(95);
   const [qty, setQty] = useState(2);
+  const [currency, setCurrency] = useState<'USD' | 'INR'>('USD');
+  const usdToInrRate = 86.5;
 
   const totalVolumeCbm = ((length * width * height) / 1000000) * qty;
   const grossWeightTotal = weight * qty;
@@ -68,7 +70,7 @@ export default function QuickLogisticsHub() {
       <div className="absolute -bottom-24 left-1/4 w-[450px] h-[450px] bg-gradient-to-tr from-blue-200/30 via-indigo-100/35 to-transparent rounded-full blur-3xl pointer-events-none" />
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-        
+
         {/* Section Header: SaaS Top Badge & Controls */}
         <div className="flex flex-col lg:flex-row lg:items-end justify-between gap-6 mb-8">
           <div className="space-y-3 max-w-2xl">
@@ -96,11 +98,10 @@ export default function QuickLogisticsHub() {
           <div className="inline-flex p-1.5 rounded-2xl bg-slate-100/90 border border-slate-200/90 shadow-sm backdrop-blur-md self-start lg:self-auto">
             <button
               onClick={() => setActiveTab('cbm')}
-              className={`px-4 sm:px-5 py-2.5 rounded-xl text-xs sm:text-sm font-bold transition-all flex items-center gap-2 ${
-                activeTab === 'cbm'
-                  ? 'bg-white text-slate-900 shadow-[0_2px_8px_rgba(0,0,0,0.08)] border border-slate-200/60'
-                  : 'text-slate-600 hover:text-slate-900 hover:bg-white/50'
-              }`}
+              className={`px-4 sm:px-5 py-2.5 rounded-xl text-xs sm:text-sm font-bold transition-all flex items-center gap-2 ${activeTab === 'cbm'
+                ? 'bg-white text-slate-900 shadow-[0_2px_8px_rgba(0,0,0,0.08)] border border-slate-200/60'
+                : 'text-slate-600 hover:text-slate-900 hover:bg-white/50'
+                }`}
             >
               <Box className={`w-4 h-4 ${activeTab === 'cbm' ? 'text-[#0284c7]' : 'text-slate-400'}`} />
               <span>CBM Calculator</span>
@@ -108,11 +109,10 @@ export default function QuickLogisticsHub() {
 
             <button
               onClick={() => setActiveTab('callback')}
-              className={`px-4 sm:px-5 py-2.5 rounded-xl text-xs sm:text-sm font-bold transition-all flex items-center gap-2 ${
-                activeTab === 'callback'
-                  ? 'bg-white text-slate-900 shadow-[0_2px_8px_rgba(0,0,0,0.08)] border border-slate-200/60'
-                  : 'text-slate-600 hover:text-slate-900 hover:bg-white/50'
-              }`}
+              className={`px-4 sm:px-5 py-2.5 rounded-xl text-xs sm:text-sm font-bold transition-all flex items-center gap-2 ${activeTab === 'callback'
+                ? 'bg-white text-slate-900 shadow-[0_2px_8px_rgba(0,0,0,0.08)] border border-slate-200/60'
+                : 'text-slate-600 hover:text-slate-900 hover:bg-white/50'
+                }`}
             >
               <PhoneCall className={`w-4 h-4 ${activeTab === 'callback' ? 'text-emerald-600' : 'text-slate-400'}`} />
               <span>Priority Help</span>
@@ -125,7 +125,7 @@ export default function QuickLogisticsHub() {
           <div className="animate-fade-in">
             <div className="bg-white rounded-[28px] border border-slate-200/90 shadow-[0_15px_40px_-15px_rgba(15,23,42,0.08),0_0_1px_1px_rgba(0,0,0,0.02)] p-6 sm:p-9">
               <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
-                
+
                 {/* Inputs Column */}
                 <div className="lg:col-span-7 space-y-4">
                   {/* Mode Pill Toggle */}
@@ -135,11 +135,10 @@ export default function QuickLogisticsHub() {
                       <button
                         type="button"
                         onClick={() => setMode('air')}
-                        className={`px-3.5 py-1.5 rounded-lg text-xs font-bold transition-all flex items-center gap-1.5 ${
-                          mode === 'air'
-                            ? 'bg-white text-slate-900 shadow-xs border border-slate-200/80'
-                            : 'text-slate-500 hover:text-slate-900'
-                        }`}
+                        className={`px-3.5 py-1.5 rounded-lg text-xs font-bold transition-all flex items-center gap-1.5 ${mode === 'air'
+                          ? 'bg-white text-slate-900 shadow-xs border border-slate-200/80'
+                          : 'text-slate-500 hover:text-slate-900'
+                          }`}
                       >
                         <Plane className={`w-3.5 h-3.5 ${mode === 'air' ? 'text-[#fe7f25]' : 'text-slate-400'}`} />
                         <span>Air Cargo (1:167)</span>
@@ -148,11 +147,10 @@ export default function QuickLogisticsHub() {
                       <button
                         type="button"
                         onClick={() => setMode('ocean')}
-                        className={`px-3.5 py-1.5 rounded-lg text-xs font-bold transition-all flex items-center gap-1.5 ${
-                          mode === 'ocean'
-                            ? 'bg-white text-slate-900 shadow-xs border border-slate-200/80'
-                            : 'text-slate-500 hover:text-slate-900'
-                        }`}
+                        className={`px-3.5 py-1.5 rounded-lg text-xs font-bold transition-all flex items-center gap-1.5 ${mode === 'ocean'
+                          ? 'bg-white text-slate-900 shadow-xs border border-slate-200/80'
+                          : 'text-slate-500 hover:text-slate-900'
+                          }`}
                       >
                         <Ship className={`w-3.5 h-3.5 ${mode === 'ocean' ? 'text-blue-600' : 'text-slate-400'}`} />
                         <span>Ocean LCL (1:1000)</span>
@@ -243,12 +241,34 @@ export default function QuickLogisticsHub() {
                     </div>
                   </div>
 
-                  <div className="flex items-center justify-between pt-4 relative z-10">
+                  <div className="flex items-center justify-between pt-4 relative z-10 gap-3">
                     <div>
-                      <span className="text-[10px] text-slate-400 block uppercase font-bold">Est. Freight Budget</span>
+                      <div className="flex items-center gap-2 mb-1">
+                        <span className="text-[10px] text-slate-400 block uppercase font-bold">Est. Freight Budget</span>
+                        {/* Glassmorphism Button to Switch Currency */}
+                        <button
+                          type="button"
+                          onClick={() => setCurrency((curr) => (curr === 'USD' ? 'INR' : 'USD'))}
+                          className="px-2 py-0.5 rounded-md bg-white/10 hover:bg-white/20 active:scale-95 border border-white/20 backdrop-blur-md text-[10px] font-bold text-slate-200 hover:text-white transition-all flex items-center gap-1 shadow-sm cursor-pointer"
+                          title="Switch Currency"
+                        >
+                          <span className={currency === 'INR' ? 'text-[#fe7f25]' : 'text-[#fe7f25]'}>
+                            {currency === 'USD' ? 'INR' : 'USD'}
+                          </span>
+                        </button>
+                      </div>
                       <strong className="text-xl font-black text-emerald-400">
-                        ${rateEstimate.toFixed(0)} - ${(rateEstimate * 1.25).toFixed(0)}{' '}
-                        <span className="text-xs font-normal text-slate-300">USD</span>
+                        {currency === 'USD' ? (
+                          <>
+                            ${rateEstimate.toFixed(0)} - ${(rateEstimate * 1.25).toFixed(0)}{' '}
+                            <span className="text-xs font-normal text-slate-300">USD</span>
+                          </>
+                        ) : (
+                          <>
+                            ₹{Math.round(rateEstimate * usdToInrRate).toLocaleString('en-IN')} - ₹{Math.round(rateEstimate * 1.25 * usdToInrRate).toLocaleString('en-IN')}{' '}
+                            <span className="text-xs font-normal text-slate-300">INR</span>
+                          </>
+                        )}
                       </strong>
                     </div>
                     <Link

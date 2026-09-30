@@ -57,7 +57,7 @@ export default function PrivacyPolicyPage() {
                 <div className="bg-slate-50 p-4 rounded-xl border border-slate-200/80 text-xs sm:text-sm space-y-1.5">
                   <p><strong>Corporate Entity:</strong> Airwave Global Logistics Private Limited</p>
                   <p><strong>Operating Brand:</strong> Airwave Global Logistics</p>
-                  <p><strong>Corporate Headquarters:</strong> Plot No. 123, 4th Floor, Sample Business Park, New Delhi - 110001, INDIA</p>
+                  <p><strong>Corporate Headquarters:</strong> Flat No. 400-A, 12, 4th Floor, Hauz Khas, South West Delhi - 110016, Delhi, India</p>
                   <p><strong>Official Website:</strong> <a href="https://airwaveglobal.in" className="text-[#fe7f25] hover:underline font-medium">https://airwaveglobal.in</a></p>
                   <p><strong>Compliance Email:</strong> <a href="mailto:info@airwaveglobal.in" className="text-[#fe7f25] hover:underline font-medium">info@airwaveglobal.in</a></p>
                 </div>
@@ -275,7 +275,7 @@ export default function PrivacyPolicyPage() {
                 </p>
                 <div className="bg-slate-50 rounded-xl p-5 border border-slate-200/90 text-xs sm:text-sm space-y-2">
                   <p className="font-bold text-slate-900 text-sm">Airwave Global Logistics Private Limited</p>
-                  <p className="text-slate-600">Plot No. 123, 4th Floor, Sample Business Park, New Delhi - 110001, INDIA</p>
+                  <p className="text-slate-600">Flat No. 400-A, 12, 4th Floor, Hauz Khas, South West Delhi - 110016, Delhi, India</p>
                   <div className="pt-2 flex flex-col sm:flex-row sm:items-center gap-3 sm:gap-6 text-xs font-semibold">
                     <a href="mailto:info@airwaveglobal.in" className="inline-flex items-center gap-1.5 text-[#fe7f25] hover:underline">
                       <Mail className="w-3.5 h-3.5" /> info@airwaveglobal.in

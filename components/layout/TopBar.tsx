@@ -26,7 +26,7 @@ export default function TopBar() {
           </a>
         </div>
         <div className="flex items-center gap-4">
-          <span className="text-slate-400 hidden lg:inline">HQ: Business District, New Delhi, India</span>
+          <span className="text-slate-400 hidden lg:inline">HQ: Hauz Khas, New Delhi, India</span>
           <div className="flex items-center gap-3">
             <a
               href="https://www.instagram.com/airwavelogistics/"

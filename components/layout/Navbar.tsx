@@ -22,17 +22,17 @@ export default function Navbar() {
   return (
     <header className="glass-nav sticky top-0 z-50 transition-all duration-300">
       <nav className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex justify-between items-center h-20">
+        <div className="flex justify-between items-center">
 
           {/* Logo */}
-          <Link href="#hero-section" className="flex items-center gap-3 group">
+          <Link href="#hero-section" className="flex items-center gap-3">
             <Image
               src="/images/airwave-logo-transparent.webp"
               alt="Airwave Global Logistics Private Limited Logo"
               width={200}
               height={56}
               priority
-              className="h-12 sm:h-14 w-auto object-contain transition-transform group-hover:scale-105"
+              className="h-16 m-2 w-auto object-contain transition-transform scale-105"
             />
           </Link>
 

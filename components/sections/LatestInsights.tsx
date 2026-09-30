@@ -1,7 +1,8 @@
 'use client';
 
 import React, { useRef, useEffect } from 'react';
-import { ArrowRight, ExternalLink } from 'lucide-react';
+import Link from 'next/link';
+import { ArrowRight } from 'lucide-react';
 
 const articles = [
   {
@@ -10,7 +11,7 @@ const articles = [
     title: 'Not Sure Whether to Ship LCL or FCL? Complete Comparison',
     desc: 'Choosing between LCL and FCL shipping can impact your freight costs, transit time, and cargo safety. In this guide, we break down key differences and decision parameters.',
     date: '21 Jan 2026',
-    link: 'https://www.airsurgegroup.com/blogs/not-sure-whether-to-ship-lcl-or-fcl-start-here',
+    link: '/#contact-section',
   },
   {
     category: 'Customs & Compliance',
@@ -18,7 +19,7 @@ const articles = [
     title: 'Navigating India Customs ICEGATE 2.0 & Duty Exemption Frameworks',
     desc: 'How export-import enterprises can leverage Advance Authorizations, RoDTEP claims, and paperless customs broker clearance for zero delay.',
     date: '14 Jan 2026',
-    link: 'https://www.airsurgegroup.com/blogs',
+    link: '/#contact-section',
   },
   {
     category: 'Pharma Cold Chain',
@@ -26,7 +27,7 @@ const articles = [
     title: 'Maintaining Cold Chain Integrity Across Global Biologics Lanes',
     desc: 'Best practices in active and passive temperature-controlled air freight packaging for life-saving pharmaceutical consignments.',
     date: '08 Jan 2026',
-    link: 'https://www.airsurgegroup.com/blogs',
+    link: '/#contact-section',
   },
 ];
 
@@ -79,24 +80,22 @@ export default function LatestInsights() {
                   {art.category}
                 </span>
                 <h3 className="text-base sm:text-lg font-bold text-slate-900 group-hover:text-[#fe7f25] transition-colors mb-2.5 line-clamp-2">
-                  <a href={art.link} target="_blank" rel="noopener noreferrer">
+                  <Link href={art.link}>
                     {art.title}
-                  </a>
+                  </Link>
                 </h3>
                 <p className="text-xs text-slate-500 leading-relaxed line-clamp-3">
                   {art.desc}
                 </p>
               </div>
               <div className="px-5 sm:px-6 py-3.5 sm:py-4 bg-white border-t border-slate-100 flex items-center justify-between text-xs">
-                <a
+                <Link
                   href={art.link}
-                  target="_blank"
-                  rel="noopener noreferrer"
                   className={`font-bold ${art.color} hover:underline flex items-center gap-1`}
                 >
-                  <span>Read Article</span>
+                  <span>Inquire on Topic</span>
                   <ArrowRight className="w-3.5 h-3.5" />
-                </a>
+                </Link>
                 <span className="text-slate-400">{art.date}</span>
               </div>
             </article>
@@ -110,15 +109,13 @@ export default function LatestInsights() {
         </div>
 
         <div className="mt-8 sm:mt-12 text-center">
-          <a
-            href="https://www.airsurgegroup.com/blogs"
-            target="_blank"
-            rel="noopener noreferrer"
+          <Link
+            href="/#contact-section"
             className="inline-flex items-center gap-2 px-7 sm:px-8 py-3 sm:py-3.5 rounded-full bg-slate-900 hover:bg-[#fe7f25] text-white font-bold text-xs transition-all shadow-md"
           >
-            <span>View All Freight Articles</span>
-            <ExternalLink className="w-3.5 h-3.5" />
-          </a>
+            <span>Consult Our Freight Experts</span>
+            <ArrowRight className="w-3.5 h-3.5" />
+          </Link>
         </div>
 
       </div>

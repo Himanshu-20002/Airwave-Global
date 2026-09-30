@@ -15,7 +15,6 @@ const ValuePillars = dynamic(() => import('@/components/sections/ValuePillars'))
 const CoreServices = dynamic(() => import('@/components/sections/CoreServices'));
 const CapabilitiesGrid = dynamic(() => import('@/components/sections/CapabilitiesGrid'));
 const IndustriesGrid = dynamic(() => import('@/components/sections/IndustriesGrid'));
-const BrandMarquee = dynamic(() => import('@/components/sections/BrandMarquee'));
 const ProcessPipeline = dynamic(() => import('@/components/sections/ProcessPipeline'));
 const ValueAddedServices = dynamic(() => import('@/components/sections/ValueAddedServices'));
 const LatestInsights = dynamic(() => import('@/components/sections/LatestInsights'));
@@ -45,9 +44,6 @@ export default function Home() {
           <IndustriesGrid />
         </div>
         <div className="section-deferred">
-          <BrandMarquee />
-        </div>
-        <div className="section-deferred">
           <ProcessPipeline />
         </div>
         <div className="section-deferred">
@@ -56,9 +52,9 @@ export default function Home() {
 
         <Accreditations />
 
-        <div className="section-deferred">
-          <LatestInsights />
-        </div>
+
+        <LatestInsights />
+
         <QuoteSection />
       </main>
       <Footer />

@@ -1,10 +1,10 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 52" fill="none">
+<svg text-rendering="geometricPrecision" shape-rendering="geometricPrecision" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 52" fill="none">
   <!-- Emirates Wordmark -->
   <g transform="translate(16, 10)">
     <rect x="0" y="4" width="38" height="32" rx="6" fill="#D71921" />
     <path d="M12 12 Q20 8 28 14 Q24 22 14 26 Q18 20 22 20" stroke="#FFFFFF" stroke-width="2.2" fill="none" stroke-linecap="round" />
     <circle cx="26" cy="12" r="1.5" fill="#FFFFFF" />
     <text x="48" y="22" font-family="'Times New Roman', Georgia, serif" font-size="20" font-weight="bold" fill="#D71921" letter-spacing="0.5">Emirates</text>
-    <text x="49" y="33" font-family="system-ui, sans-serif" font-size="8" font-weight="800" fill="#3F3F46" letter-spacing="2">SkyCargo</text>
+    <text x="49" y="33" font-family="system-ui, sans-serif" font-size="10.5" font-weight="800" fill="#3F3F46" letter-spacing="2">SkyCargo</text>
   </g>
 </svg>

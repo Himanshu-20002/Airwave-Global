@@ -31,7 +31,7 @@ export default function Marquee({
       )}
 
       <div
-        className="group flex overflow-hidden py-2"
+        className="group flex py-4 "
         style={
           {
             '--marquee-duration': duration,
@@ -43,9 +43,8 @@ export default function Marquee({
         {Array.from({ length: repeat }).map((_, i) => (
           <div
             key={i}
-            className={`flex shrink-0 items-center justify-around ${
-              reverse ? 'animate-marquee-reverse' : 'animate-marquee'
-            } ${pauseOnHover ? 'group-hover:[animation-play-state:paused]' : ''}`}
+            className={` p-1 flex shrink-0 items-center justify-around ${reverse ? 'animate-marquee-reverse' : 'animate-marquee'
+              } ${pauseOnHover ? 'group-hover:[animation-play-state:paused]' : ''}`}
             style={{
               gap: 'var(--marquee-gap)',
               animationDuration: 'var(--marquee-duration)',

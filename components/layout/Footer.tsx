@@ -9,7 +9,7 @@ export default function Footer() {
     <footer className="bg-[#050c1b] text-white border-t border-slate-800">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10 sm:py-16">
         <div className="grid grid-cols-1 lg:grid-cols-4 gap-8 lg:gap-12">
-          
+
           {/* Company Info */}
           <div className="space-y-4">
             <div className="bg-white px-3.5 py-2 inline-block border border-slate-200 shadow-sm rounded">
@@ -91,7 +91,7 @@ export default function Footer() {
             <div className="space-y-3 text-xs text-slate-400">
               <div>
                 <strong className="text-white block mb-1">Corporate HQ:</strong>
-                <p className="leading-relaxed">Plot No. 123, 4th Floor, Sample Business Park, New Delhi - 110001, INDIA</p>
+                <p className="leading-relaxed">Airwave Global Logistics Private Limited <br />Flat No. 400-A, 12, 4th Floor, Hauz Khas, South West Delhi - 110016, Delhi, India</p>
                 <div className="mt-2 space-y-1.5">
                   <a href="tel:+918368262026" className="text-[#fe7f25] hover:underline inline-flex items-center gap-1.5 font-medium block">
                     <Phone className="w-3 h-3" /> +91 83682 62026

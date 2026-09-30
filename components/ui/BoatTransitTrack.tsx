@@ -17,7 +17,7 @@ export default function BoatTransitTrack({
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-between text-[10px] font-mono tracking-widest text-slate-400 uppercase pointer-events-none opacity-60">
         <div className="flex items-center gap-3">
           <span className="w-1.5 h-1.5 rounded-full bg-slate-300" />
-          <span>PORT ORIGIN // 18°57'N 72°56'E</span>
+          <span>PORT ORIGIN // 18°57&apos;N 72°56&apos;E</span>
         </div>
         <div className="hidden md:flex items-center gap-6">
           <span>CORRIDOR FREIGHT: FCL &bull; LCL</span>
@@ -25,7 +25,7 @@ export default function BoatTransitTrack({
           <span>AIS VESSEL TELEMETRY ACTIVE</span>
         </div>
         <div className="flex items-center gap-3">
-          <span>GLOBAL HUB // 51°55'N 04°29'E</span>
+          <span>GLOBAL HUB // 51°55&apos;N 04°29&apos;E</span>
           <span className="w-1.5 h-1.5 rounded-full bg-slate-300" />
         </div>
       </div>

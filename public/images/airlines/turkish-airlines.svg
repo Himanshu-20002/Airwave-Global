@@ -1,10 +1,10 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 52" fill="none">
+<svg text-rendering="geometricPrecision" shape-rendering="geometricPrecision" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 52" fill="none">
   <!-- Turkish Airlines Disc & Text -->
   <g transform="translate(14, 8)">
     <circle cx="18" cy="18" r="16" fill="#E81932" />
     <path d="M11 25 C14 21, 20 16, 27 12 C25 15, 22 19, 18 24 Z" fill="#FFFFFF" />
     <path d="M17 19 C20 17, 24 15, 27 15 C25 17, 22 20, 20 22 Z" fill="#FFFFFF" />
     <text x="44" y="21" font-family="system-ui, -apple-system, sans-serif" font-size="14" font-weight="900" fill="#18181B" letter-spacing="0.8">TURKISH</text>
-    <text x="44" y="32" font-family="system-ui, sans-serif" font-size="8.5" font-weight="800" fill="#E81932" letter-spacing="2.5">CARGO</text>
+    <text x="44" y="32" font-family="system-ui, sans-serif" font-size="10.5" font-weight="800" fill="#E81932" letter-spacing="2.5">CARGO</text>
   </g>
 </svg>

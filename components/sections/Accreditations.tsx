@@ -18,7 +18,7 @@ const airlinePartners = [
 
 export default function Accreditations() {
   return (
-    <section className="py-12 bg-white relative overflow-hidden border-b border-slate-100">
+    <section className="py-12 bg-white relative overflow-hidden ">
       <div className="max-w-7xl mx-auto px-4 mb-8 text-center">
         <h3 className="text-xs uppercase font-extrabold tracking-widest text-[#fe7f25] mb-1">
           Strategic Aviation Alliances

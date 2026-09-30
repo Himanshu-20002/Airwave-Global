@@ -56,7 +56,7 @@ export default function TermsAndConditionsPage() {
                 </h2>
                 <div className="bg-slate-50 p-4 rounded-xl border border-slate-200/80 text-xs sm:text-sm space-y-1.5">
                   <p><strong>Company Name:</strong> Airwave Global Logistics Private Limited</p>
-                  <p><strong>Corporate HQ:</strong> Plot No. 123, 4th Floor, Sample Business Park, New Delhi - 110001, INDIA</p>
+                  <p><strong>Corporate HQ:</strong>Flat No. 400-A, 12, 4th Floor, Hauz Khas, South West Delhi - 110016, Delhi, India</p>
                   <p><strong>Official Website:</strong> <a href="https://airwaveglobal.in" className="text-[#fe7f25] hover:underline font-medium">https://airwaveglobal.in</a></p>
                   <p><strong>Contact Email:</strong> <a href="mailto:info@airwaveglobal.in" className="text-[#fe7f25] hover:underline font-medium">info@airwaveglobal.in</a></p>
                   <p><strong>Contact Number:</strong> <a href="tel:+918368262026" className="text-[#fe7f25] hover:underline font-medium">+91 83682 62026</a></p>
@@ -289,7 +289,7 @@ export default function TermsAndConditionsPage() {
                 </p>
                 <div className="bg-slate-50 rounded-xl p-5 border border-slate-200/90 text-xs sm:text-sm space-y-2">
                   <p className="font-bold text-slate-900 text-sm">Airwave Global Logistics Private Limited</p>
-                  <p className="text-slate-600">Plot No. 123, 4th Floor, Sample Business Park, New Delhi - 110001, INDIA</p>
+                  <p className="text-slate-600">Flat No. 400-A, 12, 4th Floor, Hauz Khas, South West Delhi - 110016, Delhi, India</p>
                   <div className="pt-2 flex flex-col sm:flex-row sm:items-center gap-3 sm:gap-6 text-xs font-semibold">
                     <a href="mailto:info@airwaveglobal.in" className="inline-flex items-center gap-1.5 text-[#fe7f25] hover:underline">
                       <Mail className="w-3.5 h-3.5" /> info@airwaveglobal.in
