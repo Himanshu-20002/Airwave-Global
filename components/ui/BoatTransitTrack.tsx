@@ -61,6 +61,7 @@ export default function BoatTransitTrack({
           </svg>
         </div>
 
+
         {/* Vessel Sailing Across Edge-to-Edge */}
         <div
           className="absolute left-0 top-1/2 -translate-y-1/2 pointer-events-none will-change-transform boat-transit-track"

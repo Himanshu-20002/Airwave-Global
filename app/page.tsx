@@ -1,23 +1,25 @@
+import { Suspense } from 'react';
 import dynamic from 'next/dynamic';
 import TopBar from '@/components/layout/TopBar';
 import Navbar from '@/components/layout/Navbar';
 import Footer from '@/components/layout/Footer';
 import HeroSlider from '@/components/hero/HeroSlider';
 import MetricCounters from '@/components/sections/MetricCounters';
-import QuoteSection from '@/components/sections/QuoteSection';
+import ValuePillars from '@/components/sections/ValuePillars';
+import Accreditations from '@/components/sections/Accreditations';
+import LatestInsightsSkeleton from '@/components/sections/LatestInsightsSkeleton';
 
 // Above-The-Fold Interactive Hub
 const QuickLogisticsHub = dynamic(() => import('@/components/sections/QuickLogisticsHub'));
 
-// Progressive Below-The-Fold Code-Split Sections
-const Accreditations = dynamic(() => import('@/components/sections/Accreditations'));
-const ValuePillars = dynamic(() => import('@/components/sections/ValuePillars'));
+// Progressive Below-The-Fold Client Components
 const CoreServices = dynamic(() => import('@/components/sections/CoreServices'));
 const CapabilitiesGrid = dynamic(() => import('@/components/sections/CapabilitiesGrid'));
 const IndustriesGrid = dynamic(() => import('@/components/sections/IndustriesGrid'));
 const ProcessPipeline = dynamic(() => import('@/components/sections/ProcessPipeline'));
 const ValueAddedServices = dynamic(() => import('@/components/sections/ValueAddedServices'));
 const LatestInsights = dynamic(() => import('@/components/sections/LatestInsights'));
+const QuoteSection = dynamic(() => import('@/components/sections/QuoteSection'));
 const FloatingActions = dynamic(() => import('@/components/ui/FloatingActions'), { ssr: false });
 
 export default function Home() {
@@ -35,7 +37,6 @@ export default function Home() {
         <ValuePillars />
         <CoreServices />
 
-
         {/* Deferred Deep Sections (Content-Visibility Accelerated for 120 FPS) */}
         <div className="section-deferred">
           <CapabilitiesGrid />
@@ -50,12 +51,18 @@ export default function Home() {
           <ValueAddedServices />
         </div>
 
-        <Accreditations />
+        <div className="section-deferred">
+          <Accreditations />
+        </div>
 
+        {/* Streaming SSR: Hero and core page stream instantly without waiting for Sanity */}
+        <Suspense fallback={<LatestInsightsSkeleton />}>
+          <LatestInsights />
+        </Suspense>
 
-        <LatestInsights />
-
-        <QuoteSection />
+        <div className="section-deferred">
+          <QuoteSection />
+        </div>
       </main>
       <Footer />
       <FloatingActions />

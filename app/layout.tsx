@@ -1,8 +1,15 @@
-import type { Metadata } from 'next';
+import type { Metadata, Viewport } from 'next';
 import './globals.css';
 
+export const viewport: Viewport = {
+  themeColor: '#071126',
+  width: 'device-width',
+  initialScale: 1,
+  maximumScale: 5,
+};
+
 export const metadata: Metadata = {
-  metadataBase: new URL('https://www.airwavelogistics.com'),
+  metadataBase: new URL('https://airwaveglobal.in'),
   title: 'Airwave Global Logistics Private Limited | Bridging Continents, Connecting Markets',
   description: 'Airwave Global Logistics Private Limited—your trusted partner for global freight forwarding, multimodal transport, customs brokerage, and supply chain solutions.',
   keywords: [
@@ -14,14 +21,14 @@ export const metadata: Metadata = {
     'customs clearance India',
     'supply chain solutions',
   ],
-  openGraph: {
+    openGraph: {
     title: 'Airwave Global Logistics Private Limited | Bridging Continents, Connecting Markets',
     description: 'Airwave Global Logistics Private Limited—reliable global freight forwarding, air and ocean cargo, and precision supply chain execution.',
-    url: 'https://www.airwavelogistics.com',
+    url: 'https://airwaveglobal.in',
     siteName: 'Airwave Global Logistics Private Limited',
     images: [
       {
-        url: '/images/airwave-logo.jpg',
+        url: '/images/airwave-logo.webp',
         width: 1200,
         height: 630,
         alt: 'Airwave Global Logistics Logo',
@@ -34,7 +41,7 @@ export const metadata: Metadata = {
     card: 'summary_large_image',
     title: 'Airwave Global Logistics Private Limited',
     description: 'Bridging Continents, Connecting Markets. Air & Ocean Freight, Customs, and Multimodal Supply Chain.',
-    images: ['/images/airwave-logo.jpg'],
+    images: ['/images/airwave-logo.webp'],
   },
   icons: {
     icon: [
@@ -55,13 +62,17 @@ export default function RootLayout({
   return (
     <html lang="en" className="scroll-smooth">
       <head>
-        {/* Google Fonts Preconnect & Stylesheet */}
+        {/* Exact Original Brand Fonts (Poppins & Outfit) */}
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
         <link
           rel="stylesheet"
           href="https://fonts.googleapis.com/css2?family=Outfit:wght@700;900&family=Poppins:wght@400;600;700;800&display=swap"
         />
+
+        {/* Dynamic Image CDN Preconnect for instantaneous asset delivery */}
+        <link rel="dns-prefetch" href="https://cdn.sanity.io" />
+        <link rel="preconnect" href="https://cdn.sanity.io" crossOrigin="anonymous" />
 
         {/* Responsive LCP Preload for Instant First Hero Banner Paint */}
         <link

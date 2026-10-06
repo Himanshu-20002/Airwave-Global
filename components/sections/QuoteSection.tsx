@@ -12,6 +12,7 @@ import {
 import WhatsAppIcon from '../icons/WhatsAppIcon';
 import QuoteSuccessModal from '../ui/QuoteSuccessModal';
 import MobileQuoteModal from '../ui/MobileQuoteModal';
+import { submitLeadInquiry } from '@/lib/contact';
 
 export default function QuoteSection() {
   const [loading, setLoading] = useState(false);
@@ -81,14 +82,28 @@ export default function QuoteSection() {
     }
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setLoading(true);
 
-    setTimeout(() => {
-      setLoading(false);
-      const generatedRef = 'AWG-RFQ-' + Math.floor(100000 + Math.random() * 900000);
-      setRefId(generatedRef);
+    try {
+      const result = await submitLeadInquiry({
+        name: formData.name,
+        email: formData.email,
+        company: formData.company,
+        phone: formData.phone,
+        service_type: formData.service_type,
+        port_of_loading: formData.port_of_loading,
+        port_of_destination: formData.port_of_destination,
+        message: formData.message,
+      });
+
+      if (!result.success) {
+        alert('Form submission issue: ' + (result.message || 'Please check your connection or contact via WhatsApp.'));
+        return;
+      }
+
+      setRefId(result.refId);
       if (isMobileModalOpen) {
         setIsMobileModalOpen(false);
       }
@@ -103,7 +118,12 @@ export default function QuoteSection() {
         port_of_destination: '',
         message: '',
       });
-    }, 800);
+    } catch (err: any) {
+      console.error('Submission error:', err);
+      alert('Error submitting form: ' + (err?.message || 'Please try again.'));
+    } finally {
+      setLoading(false);
+    }
   };
 
   // UNTOUCHED ORIGINAL DESKTOP FORM

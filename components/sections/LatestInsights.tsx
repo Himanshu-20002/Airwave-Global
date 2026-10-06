@@ -1,122 +1,95 @@
-'use client';
+import React from 'react';
+import { client } from '@/sanity/lib/client';
+import { latestPostsQuery, PostCard } from '@/sanity/lib/queries';
+import LatestInsightsCarousel from './LatestInsightsCarousel';
 
-import React, { useRef, useEffect } from 'react';
-import Link from 'next/link';
-import { ArrowRight } from 'lucide-react';
-
-const articles = [
+const fallbackPosts: PostCard[] = [
   {
-    category: 'Sea Freight Guide',
-    color: 'text-[#fe7f25]',
+    _id: 'fallback-1',
+    category: {
+      _id: 'cat-1',
+      title: 'Sea Freight Guide',
+      slug: { current: 'sea-freight' },
+      accentColor: 'orange',
+    },
     title: 'Not Sure Whether to Ship LCL or FCL? Complete Comparison',
-    desc: 'Choosing between LCL and FCL shipping can impact your freight costs, transit time, and cargo safety. In this guide, we break down key differences and decision parameters.',
-    date: '21 Jan 2026',
-    link: '/#contact-section',
+    slug: { current: 'not-sure-whether-to-ship-lcl-or-fcl' },
+    excerpt:
+      'Choosing between LCL and FCL shipping can impact your freight costs, transit time, and cargo safety. In this guide, we break down key differences and decision parameters.',
+    publishedAt: '2026-01-21T10:00:00Z',
+    readingTime: '5 min read',
   },
   {
-    category: 'Customs & Compliance',
-    color: 'text-[#0284c7]',
+    _id: 'fallback-2',
+    category: {
+      _id: 'cat-2',
+      title: 'Customs & Compliance',
+      slug: { current: 'customs-compliance' },
+      accentColor: 'blue',
+    },
     title: 'Navigating India Customs ICEGATE 2.0 & Duty Exemption Frameworks',
-    desc: 'How export-import enterprises can leverage Advance Authorizations, RoDTEP claims, and paperless customs broker clearance for zero delay.',
-    date: '14 Jan 2026',
-    link: '/#contact-section',
+    slug: { current: 'navigating-india-customs-icegate-2-duty-exemption' },
+    excerpt:
+      'How export-import enterprises can leverage Advance Authorizations, RoDTEP claims, and paperless customs broker clearance for zero delay.',
+    publishedAt: '2026-01-14T10:00:00Z',
+    readingTime: '6 min read',
   },
   {
-    category: 'Pharma Cold Chain',
-    color: 'text-emerald-600',
+    _id: 'fallback-3',
+    category: {
+      _id: 'cat-3',
+      title: 'Pharma Cold Chain',
+      slug: { current: 'pharma-cold-chain' },
+      accentColor: 'green',
+    },
     title: 'Maintaining Cold Chain Integrity Across Global Biologics Lanes',
-    desc: 'Best practices in active and passive temperature-controlled air freight packaging for life-saving pharmaceutical consignments.',
-    date: '08 Jan 2026',
-    link: '/#contact-section',
+    slug: { current: 'maintaining-cold-chain-integrity-across-global-biologics-lanes' },
+    excerpt:
+      'Best practices in active and passive temperature-controlled air freight packaging for life-saving pharmaceutical consignments.',
+    publishedAt: '2026-01-08T10:00:00Z',
+    readingTime: '4 min read',
   },
 ];
 
-export default function LatestInsights() {
-  const carouselRef = useRef<HTMLDivElement>(null);
-  const centerCardRef = useRef<HTMLElement>(null);
+async function getPosts(): Promise<PostCard[]> {
+  try {
+    const posts = await client.fetch<PostCard[]>(
+      latestPostsQuery,
+      {},
+      { next: { revalidate: 60 } }
+    );
+    if (posts && posts.length > 0) {
+      const liveSlugs = new Set(posts.map((p) => p.slug?.current));
+      const remainingFallbacks = fallbackPosts.filter(
+        (fb) => !liveSlugs.has(fb.slug?.current)
+      );
+      return [...posts, ...remainingFallbacks].slice(0, 3);
+    }
+  } catch (error) {
+    console.warn('Could not fetch latest posts from Sanity, using fallback:', error);
+  }
+  return fallbackPosts;
+}
 
-  useEffect(() => {
-    const centerMiddleCard = () => {
-      const container = carouselRef.current;
-      const centerCard = centerCardRef.current;
-      if (container && centerCard && window.innerWidth < 768) {
-        const cardLeft = centerCard.offsetLeft;
-        const cardWidth = centerCard.offsetWidth;
-        const containerWidth = container.offsetWidth;
-        container.scrollLeft = cardLeft - (containerWidth - cardWidth) / 2;
-      }
-    };
-
-    centerMiddleCard();
-    const timer = setTimeout(centerMiddleCard, 80);
-    return () => clearTimeout(timer);
-  }, []);
+export default async function LatestInsights() {
+  const posts = await getPosts();
 
   return (
     <section id="blogs-section" className="py-14 sm:py-16 md:py-20 lg:py-28 bg-white relative">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
         <div className="text-center max-w-3xl mx-auto mb-8 sm:mb-12">
-          <span className="text-xs uppercase font-extrabold tracking-widest text-[#fe7f25]">Market Intelligence</span>
+          <span className="text-xs uppercase font-extrabold tracking-widest text-[#fe7f25]">
+            Market Intelligence
+          </span>
           <h2 className="text-2xl sm:text-3xl md:text-4xl font-black text-slate-900 mt-2 tracking-tight uppercase font-display">
             Latest Insights & <span className="text-[#fe7f25]">Articles</span>
           </h2>
           <div className="w-16 h-1 bg-[#fe7f25] mx-auto mt-2.5 rounded-full" />
         </div>
 
-        {/* Article Cards: Snappy Horizontal Carousel on Mobile, 3-Column Grid on Desktop */}
-        <div
-          ref={carouselRef}
-          className="flex md:grid md:grid-cols-3 gap-4 sm:gap-6 md:gap-8 overflow-x-auto md:overflow-visible pt-3 pb-5 md:py-2 snap-x snap-mandatory no-scrollbar -mx-4 px-4 sm:mx-0 sm:px-0"
-        >
-          {articles.map((art, idx) => (
-            <article
-              key={idx}
-              ref={idx === 1 ? centerCardRef : undefined}
-              className="w-[84vw] max-w-[340px] md:max-w-none md:w-auto shrink-0 snap-center md:snap-align-none bg-slate-50 rounded-2xl sm:rounded-3xl overflow-hidden border border-slate-200 hover-glow group transition-all flex flex-col justify-between"
-            >
-              <div className="p-5 sm:p-6">
-                <span className={`text-[11px] font-bold ${art.color} uppercase tracking-wider block mb-2`}>
-                  {art.category}
-                </span>
-                <h3 className="text-base sm:text-lg font-bold text-slate-900 group-hover:text-[#fe7f25] transition-colors mb-2.5 line-clamp-2">
-                  <Link href={art.link}>
-                    {art.title}
-                  </Link>
-                </h3>
-                <p className="text-xs text-slate-500 leading-relaxed line-clamp-3">
-                  {art.desc}
-                </p>
-              </div>
-              <div className="px-5 sm:px-6 py-3.5 sm:py-4 bg-white border-t border-slate-100 flex items-center justify-between text-xs">
-                <Link
-                  href={art.link}
-                  className={`font-bold ${art.color} hover:underline flex items-center gap-1`}
-                >
-                  <span>Inquire on Topic</span>
-                  <ArrowRight className="w-3.5 h-3.5" />
-                </Link>
-                <span className="text-slate-400">{art.date}</span>
-              </div>
-            </article>
-          ))}
-        </div>
-
-        {/* Mobile Swipe Cue */}
-        <div className="flex md:hidden items-center justify-center gap-1.5 mt-2 text-slate-400 text-[11px]">
-          <span>Swipe to explore articles</span>
-          <ArrowRight className="w-3 h-3 text-[#fe7f25]" />
-        </div>
-
-        <div className="mt-8 sm:mt-12 text-center">
-          <Link
-            href="/#contact-section"
-            className="inline-flex items-center gap-2 px-7 sm:px-8 py-3 sm:py-3.5 rounded-full bg-slate-900 hover:bg-[#fe7f25] text-white font-bold text-xs transition-all shadow-md"
-          >
-            <span>Consult Our Freight Experts</span>
-            <ArrowRight className="w-3.5 h-3.5" />
-          </Link>
-        </div>
+        {/* Carousel / 3-Column Grid */}
+        <LatestInsightsCarousel posts={posts} />
 
       </div>
     </section>

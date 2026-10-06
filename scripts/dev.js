@@ -33,7 +33,7 @@ try {
 
 const cmd = process.platform === 'win32' ? 'npx.cmd' : 'npx';
 const child = spawn(cmd, ['next', 'dev', '-H', '0.0.0.0', '-p', '3000', ...process.argv.slice(2)], {
-  stdio: ['inherit', 'pipe', 'inherit'],
+  stdio: ['ignore', 'pipe', 'inherit'],
   shell: true,
   env: process.env,
 });

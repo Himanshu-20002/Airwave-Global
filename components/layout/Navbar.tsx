@@ -25,7 +25,7 @@ export default function Navbar() {
         <div className="flex justify-between items-center">
 
           {/* Logo */}
-          <Link href="#hero-section" className="flex items-center gap-3">
+          <Link href="/#hero-section" className="flex items-center gap-3">
             <Image
               src="/images/airwave-logo-transparent.webp"
               alt="Airwave Global Logistics Private Limited Logo"
@@ -146,7 +146,7 @@ export default function Navbar() {
             </Link>
 
             <Link
-              href="/#blogs-section"
+              href="/blog"
               className="hover:text-[#fe7f25] transition-colors py-2 border-b-2 border-transparent hover:border-[#fe7f25]"
             >
               Insights
@@ -271,7 +271,7 @@ export default function Navbar() {
           </Link>
 
           <Link
-            href="/#blogs-section"
+            href="/blog"
             onClick={() => setMobileMenuOpen(false)}
             className="block px-4 py-2.5 rounded-lg text-slate-800 font-medium hover:bg-slate-50"
           >

@@ -5,7 +5,8 @@ export default function robots(): MetadataRoute.Robots {
     rules: {
       userAgent: '*',
       allow: '/',
+      disallow: ['/studio'],
     },
-    sitemap: 'https://www.airwavelogistics.com/sitemap.xml',
+    sitemap: 'https://airwaveglobal.in/sitemap.xml',
   };
 }

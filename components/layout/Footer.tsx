@@ -12,15 +12,18 @@ export default function Footer() {
 
           {/* Company Info */}
           <div className="space-y-4">
-            <div className="bg-white px-3.5 py-2 inline-block border border-slate-200 shadow-sm rounded">
+            <Link
+              href="/#hero-section"
+              className="inline-flex items-center justify-center bg-white px-2 py-0.5 rounded-xl shadow-sm hover:shadow-md hover:border-slate-300 transition-all duration-200 border border-slate-200"
+            >
               <Image
-                src="/images/airwave-logo-transparent.webp"
+                src="/images/airwave-logo.webp"
                 alt="Airwave Global Logistics Private Limited"
-                width={170}
-                height={48}
-                className="h-10 sm:h-11 w-auto object-contain"
+                width={190}
+                height={65}
+                className="h-[52px] sm:h-[60px] w-auto  object-contain"
               />
-            </div>
+            </Link>
             <p className="text-xs text-slate-400 leading-relaxed max-w-sm">
               Bridging Continents, Connecting Markets. Airwave Global Logistics Private Limited delivers dependable air, ocean, multimodal freight and supply chain solutions worldwide.
             </p>
@@ -61,13 +64,13 @@ export default function Footer() {
             <div>
               <h4 className="text-sm font-bold uppercase tracking-wider text-white mb-3 sm:mb-4">Quick Links</h4>
               <ul className="space-y-2 sm:space-y-2.5 text-xs text-slate-400">
-                <li><Link href="#hero-section" className="hover:text-white transition-colors">Home</Link></li>
-                <li><Link href="#about-section" className="hover:text-white transition-colors">About Us</Link></li>
-                <li><Link href="#services-section" className="hover:text-white transition-colors">Freight Services</Link></li>
-                <li><Link href="#industries-section" className="hover:text-white transition-colors">Industries We Serve</Link></li>
-                <li><Link href="#process-section" className="hover:text-white transition-colors">Logistics Process</Link></li>
-                <li><Link href="#blogs-section" className="hover:text-white transition-colors">Insights & Articles</Link></li>
-                <li><Link href="#contact-section" className="hover:text-white transition-colors">Contact Us</Link></li>
+                <li><Link href="/#hero-section" className="hover:text-white transition-colors">Home</Link></li>
+                <li><Link href="/#about-section" className="hover:text-white transition-colors">About Us</Link></li>
+                <li><Link href="/#services-section" className="hover:text-white transition-colors">Freight Services</Link></li>
+                <li><Link href="/#industries-section" className="hover:text-white transition-colors">Industries We Serve</Link></li>
+                <li><Link href="/#process-section" className="hover:text-white transition-colors">Logistics Process</Link></li>
+                <li><Link href="/blog" className="hover:text-white transition-colors">Insights & Articles</Link></li>
+                <li><Link href="/#contact-section" className="hover:text-white transition-colors">Contact Us</Link></li>
               </ul>
             </div>
 
@@ -75,12 +78,12 @@ export default function Footer() {
             <div>
               <h4 className="text-sm font-bold uppercase tracking-wider text-white mb-3 sm:mb-4">Freight Services</h4>
               <ul className="space-y-2 sm:space-y-2.5 text-xs text-slate-400">
-                <li><Link href="#services-section" className="hover:text-white transition-colors">Air Freight Charters</Link></li>
-                <li><Link href="#services-section" className="hover:text-white transition-colors">Ocean FCL & LCL Cargo</Link></li>
-                <li><Link href="#services-section" className="hover:text-white transition-colors">Project & Heavy Lift ODC</Link></li>
-                <li><Link href="#services-section" className="hover:text-white transition-colors">Customs Clearance Brokerage</Link></li>
-                <li><Link href="#services-section" className="hover:text-white transition-colors">Pharma Cold Chain</Link></li>
-                <li><Link href="#services-section" className="hover:text-white transition-colors">Supply Chain Finance</Link></li>
+                <li><Link href="/#services-section" className="hover:text-white transition-colors">Air Freight Charters</Link></li>
+                <li><Link href="/#services-section" className="hover:text-white transition-colors">Ocean FCL & LCL Cargo</Link></li>
+                <li><Link href="/#services-section" className="hover:text-white transition-colors">Project & Heavy Lift ODC</Link></li>
+                <li><Link href="/#services-section" className="hover:text-white transition-colors">Customs Clearance Brokerage</Link></li>
+                <li><Link href="/#services-section" className="hover:text-white transition-colors">Pharma Cold Chain</Link></li>
+                <li><Link href="/#services-section" className="hover:text-white transition-colors">Supply Chain Finance</Link></li>
               </ul>
             </div>
           </div>

@@ -11,6 +11,10 @@ const nextConfig = {
         protocol: 'https',
         hostname: 'images.unsplash.com',
       },
+      {
+        protocol: 'https',
+        hostname: 'cdn.sanity.io',
+      },
     ],
   },
   allowedDevOrigins: [
@@ -22,8 +26,13 @@ const nextConfig = {
     ignoreDuringBuilds: true,
   },
   experimental: {
-    optimizePackageImports: ['lucide-react', 'framer-motion'],
+    optimizePackageImports: [
+      'lucide-react',
+      '@portabletext/react',
+      '@sanity/image-url',
+    ],
   },
+  swcMinify: true,
   async headers() {
     return [
       {
@@ -53,6 +62,15 @@ const nextConfig = {
           {
             key: 'Cache-Control',
             value: 'public, max-age=31536000, immutable',
+          },
+        ],
+      },
+      {
+        source: '/(favicon.ico|icon.png|apple-icon.png)',
+        headers: [
+          {
+            key: 'Cache-Control',
+            value: 'public, max-age=864000, stale-while-revalidate=86400',
           },
         ],
       },

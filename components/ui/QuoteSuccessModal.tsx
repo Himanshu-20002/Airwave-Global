@@ -7,10 +7,10 @@ import { Check } from 'lucide-react';
 interface QuoteSuccessModalProps {
   isOpen: boolean;
   onClose: () => void;
-  refId: string;
+  refId?: string;
 }
 
-export default function QuoteSuccessModal({ isOpen, onClose, refId }: QuoteSuccessModalProps) {
+export default function QuoteSuccessModal({ isOpen, onClose }: QuoteSuccessModalProps) {
   const [mounted, setMounted] = useState(false);
 
   useEffect(() => {
@@ -40,27 +40,28 @@ export default function QuoteSuccessModal({ isOpen, onClose, refId }: QuoteSucce
     >
       <div
         style={{ backgroundColor: '#ffffff' }}
-        className="bg-white rounded-3xl p-8 max-w-md w-full shadow-2xl text-center"
+        className="bg-white rounded-3xl p-6 sm:p-8 max-w-md w-full shadow-2xl text-center"
       >
-        <div className="w-16 h-16 rounded-full bg-emerald-100 text-emerald-600 flex items-center justify-center text-3xl mx-auto mb-4">
-          <Check className="w-8 h-8" />
+        <div className="w-16 h-16 rounded-full bg-emerald-100 text-emerald-600 flex items-center justify-center mx-auto mb-4">
+          <Check className="w-8 h-8 stroke-[2.5]" />
         </div>
         <h3 className="text-xl font-bold text-slate-900 font-display">Inquiry Received Successfully!</h3>
-        <p className="text-xs text-slate-500 mt-2">
-          Thank you for contacting Airwave Global Logistics Private Limited. Our freight pricing desk has logged your request.
+        <p className="text-xs text-slate-500 mt-2 leading-relaxed">
+          Thank you for reaching out to Airwave Global Logistics. Our team has received your shipping requirements.
         </p>
-        <div className="my-5 p-3.5 rounded-xl bg-slate-50 border border-slate-200 text-xs">
-          <span className="text-slate-400 block text-[10px] uppercase font-bold">Inquiry Reference ID</span>
-          <strong className="text-base font-black text-[#fe7f25]">{refId}</strong>
+
+        <div className="my-5 p-3.5 rounded-2xl bg-slate-50 border border-slate-100 text-xs text-slate-700">
+          <p className="font-semibold text-slate-900 mb-0.5">What happens next?</p>
+          <p className="text-[11px] text-slate-500">
+            A dedicated logistics specialist will review your cargo profile and contact you with competitive rates within 2 hours.
+          </p>
         </div>
-        <p className="text-xs text-slate-600 mb-6 leading-relaxed">
-          A dedicated senior account officer will review your port pair and cargo profile to issue competitive freight rates shortly.
-        </p>
+
         <button
           onClick={onClose}
-          className="w-full py-3.5 bg-slate-900 hover:bg-slate-800 text-white font-bold rounded-xl text-xs uppercase tracking-wider transition-all cursor-pointer"
+          className="w-full py-3.5 bg-slate-900 hover:bg-[#fe7f25] text-white font-bold rounded-xl text-xs uppercase tracking-wider transition-all cursor-pointer shadow-md"
         >
-          Dismiss
+          Got It, Thanks!
         </button>
       </div>
     </div>,

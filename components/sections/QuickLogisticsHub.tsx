@@ -1,6 +1,6 @@
 'use client';
 
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import Link from 'next/link';
 import {
   Box,
@@ -10,7 +10,9 @@ import {
   Ship,
   ArrowRight,
   Zap,
+  Loader2,
 } from 'lucide-react';
+import { submitLeadInquiry } from '@/lib/contact';
 
 export default function QuickLogisticsHub() {
   const [activeTab, setActiveTab] = useState<'cbm' | 'callback'>('cbm');
@@ -23,7 +25,24 @@ export default function QuickLogisticsHub() {
   const [weight, setWeight] = useState(95);
   const [qty, setQty] = useState(2);
   const [currency, setCurrency] = useState<'USD' | 'INR'>('USD');
-  const usdToInrRate = 86.5;
+  const [usdToInrRate, setUsdToInrRate] = useState<number>(96.35);
+
+  // Fetch real-time live exchange rate from /api/currency
+  useEffect(() => {
+    let isMounted = true;
+    fetch('/api/currency')
+      .then((res) => res.json())
+      .then((data) => {
+        if (isMounted && data?.rate && typeof data.rate === 'number') {
+          setUsdToInrRate(data.rate);
+        }
+      })
+      .catch((err) => console.warn('Using fallback currency rate:', err));
+
+    return () => {
+      isMounted = false;
+    };
+  }, []);
 
   const totalVolumeCbm = ((length * width * height) / 1000000) * qty;
   const grossWeightTotal = weight * qty;
@@ -43,18 +62,32 @@ export default function QuickLogisticsHub() {
 
   // --- Callback Form State ---
   const [callbackSubmitted, setCallbackSubmitted] = useState(false);
+  const [callbackLoading, setCallbackLoading] = useState(false);
   const [name, setName] = useState('');
   const [phone, setPhone] = useState('');
   const [service, setService] = useState('air');
 
-  const handleCallbackSubmit = (e: React.FormEvent) => {
+  const handleCallbackSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    setCallbackSubmitted(true);
-    setTimeout(() => {
-      setCallbackSubmitted(false);
-      setName('');
-      setPhone('');
-    }, 4000);
+    setCallbackLoading(true);
+
+    try {
+      await submitLeadInquiry({
+        name,
+        phone,
+        service_type: service,
+      });
+    } catch (err) {
+      console.warn('Callback submission error:', err);
+    } finally {
+      setCallbackLoading(false);
+      setCallbackSubmitted(true);
+      setTimeout(() => {
+        setCallbackSubmitted(false);
+        setName('');
+        setPhone('');
+      }, 5000);
+    }
   };
 
   return (
@@ -257,7 +290,7 @@ export default function QuickLogisticsHub() {
                           </span>
                         </button>
                       </div>
-                      <strong className="text-xl font-black text-emerald-400">
+                      <strong className="text-xl font-black text-emerald-400 block">
                         {currency === 'USD' ? (
                           <>
                             ${rateEstimate.toFixed(0)} - ${(rateEstimate * 1.25).toFixed(0)}{' '}
@@ -270,6 +303,9 @@ export default function QuickLogisticsHub() {
                           </>
                         )}
                       </strong>
+                      <span className="text-[10px] text-slate-400 block mt-1 font-medium">
+                        * Indicative estimate only {currency === 'INR' && `(Live 1 USD ≈ ₹${usdToInrRate})`}
+                      </span>
                     </div>
                     <Link
                       href="#contact-section"
@@ -360,10 +396,20 @@ export default function QuickLogisticsHub() {
                     </label>
                     <button
                       type="submit"
-                      className="w-full py-3.5 bg-gradient-to-r from-[#fe7f25] to-[#f76707] hover:from-[#e0650d] hover:to-[#ea580c] text-white font-extrabold rounded-xl text-xs sm:text-sm transition-all shadow-md shadow-orange-500/25 flex items-center justify-center gap-2"
+                      disabled={callbackLoading}
+                      className="w-full py-3.5 bg-gradient-to-r from-[#fe7f25] to-[#f76707] hover:from-[#e0650d] hover:to-[#ea580c] disabled:opacity-75 disabled:cursor-not-allowed text-white font-extrabold rounded-xl text-xs sm:text-sm transition-all shadow-md shadow-orange-500/25 flex items-center justify-center gap-2"
                     >
-                      <PhoneCall className="w-4 h-4" />
-                      <span>Request 15-Min Callback</span>
+                      {callbackLoading ? (
+                        <>
+                          <Loader2 className="w-4 h-4 animate-spin" />
+                          <span>Sending Request...</span>
+                        </>
+                      ) : (
+                        <>
+                          <PhoneCall className="w-4 h-4" />
+                          <span>Request 15-Min Callback</span>
+                        </>
+                      )}
                     </button>
                   </div>
                 </form>

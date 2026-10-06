@@ -18,6 +18,18 @@ const slides = [
       'Reliable air cargo charters and cost-effective ocean freight across all global trade lanes with end-to-end milestone visibility.',
   },
   {
+    image: '/images/banner/hero-5.webp',
+    mobileImage: '/images/banner/hero-5-mobile.webp',
+    badge: 'Express Global Air Freight & Charters',
+    headline: (
+      <>
+        Priority Air Cargo &amp; <br /><span className="text-[#fe7f25]">Flight Charters</span>
+      </>
+    ),
+    description:
+      'Time-critical international flight connections, direct belly-hold capacity, and dedicated cargo aircraft for mission-critical freight.',
+  },
+  {
     image: '/images/banner/hero-2.webp',
     mobileImage: '/images/banner/hero-2-mobile.webp',
     badge: 'Premier Indian Forwarding Network',
@@ -37,7 +49,7 @@ const slides = [
     badge: 'Specialized Project & Heavy Cargo',
     headline: (
       <>
-        Project, Defence &amp; <span className="text-[#fe7f25]">ODC Cargo</span> Experts
+        Project, Defence &amp;    <span className="text-[#fe7f25]">ODC Cargo</span><br /> Experts
       </>
     ),
     description:
@@ -49,7 +61,7 @@ const slides = [
     badge: 'Cold Chain & 3PL Logistics',
     headline: (
       <>
-        Integrated <span className="text-[#3e47cc]">Supply Chain</span> Solutions
+        Integrated <span className="text-[#3e47cc]">Supply Chain    <br /> </span> Solutions
       </>
     ),
     description:
@@ -86,7 +98,7 @@ export default function HeroSlider() {
   return (
     <section
       id="hero-section"
-      className="relative min-h-[590px] sm:min-h-[520px] lg:h-[620px] lg:min-h-[550px] bg-[#071126] text-white overflow-hidden flex items-center"
+      className="relative min-h-[620px] sm:min-h-[520px] lg:h-[620px] lg:min-h-[550px] bg-[#071126] text-white overflow-hidden flex items-end sm:items-center"
     >
       {/* Background Images Slider */}
       {slides.map((slide, index) => {
@@ -98,11 +110,11 @@ export default function HeroSlider() {
               }`}
           >
             <picture className="w-full h-full block">
-              <source srcSet={slide.mobileImage} media="(max-width: 767px)" width={767} height={520} />
+              <source srcSet={slide.mobileImage} media="(max-width: 767px)" width={1080} height={1920} />
               <img
                 src={slide.image}
                 alt="Airwave Global Logistics Hero Banner"
-                className="w-full h-full object-cover object-center"
+                className="w-full h-full object-cover object-top sm:object-center"
                 loading={index === 0 ? 'eager' : 'lazy'}
                 fetchPriority={index === 0 ? 'high' : 'low'}
                 decoding="async"
@@ -110,14 +122,14 @@ export default function HeroSlider() {
                 height={620}
               />
             </picture>
-            {/* Dark cinematic gradient: vertical on mobile for high text contrast; horizontal on desktop */}
-            <div className="absolute inset-0 bg-gradient-to-t from-[#071126]/95 via-[#071126]/75 to-[#071126]/40 md:bg-gradient-to-r md:from-[#071126]/90 md:via-[#071126]/55 md:via-45% md:to-transparent pointer-events-none" />
+            {/* Dark cinematic gradient: completely clear upper 50% for maximum ship brightness, dark lower half for text contrast */}
+            <div className="absolute inset-0 bg-gradient-to-t from-[#071126] from-10% via-[#071126]/2 via-48% to-transparent md:bg-gradient-to-r md:from-[#071126]/70 md:via-[#071126]/5 md:via-45% md:to-transparent pointer-events-none" />
           </div>
         );
       })}
 
       {/* Main Hero Content */}
-      <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 sm:py-10 lg:py-10 w-full">
+      <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-16 pb-8 sm:py-10 lg:py-10 w-full">
         <div className="max-w-3xl lg:max-w-4xl space-y-3.5 sm:space-y-5">
 
           {/* Pill Badge */}
