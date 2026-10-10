@@ -1,0 +1,495 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Invoice INV-AGL-2026-001 - Airwave Global Logistics</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap');
+
+    :root {
+      --primary: #0f172a;
+      --primary-light: #1e293b;
+      --accent: #ea580c;
+      --accent-soft: #fff7ed;
+      --text: #334155;
+      --text-muted: #64748b;
+      --border: #e2e8f0;
+      --bg-subtle: #f8fafc;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+      background: #f1f5f9;
+      color: var(--text);
+      line-height: 1.5;
+      padding: 40px 20px;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    .invoice-card {
+      max-width: 860px;
+      margin: 0 auto;
+      background: #ffffff;
+      border-radius: 16px;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+      border: 1px solid var(--border);
+      padding: 48px 52px;
+    }
+
+    /* Header */
+    .invoice-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      border-bottom: 1px solid var(--border);
+      padding-bottom: 28px;
+      margin-bottom: 28px;
+    }
+
+    .brand-title {
+      font-size: 22px;
+      font-weight: 800;
+      color: var(--primary);
+      letter-spacing: -0.5px;
+      margin-bottom: 4px;
+    }
+
+    .brand-subtitle {
+      font-size: 13px;
+      color: var(--text-muted);
+      font-weight: 500;
+    }
+
+    .invoice-meta {
+      text-align: right;
+    }
+
+    .invoice-badge {
+      display: inline-block;
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 0.5px;
+      text-transform: uppercase;
+      padding: 4px 12px;
+      border-radius: 20px;
+      background: var(--accent-soft);
+      color: var(--accent);
+      margin-bottom: 8px;
+    }
+
+    .invoice-num {
+      font-size: 18px;
+      font-weight: 700;
+      color: var(--primary);
+    }
+
+    .invoice-date {
+      font-size: 13px;
+      color: var(--text-muted);
+      margin-top: 2px;
+    }
+
+    /* Details Grid */
+    .details-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 32px;
+      background: var(--bg-subtle);
+      border-radius: 12px;
+      padding: 20px 24px;
+      margin-bottom: 32px;
+      border: 1px solid var(--border);
+    }
+
+    .details-col h4 {
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: 0.8px;
+      font-weight: 700;
+      color: var(--text-muted);
+      margin-bottom: 6px;
+    }
+
+    .details-col p.client-name {
+      font-size: 15px;
+      font-weight: 700;
+      color: var(--primary);
+      margin-bottom: 2px;
+    }
+
+    .details-col p.desc {
+      font-size: 13px;
+      color: var(--text-muted);
+      line-height: 1.4;
+    }
+
+    /* Table */
+    .invoice-table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-bottom: 28px;
+    }
+
+    .invoice-table th {
+      text-align: left;
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: 0.8px;
+      font-weight: 700;
+      color: var(--text-muted);
+      background: var(--bg-subtle);
+      padding: 12px 14px;
+      border-top: 1px solid var(--border);
+      border-bottom: 1px solid var(--border);
+    }
+
+    .invoice-table th.center,
+    .invoice-table td.center {
+      text-align: center;
+    }
+
+    .invoice-table th.right,
+    .invoice-table td.right {
+      text-align: right;
+    }
+
+    .invoice-table td {
+      padding: 14px 14px;
+      border-bottom: 1px solid var(--border);
+      font-size: 13px;
+      vertical-align: top;
+    }
+
+    .invoice-table tr:last-child td {
+      border-bottom: none;
+    }
+
+    .item-num {
+      font-weight: 600;
+      color: var(--text-muted);
+      width: 36px;
+    }
+
+    .item-title {
+      font-weight: 700;
+      color: var(--primary);
+      margin-bottom: 3px;
+      font-size: 13.5px;
+    }
+
+    .item-scope {
+      font-size: 12px;
+      color: var(--text-muted);
+      line-height: 1.45;
+    }
+
+    .item-time {
+      font-weight: 600;
+      color: var(--text-muted);
+      white-space: nowrap;
+    }
+
+    .item-amount {
+      font-weight: 700;
+      color: var(--primary);
+      white-space: nowrap;
+      font-size: 14px;
+    }
+
+    /* Summary Section */
+    .summary-wrap {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      gap: 32px;
+      border-top: 1px solid var(--border);
+      padding-top: 24px;
+      margin-bottom: 28px;
+    }
+
+    .payment-box {
+      background: #f8fafc;
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 16px 20px;
+      flex: 1;
+      max-width: 420px;
+    }
+
+    .payment-box h4 {
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: 0.8px;
+      font-weight: 700;
+      color: var(--text-muted);
+      margin-bottom: 8px;
+    }
+
+    .upi-row {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 14px;
+      font-weight: 700;
+      color: var(--primary);
+    }
+
+    .upi-badge {
+      display: inline-block;
+      background: #0284c7;
+      color: white;
+      font-size: 10px;
+      font-weight: 800;
+      padding: 2px 7px;
+      border-radius: 4px;
+      letter-spacing: 0.5px;
+    }
+
+    .payment-note {
+      font-size: 11px;
+      color: var(--text-muted);
+      margin-top: 6px;
+    }
+
+    .totals-box {
+      width: 320px;
+    }
+
+    .totals-row {
+      display: flex;
+      justify-content: space-between;
+      padding: 6px 0;
+      font-size: 13px;
+      color: var(--text-muted);
+    }
+
+    .totals-row.discount {
+      color: #16a34a;
+      font-weight: 600;
+    }
+
+    .totals-row.final {
+      border-top: 2px solid var(--primary);
+      margin-top: 8px;
+      padding-top: 12px;
+      font-size: 16px;
+      font-weight: 800;
+      color: var(--primary);
+    }
+
+    .in-words {
+      text-align: right;
+      font-size: 11px;
+      color: var(--text-muted);
+      font-style: italic;
+      margin-top: 4px;
+    }
+
+    /* Footer Note */
+    .invoice-footer {
+      border-top: 1px solid var(--border);
+      padding-top: 18px;
+      text-align: center;
+      font-size: 11.5px;
+      color: var(--text-muted);
+    }
+
+    /* Print Optimization */
+    @media print {
+      body {
+        background: #ffffff;
+        padding: 0;
+      }
+      .invoice-card {
+        box-shadow: none;
+        border: none;
+        padding: 24px 30px;
+        max-width: 100%;
+      }
+      .print-btn {
+        display: none !important;
+      }
+    }
+
+    .print-btn {
+      display: block;
+      margin: 0 auto 20px auto;
+      background: var(--primary);
+      color: white;
+      border: none;
+      padding: 10px 22px;
+      border-radius: 8px;
+      font-size: 14px;
+      font-weight: 700;
+      cursor: pointer;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+      transition: all 0.2s ease;
+    }
+
+    .print-btn:hover {
+      background: var(--primary-light);
+      transform: translateY(-1px);
+    }
+  </style>
+</head>
+<body>
+
+  <button class="print-btn" onclick="window.print()">🖨️ Download / Print Clean PDF (Ctrl + P)</button>
+
+  <div class="invoice-card">
+    <!-- Header -->
+    <div class="invoice-header">
+      <div>
+        <div class="brand-title">AIRWAVE GLOBAL LOGISTICS</div>
+        <div class="brand-subtitle">Private Limited • Corporate Web Platform & Identity</div>
+      </div>
+      <div class="invoice-meta">
+        <span class="invoice-badge">Invoice</span>
+        <div class="invoice-num"># INV-AGL-2026-001</div>
+        <div class="invoice-date">Date: 11 October 2026</div>
+      </div>
+    </div>
+
+    <!-- Details Grid -->
+    <div class="details-grid">
+      <div class="details-col">
+        <h4>Billed To</h4>
+        <p class="client-name">Airwave Global Logistics Pvt. Ltd.</p>
+        <p class="desc">International Freight Forwarding & Supply Chain</p>
+      </div>
+      <div class="details-col">
+        <h4>Project Scope</h4>
+        <p class="client-name" style="font-size: 14px; font-weight: 600;">Corporate Web Platform, CMS & SEO</p>
+        <p class="desc">Next.js 14/15, Tailwind, Sanity CMS, SEO & 10-Slide Deck</p>
+      </div>
+    </div>
+
+    <!-- Table -->
+    <table class="invoice-table">
+      <thead>
+        <tr>
+          <th style="width: 32px;">#</th>
+          <th>Milestone / Deliverable Description</th>
+          <th class="center" style="width: 90px;">Est. Time</th>
+          <th class="right" style="width: 110px;">Amount</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td class="item-num">1</td>
+          <td>
+            <div class="item-title">Core Frontend UI/UX, Navigation & Hero Presentation</div>
+            <div class="item-scope">Next.js App Router architecture, zero-RTT self-hosted typography (Outfit & Poppins), glassmorphic capsule navbar, fullscreen hero carousel, and aviation/maritime imagery assets.</div>
+          </td>
+          <td class="center item-time">27 hrs</td>
+          <td class="right item-amount">₹3,500</td>
+        </tr>
+        <tr>
+          <td class="item-num">2</td>
+          <td>
+            <div class="item-title">Logistics Interactive Modules & Operations Hub</div>
+            <div class="item-scope">Quick Logistics Hub interactive multi-tab calculator, 4-step execution process pipeline with SVG timeline, industries commercial grid, and dynamic partner logo marquee.</div>
+          </td>
+          <td class="center item-time">32 hrs</td>
+          <td class="right item-amount">₹2,500</td>
+        </tr>
+        <tr>
+          <td class="item-num">3</td>
+          <td>
+            <div class="item-title">Lead Capture & Inquiry Automation Engine</div>
+            <div class="item-scope">Desktop comprehensive RFQ modal, mobile bottom-sheet quote drawer, Web3Forms email API integration, honeypot spam protection, and 1-tap WhatsApp inquiry routing.</div>
+          </td>
+          <td class="center item-time">4 hrs</td>
+          <td class="right item-amount">₹1,500</td>
+        </tr>
+        <tr>
+          <td class="item-num">4</td>
+          <td>
+            <div class="item-title">Headless CMS & Dynamic Blog Architecture</div>
+            <div class="item-scope">Sanity.io Studio headless CMS integration, structured editorial schemas, dynamic blog feed with category filtering, and rich PortableText article renderer.</div>
+          </td>
+          <td class="center item-time">24 hrs</td>
+          <td class="right item-amount">₹2,000</td>
+        </tr>
+        <tr>
+          <td class="item-num">5</td>
+          <td>
+            <div class="item-title">Full Search Engine Optimization (SEO & Rich Snippets)</div>
+            <div class="item-scope">Schema.org JSON-LD structured data (Corporation, WebSite, ServiceCatalog, FAQPage), dynamic sitemap.xml, robots.txt, canonical links, Open Graph & PWA Web Manifest.</div>
+          </td>
+          <td class="center item-time">7 hrs</td>
+          <td class="right item-amount">₹1,500</td>
+        </tr>
+        <tr>
+          <td class="item-num">6</td>
+          <td>
+            <div class="item-title">Performance Engineering & WCAG Accessibility</div>
+            <div class="item-scope">Zero render-blocking assets, high-efficiency image compression (saved 925+ KB), hardware-accelerated GPU transforms, WCAG AA contrast compliance, and touch target optimization.</div>
+          </td>
+          <td class="center item-time">6 hrs</td>
+          <td class="right item-amount">₹1,000</td>
+        </tr>
+        <tr>
+          <td class="item-num">7</td>
+          <td>
+            <div class="item-title">Deployment, Domain DNS, Corporate Email & Setup</div>
+            <div class="item-scope">Git repository & GitHub synchronization, zero-error production build verification, custom business email DNS routing (MX, SPF, DKIM), and production environment hardening.</div>
+          </td>
+          <td class="center item-time">8 hrs</td>
+          <td class="right item-amount">₹1,500</td>
+        </tr>
+        <tr>
+          <td class="item-num">8</td>
+          <td>
+            <div class="item-title">Corporate Pitch Deck & Presentation (10 Slides)</div>
+            <div class="item-scope">Custom 10-slide enterprise corporate presentation deck covering global multimodal network, cold chain/pharma, customs brokerage, and B2B client pitch structure.</div>
+          </td>
+          <td class="center item-time">4 hrs</td>
+          <td class="right item-amount">₹500</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <!-- Summary & Payment -->
+    <div class="summary-wrap">
+      <div class="payment-box">
+        <h4>Payment Method</h4>
+        <div class="upi-row">
+          <span class="upi-badge">UPI</span>
+          <span>7970686221@ptyes</span>
+        </div>
+        <div class="payment-note">Scan or pay directly via Google Pay / PhonePe / Paytm / BHIM UPI</div>
+      </div>
+
+      <div class="totals-box">
+        <div class="totals-row">
+          <span>Subtotal (112 Hours)</span>
+          <span style="font-weight: 600; color: var(--primary);">₹14,000</span>
+        </div>
+        <div class="totals-row discount">
+          <span>Package Courtesy Discount</span>
+          <span>- ₹2,000</span>
+        </div>
+        <div class="totals-row final">
+          <span>Total Amount Payable</span>
+          <span>₹12,000</span>
+        </div>
+        <div class="in-words">Twelve Thousand Rupees Only</div>
+      </div>
+    </div>
+
+    <!-- Footer -->
+    <div class="invoice-footer">
+      Thank you for your business! For any billing queries, please contact through the registered channel.
+    </div>
+  </div>
+
+</body>
+</html>
