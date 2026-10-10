@@ -56,7 +56,7 @@ export default function ValuePillars() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 w-full">
 
         <div className="max-w-3xl mx-auto text-center mb-16">
-          <span className="text-xs uppercase font-extrabold tracking-widest text-[#fe7f25]">Enterprise Reliability</span>
+          <span className="text-xs uppercase font-extrabold tracking-widest text-[#c2410c]">Enterprise Reliability</span>
           <h2 className="text-3xl sm:text-4xl font-black text-slate-900 mt-2 tracking-tight uppercase font-display">
             Why Choose <span className="text-[#fe7f25]">Airwave Global Logistics?</span>
           </h2>

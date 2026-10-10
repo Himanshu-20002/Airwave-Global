@@ -39,9 +39,9 @@ const config: Config = {
           '100%': { opacity: '1', transform: 'translateY(0)' },
         },
         'pulse-ring': {
-          '0%': { transform: 'scale(0.95)', boxShadow: '0 0 0 0 rgba(34, 197, 94, 0.7)' },
-          '70%': { transform: 'scale(1)', boxShadow: '0 0 0 8px rgba(34, 197, 94, 0)' },
-          '100%': { transform: 'scale(0.95)', boxShadow: '0 0 0 0 rgba(34, 197, 94, 0)' },
+          '0%': { transform: 'scale(0.95)', opacity: '0.85' },
+          '50%': { transform: 'scale(1.1)', opacity: '1' },
+          '100%': { transform: 'scale(0.95)', opacity: '0.85' },
         },
       },
     },

@@ -339,7 +339,7 @@ export default async function BlogPostPage({ params }: PageProps) {
       name: 'Airwave Global Logistics Private Limited',
       logo: {
         '@type': 'ImageObject',
-        url: 'https://airwaveglobal.in/images/airwave-logo.png',
+        url: 'https://airwaveglobal.in/images/airwave-logo.webp',
       },
     },
     image: coverImageUrl || undefined,

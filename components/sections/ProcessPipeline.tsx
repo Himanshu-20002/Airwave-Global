@@ -108,7 +108,7 @@ export default function ProcessPipeline() {
         
         {/* Section Header */}
         <div className="text-center max-w-3xl mx-auto mb-10 sm:mb-14">
-          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-orange-50 border border-orange-200/80 text-[11px] font-extrabold uppercase tracking-widest text-[#fe7f25] mb-2">
+          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-orange-50 border border-orange-200/80 text-[11px] font-extrabold uppercase tracking-widest text-[#c2410c] mb-2">
             <Radio className="w-3 h-3 text-[#fe7f25] animate-pulse" />
             <span>Operational Rigor</span>
           </div>
@@ -137,7 +137,7 @@ export default function ProcessPipeline() {
 
             {/* Middle Pipeline Laser Flow Bar */}
             <div className="hidden lg:flex items-center gap-3 px-4 flex-1 max-w-xl mx-4">
-              <div className="relative w-full h-2 bg-slate-100 rounded-full overflow-hidden border border-slate-200/60">
+              <div className="relative w-full h-2 bg-slate-100 rounded-full overflow-hidden border border-slate-200/60 [container-type:inline-size]">
                 {/* Continuous 120 FPS glowing pulse beam */}
                 <div className="desktop-flow-pulse w-28" />
                 {/* Active Stage Fill Progress */}

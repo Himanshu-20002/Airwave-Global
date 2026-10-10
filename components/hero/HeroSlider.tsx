@@ -18,7 +18,7 @@ const slides = [
       'Reliable air cargo charters and cost-effective ocean freight across all global trade lanes with end-to-end milestone visibility.',
   },
   {
-    image: '/images/banner/hero-5.webp',
+    image: '/images/banner/hero-+5.webp',
     mobileImage: '/images/banner/hero-5-mobile.webp',
     badge: 'Express Global Air Freight & Charters',
     headline: (
@@ -110,7 +110,7 @@ export default function HeroSlider() {
               }`}
           >
             <picture className="w-full h-full block">
-              <source srcSet={slide.mobileImage} media="(max-width: 767px)" width={1080} height={1920} />
+              <source srcSet={slide.mobileImage} media="(max-width: 767px)" width={828} height={1472} />
               <img
                 src={slide.image}
                 alt="Airwave Global Logistics Hero Banner"
@@ -191,6 +191,7 @@ export default function HeroSlider() {
                 return (
                   <button
                     key={idx}
+                    type="button"
                     onClick={() => goToSlide(idx)}
                     className={`relative h-2 rounded-full transition-all duration-500 overflow-hidden flex items-center cursor-pointer ${isActive
                       ? 'w-16 sm:w-20 bg-white/20 shadow-[0_0_12px_rgba(254,127,37,0.5)]'
@@ -198,32 +199,45 @@ export default function HeroSlider() {
                       }`}
                     aria-label={`Go to slide ${idx + 1}`}
                   >
-                    {isActive && (
-                      <div
-                        key={currentSlide}
-                        className="h-full bg-gradient-to-r from-[#fe7f25] via-orange-400 to-[#fe7f25] animate-slide-progress rounded-full"
-                      />
-                    )}
+                    <div
+                      className={`relative h-2 rounded-full transition-all duration-500 overflow-hidden flex items-center ${isActive
+                        ? 'w-16 sm:w-20 bg-white/20 shadow-[0_0_12px_rgba(254,127,37,0.5)]'
+                        : 'w-2.5 sm:w-3 bg-white/30 hover:bg-white/70 hover:scale-110'
+                        }`}
+                    >
+                      {isActive && (
+                        <div
+                          key={currentSlide}
+                          className="w-full h-full bg-gradient-to-r from-[#fe7f25] via-orange-400 to-[#fe7f25] animate-slide-progress rounded-full"
+                        />
+                      )}
+                    </div>
                   </button>
                 );
               })}
             </div>
 
             {/* Quick Navigation Arrows */}
-            <div className="flex items-center gap-1.5">
+            <div className="flex items-center gap-1">
               <button
+                type="button"
                 onClick={() => goToSlide((currentSlide - 1 + slides.length) % slides.length)}
-                className="w-7 h-7 rounded-full bg-white/10 hover:bg-white/25 border border-white/15 flex items-center justify-center text-white transition-all hover:scale-105 active:scale-95 cursor-pointer shadow-sm"
+                className="w-10 h-10 rounded-full flex items-center justify-center text-white cursor-pointer"
                 aria-label="Previous Slide"
               >
-                <ChevronLeft className="w-3.5 h-3.5" />
+                <span className="w-7 h-7 rounded-full bg-white/10 hover:bg-white/25 border border-white/15 flex items-center justify-center transition-all hover:scale-105 active:scale-95 shadow-sm">
+                  <ChevronLeft className="w-3.5 h-3.5" />
+                </span>
               </button>
               <button
+                type="button"
                 onClick={() => goToSlide((currentSlide + 1) % slides.length)}
-                className="w-7 h-7 rounded-full bg-white/10 hover:bg-white/25 border border-white/15 flex items-center justify-center text-white transition-all hover:scale-105 active:scale-95 cursor-pointer shadow-sm"
+                className="w-10 h-10 rounded-full flex items-center justify-center text-white cursor-pointer"
                 aria-label="Next Slide"
               >
-                <ChevronRight className="w-3.5 h-3.5" />
+                <span className="w-7 h-7 rounded-full bg-white/10 hover:bg-white/25 border border-white/15 flex items-center justify-center transition-all hover:scale-105 active:scale-95 shadow-sm">
+                  <ChevronRight className="w-3.5 h-3.5" />
+                </span>
               </button>
             </div>
           </div>

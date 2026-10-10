@@ -107,7 +107,7 @@ export default function QuickLogisticsHub() {
         {/* Section Header: SaaS Top Badge & Controls */}
         <div className="flex flex-col lg:flex-row lg:items-end justify-between gap-6 mb-8">
           <div className="space-y-3 max-w-2xl">
-            <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-orange-50 border border-orange-200/80 text-xs font-bold text-[#fe7f25] shadow-xs">
+            <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-orange-50 border border-orange-200/80 text-xs font-bold text-[#c2410c] shadow-xs">
               <span className="relative flex h-2 w-2">
                 <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-orange-400 opacity-75" />
                 <span className="relative inline-flex rounded-full h-2 w-2 bg-[#fe7f25]" />
@@ -194,11 +194,13 @@ export default function QuickLogisticsHub() {
                   {/* 5 Input Fields in a neat horizontal grid */}
                   <div className="grid grid-cols-2 sm:grid-cols-5 gap-3">
                     <div className="bg-slate-50/70 p-2.5 rounded-xl border border-slate-200/80 focus-within:border-[#fe7f25] focus-within:bg-white transition-all">
-                      <label className="text-[10px] text-slate-500 uppercase font-bold block mb-1">
+                      <label htmlFor="cbm-length" className="text-[10px] text-slate-600 uppercase font-bold block mb-1">
                         Length (cm)
                       </label>
                       <input
+                        id="cbm-length"
                         type="number"
+                        aria-label="Cargo Length in centimeters"
                         value={length}
                         onChange={(e) => setLength(parseFloat(e.target.value) || 0)}
                         className="w-full bg-transparent text-sm font-bold text-slate-900 focus:outline-none"
@@ -206,11 +208,13 @@ export default function QuickLogisticsHub() {
                     </div>
 
                     <div className="bg-slate-50/70 p-2.5 rounded-xl border border-slate-200/80 focus-within:border-[#fe7f25] focus-within:bg-white transition-all">
-                      <label className="text-[10px] text-slate-500 uppercase font-bold block mb-1">
+                      <label htmlFor="cbm-width" className="text-[10px] text-slate-600 uppercase font-bold block mb-1">
                         Width (cm)
                       </label>
                       <input
+                        id="cbm-width"
                         type="number"
+                        aria-label="Cargo Width in centimeters"
                         value={width}
                         onChange={(e) => setWidth(parseFloat(e.target.value) || 0)}
                         className="w-full bg-transparent text-sm font-bold text-slate-900 focus:outline-none"
@@ -218,11 +222,13 @@ export default function QuickLogisticsHub() {
                     </div>
 
                     <div className="bg-slate-50/70 p-2.5 rounded-xl border border-slate-200/80 focus-within:border-[#fe7f25] focus-within:bg-white transition-all">
-                      <label className="text-[10px] text-slate-500 uppercase font-bold block mb-1">
+                      <label htmlFor="cbm-height" className="text-[10px] text-slate-600 uppercase font-bold block mb-1">
                         Height (cm)
                       </label>
                       <input
+                        id="cbm-height"
                         type="number"
+                        aria-label="Cargo Height in centimeters"
                         value={height}
                         onChange={(e) => setHeight(parseFloat(e.target.value) || 0)}
                         className="w-full bg-transparent text-sm font-bold text-slate-900 focus:outline-none"
@@ -230,11 +236,13 @@ export default function QuickLogisticsHub() {
                     </div>
 
                     <div className="bg-slate-50/70 p-2.5 rounded-xl border border-slate-200/80 focus-within:border-[#fe7f25] focus-within:bg-white transition-all">
-                      <label className="text-[10px] text-slate-500 uppercase font-bold block mb-1">
+                      <label htmlFor="cbm-weight" className="text-[10px] text-slate-600 uppercase font-bold block mb-1">
                         Weight (kg)
                       </label>
                       <input
+                        id="cbm-weight"
                         type="number"
+                        aria-label="Cargo Weight in kilograms"
                         value={weight}
                         onChange={(e) => setWeight(parseFloat(e.target.value) || 0)}
                         className="w-full bg-transparent text-sm font-bold text-slate-900 focus:outline-none"
@@ -242,11 +250,13 @@ export default function QuickLogisticsHub() {
                     </div>
 
                     <div className="col-span-2 sm:col-span-1 bg-slate-50/70 p-2.5 rounded-xl border border-slate-200/80 focus-within:border-[#fe7f25] focus-within:bg-white transition-all">
-                      <label className="text-[10px] text-slate-500 uppercase font-bold block mb-1">
+                      <label htmlFor="cbm-qty" className="text-[10px] text-slate-600 uppercase font-bold block mb-1">
                         Boxes (Qty)
                       </label>
                       <input
+                        id="cbm-qty"
                         type="number"
+                        aria-label="Cargo Boxes Quantity"
                         value={qty}
                         onChange={(e) => setQty(parseInt(e.target.value, 10) || 1)}
                         className="w-full bg-transparent text-sm font-bold text-slate-900 focus:outline-none"
@@ -347,10 +357,12 @@ export default function QuickLogisticsHub() {
               ) : (
                 <form onSubmit={handleCallbackSubmit} className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 items-center">
                   <div>
-                    <label className="text-[11px] text-slate-600 uppercase font-bold block mb-1.5">
+                    <label htmlFor="cb-name" className="text-[11px] text-slate-600 uppercase font-bold block mb-1.5">
                       Your Full Name
                     </label>
                     <input
+                      id="cb-name"
+                      name="name"
                       type="text"
                       required
                       value={name}
@@ -361,10 +373,12 @@ export default function QuickLogisticsHub() {
                   </div>
 
                   <div>
-                    <label className="text-[11px] text-slate-600 uppercase font-bold block mb-1.5">
+                    <label htmlFor="cb-phone" className="text-[11px] text-slate-600 uppercase font-bold block mb-1.5">
                       Phone Number
                     </label>
                     <input
+                      id="cb-phone"
+                      name="phone"
                       type="tel"
                       required
                       value={phone}
@@ -375,10 +389,12 @@ export default function QuickLogisticsHub() {
                   </div>
 
                   <div>
-                    <label className="text-[11px] text-slate-600 uppercase font-bold block mb-1.5">
+                    <label htmlFor="cb-service" className="text-[11px] text-slate-600 uppercase font-bold block mb-1.5">
                       Service Requirement
                     </label>
                     <select
+                      id="cb-service"
+                      name="service"
                       value={service}
                       onChange={(e) => setService(e.target.value)}
                       className="w-full bg-slate-50 border border-slate-200/90 hover:border-slate-300 focus:bg-white focus:border-[#fe7f25] focus:ring-4 focus:ring-orange-500/10 rounded-xl px-4 py-3 text-sm font-medium text-slate-900 outline-none transition-all shadow-xs"

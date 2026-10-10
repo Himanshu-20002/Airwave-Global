@@ -79,7 +79,7 @@ export default async function LatestInsights() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
         <div className="text-center max-w-3xl mx-auto mb-8 sm:mb-12">
-          <span className="text-xs uppercase font-extrabold tracking-widest text-[#fe7f25]">
+          <span className="text-xs uppercase font-extrabold tracking-widest text-[#c2410c]">
             Market Intelligence
           </span>
           <h2 className="text-2xl sm:text-3xl md:text-4xl font-black text-slate-900 mt-2 tracking-tight uppercase font-display">

@@ -20,14 +20,14 @@ export default function Accreditations() {
   return (
     <section className="py-12 bg-white relative overflow-hidden ">
       <div className="max-w-7xl mx-auto px-4 mb-8 text-center">
-        <h3 className="text-xs uppercase font-extrabold tracking-widest text-[#fe7f25] mb-1">
+        <h3 className="text-xs uppercase font-extrabold tracking-widest text-[#c2410c] mb-1">
           Strategic Aviation Alliances
         </h3>
         <h2 className="text-2xl sm:text-3xl font-black text-slate-900 tracking-tight font-display uppercase">
           Our <span className="text-[#fe7f25]">Airline Partners</span>
         </h2>
         <div className="w-12 h-1 bg-[#fe7f25] mx-auto mt-2 rounded-full" />
-        <p className="mt-3 text-xs sm:text-sm text-slate-500 max-w-xl mx-auto">
+        <p className="mt-3 text-xs sm:text-sm text-slate-600 max-w-xl mx-auto">
           Direct space allocations and global schedule connectivity with the world&apos;s leading cargo airlines.
         </p>
       </div>

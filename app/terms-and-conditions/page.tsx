@@ -9,7 +9,18 @@ import FloatingActions from '@/components/ui/FloatingActions';
 
 export const metadata: Metadata = {
   title: 'Terms & Conditions | Airwave Global Logistics Private Limited',
-  description: 'Read the standard Terms & Conditions governing access to our website, freight forwarding, customs clearance, and cargo management services.',
+  description:
+    'Read the standard Terms & Conditions governing access to our website, freight forwarding, customs clearance, and cargo management services.',
+  alternates: {
+    canonical: 'https://airwaveglobal.in/terms-and-conditions',
+  },
+  openGraph: {
+    title: 'Terms & Conditions | Airwave Global Logistics Private Limited',
+    description:
+      'Read the standard Terms & Conditions governing access to our website, freight forwarding, customs clearance, and cargo management services.',
+    url: 'https://airwaveglobal.in/terms-and-conditions',
+    type: 'website',
+  },
 };
 
 export default function TermsAndConditionsPage() {

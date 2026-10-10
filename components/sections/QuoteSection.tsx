@@ -131,10 +131,13 @@ export default function QuoteSection() {
     <form onSubmit={handleSubmit} className="space-y-4">
       <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
         <div>
-          <label className="block text-[10px] font-bold uppercase tracking-widest text-slate-400 mb-1">
+          <label htmlFor="rfq-name" className="block text-[10px] font-bold uppercase tracking-widest text-slate-400 mb-1">
             Your Full Name *
           </label>
           <input
+            id="rfq-name"
+            name="name"
+            autoComplete="name"
             type="text"
             required
             value={formData.name}
@@ -144,10 +147,13 @@ export default function QuoteSection() {
           />
         </div>
         <div>
-          <label className="block text-[10px] font-bold uppercase tracking-widest text-slate-400 mb-1">
+          <label htmlFor="rfq-email" className="block text-[10px] font-bold uppercase tracking-widest text-slate-400 mb-1">
             Business Email *
           </label>
           <input
+            id="rfq-email"
+            name="email"
+            autoComplete="email"
             type="email"
             required
             value={formData.email}
@@ -160,10 +166,13 @@ export default function QuoteSection() {
 
       <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
         <div>
-          <label className="block text-[10px] font-bold uppercase tracking-widest text-slate-400 mb-1">
+          <label htmlFor="rfq-company" className="block text-[10px] font-bold uppercase tracking-widest text-slate-400 mb-1">
             Company Name
           </label>
           <input
+            id="rfq-company"
+            name="company"
+            autoComplete="organization"
             type="text"
             value={formData.company}
             onChange={(e) => setFormData({ ...formData, company: e.target.value })}
@@ -172,10 +181,13 @@ export default function QuoteSection() {
           />
         </div>
         <div>
-          <label className="block text-[10px] font-bold uppercase tracking-widest text-slate-400 mb-1">
+          <label htmlFor="rfq-phone" className="block text-[10px] font-bold uppercase tracking-widest text-slate-400 mb-1">
             Phone / WhatsApp *
           </label>
           <input
+            id="rfq-phone"
+            name="phone"
+            autoComplete="tel"
             type="tel"
             required
             value={formData.phone}
@@ -188,10 +200,12 @@ export default function QuoteSection() {
 
       <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
         <div>
-          <label className="block text-[10px] font-bold uppercase tracking-widest text-slate-400 mb-1">
+          <label htmlFor="rfq-service" className="block text-[10px] font-bold uppercase tracking-widest text-slate-400 mb-1">
             Cargo Mode
           </label>
           <select
+            id="rfq-service"
+            name="service_type"
             value={formData.service_type}
             onChange={(e) => setFormData({ ...formData, service_type: e.target.value })}
             className="w-full bg-slate-800/90 border border-slate-700 rounded-xl px-3 py-3 text-xs text-white focus:outline-none focus:border-[#fe7f25]"
@@ -204,10 +218,12 @@ export default function QuoteSection() {
           </select>
         </div>
         <div>
-          <label className="block text-[10px] font-bold uppercase tracking-widest text-slate-400 mb-1">
+          <label htmlFor="rfq-pol" className="block text-[10px] font-bold uppercase tracking-widest text-slate-400 mb-1">
             Port of Loading (POL) *
           </label>
           <input
+            id="rfq-pol"
+            name="port_of_loading"
             type="text"
             required
             value={formData.port_of_loading}
@@ -217,10 +233,12 @@ export default function QuoteSection() {
           />
         </div>
         <div>
-          <label className="block text-[10px] font-bold uppercase tracking-widest text-slate-400 mb-1">
+          <label htmlFor="rfq-pod" className="block text-[10px] font-bold uppercase tracking-widest text-slate-400 mb-1">
             Port of Discharge (POD) *
           </label>
           <input
+            id="rfq-pod"
+            name="port_of_destination"
             type="text"
             required
             value={formData.port_of_destination}
@@ -232,10 +250,12 @@ export default function QuoteSection() {
       </div>
 
       <div>
-        <label className="block text-[10px] font-bold uppercase tracking-widest text-slate-400 mb-1">
+        <label htmlFor="rfq-message" className="block text-[10px] font-bold uppercase tracking-widest text-slate-400 mb-1">
           Commodity & Shipment Particulars
         </label>
         <textarea
+          id="rfq-message"
+          name="message"
           rows={3}
           value={formData.message}
           onChange={(e) => setFormData({ ...formData, message: e.target.value })}

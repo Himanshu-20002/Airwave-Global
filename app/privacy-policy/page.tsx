@@ -9,7 +9,18 @@ import FloatingActions from '@/components/ui/FloatingActions';
 
 export const metadata: Metadata = {
   title: 'Privacy Policy | Airwave Global Logistics Private Limited',
-  description: 'Understand how Airwave Global Logistics collects, processes, protects, and handles your enterprise data and cargo documentation in compliance with data privacy standards.',
+  description:
+    'Understand how Airwave Global Logistics collects, processes, protects, and handles your enterprise data and cargo documentation in compliance with data privacy standards.',
+  alternates: {
+    canonical: 'https://airwaveglobal.in/privacy-policy',
+  },
+  openGraph: {
+    title: 'Privacy Policy | Airwave Global Logistics Private Limited',
+    description:
+      'Understand how Airwave Global Logistics collects, processes, protects, and handles your enterprise data and cargo documentation in compliance with data privacy standards.',
+    url: 'https://airwaveglobal.in/privacy-policy',
+    type: 'website',
+  },
 };
 
 export default function PrivacyPolicyPage() {

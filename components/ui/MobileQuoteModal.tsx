@@ -194,6 +194,10 @@ export default function MobileQuoteModal({
                 <div className="relative">
                   <User className="w-3.5 h-3.5 text-slate-400 absolute left-3.5 top-3.5" />
                   <input
+                    id="m-name"
+                    name="name"
+                    autoComplete="name"
+                    aria-label="Your Full Name"
                     type="text"
                     required
                     value={formData.name}
@@ -206,6 +210,10 @@ export default function MobileQuoteModal({
                 <div className="relative">
                   <Mail className="w-3.5 h-3.5 text-slate-400 absolute left-3.5 top-3.5" />
                   <input
+                    id="m-email"
+                    name="email"
+                    autoComplete="email"
+                    aria-label="Business Email"
                     type="email"
                     required
                     value={formData.email}
@@ -218,6 +226,10 @@ export default function MobileQuoteModal({
                 <div className="relative">
                   <Phone className="w-3.5 h-3.5 text-slate-400 absolute left-3.5 top-3.5" />
                   <input
+                    id="m-phone"
+                    name="phone"
+                    autoComplete="tel"
+                    aria-label="Phone Number or WhatsApp"
                     type="tel"
                     required
                     value={formData.phone}
@@ -230,6 +242,10 @@ export default function MobileQuoteModal({
                 <div className="relative">
                   <Building2 className="w-3.5 h-3.5 text-slate-400 absolute left-3.5 top-3.5" />
                   <input
+                    id="m-company"
+                    name="company"
+                    autoComplete="organization"
+                    aria-label="Company Name"
                     type="text"
                     value={formData.company}
                     onChange={(e) => setFormData({ ...formData, company: e.target.value })}
@@ -273,6 +289,9 @@ export default function MobileQuoteModal({
                 <div className="relative">
                   <MapPin className="w-3.5 h-3.5 text-[#fe7f25] absolute left-3 top-3.5" />
                   <input
+                    id="m-pol"
+                    name="port_of_loading"
+                    aria-label="Port of Loading or Origin"
                     type="text"
                     required
                     value={formData.port_of_loading}
@@ -284,6 +303,9 @@ export default function MobileQuoteModal({
                 <div className="relative">
                   <Globe className="w-3.5 h-3.5 text-[#0284c7] absolute left-3 top-3.5" />
                   <input
+                    id="m-pod"
+                    name="port_of_destination"
+                    aria-label="Port of Discharge or Destination"
                     type="text"
                     required
                     value={formData.port_of_destination}
@@ -298,12 +320,15 @@ export default function MobileQuoteModal({
             {/* Section 3: Cargo Details */}
             <div className="space-y-1.5 pt-1">
               <div className="flex items-center justify-between">
-                <label className="block text-[10px] font-extrabold uppercase tracking-wider text-[#fe7f25]">
+                <label htmlFor="m-message" className="block text-[10px] font-extrabold uppercase tracking-wider text-[#fe7f25]">
                   3. Cargo Details &amp; Volume
                 </label>
                 <span className="text-[9px] text-slate-400">Weight, CBM, Incoterm</span>
               </div>
               <textarea
+                id="m-message"
+                name="message"
+                aria-label="Cargo particulars and details"
                 rows={2}
                 value={formData.message}
                 onChange={(e) => setFormData({ ...formData, message: e.target.value })}
