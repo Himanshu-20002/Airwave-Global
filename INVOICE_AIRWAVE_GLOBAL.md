@@ -4,7 +4,7 @@
 **Date:** 11 October 2026  
 **Client:** Airwave Global Logistics Private Limited  
 **Project:** Enterprise Web Platform Development, CMS Integration, Complete SEO & Corporate Pitch Deck  
-**Technology Stack:** Next.js 14/15 (App Router), React, TypeScript, Tailwind CSS, Sanity.io CMS, Web3Forms  
+**Technology Stack:** Next.js 15 (App Router), React, TypeScript, Tailwind CSS, Sanity.io CMS, Web3Forms  
 
 ---
 
